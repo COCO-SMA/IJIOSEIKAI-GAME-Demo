@@ -5,5 +5,5 @@ dist/
 .env
 .cache/
 assets/icons/
-data/
+/data/
 .workbuddy/

@@ -1,0 +1,29 @@
+{
+    "id": "common_normal",
+    "district": null,
+    "name": "ordinary person",
+    "familyBackground": "nothing special. just people.",
+    "initialSkill": {
+        "id": "blend_in",
+        "name": "blend in",
+        "description": "you are unremarkable. this is an advantage. weird things love finding ordinary people."
+    },
+    "growthPath": "balanced, no specialization",
+    "drama": "ordinary people see extraordinary things. usually by accident.",
+    "componentAffinity": {
+        "brain": 1.0,
+        "right_hand": 1.0,
+        "left_hand": 1.0,
+        "torso": 1.0,
+        "left_leg": 1.0,
+        "right_leg": 1.0
+    },
+    "startingMoney": 80,
+    "startingItems": [],
+    "statModifiers": {
+        "perception": 5,
+        "fortune": 5,
+        "resilience": 5
+    },
+    "birthLottery": "drifter"
+}

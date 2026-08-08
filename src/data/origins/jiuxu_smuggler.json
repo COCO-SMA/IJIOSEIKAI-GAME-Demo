@@ -1,0 +1,29 @@
+{
+    "id": "jiuxu_smuggler",
+    "district": "jiuxu",
+    "name": "smuggler descendant",
+    "familyBackground": "grandma ran goods across the border. the cabinet had things with no labels",
+    "initialSkill": {
+        "id": "smugglers_eye",
+        "name": "smuggler's eye",
+        "description": "you can tell when something is more than it looks. especially when it's in a bag."
+    },
+    "growthPath": "perception/fortune, risky but rewarding",
+    "drama": "the old networks still exist. some of the old goods do too.",
+    "componentAffinity": {
+        "brain": 1.0,
+        "right_hand": 1.0,
+        "left_hand": 1.2,
+        "torso": 0.9,
+        "left_leg": 1.1,
+        "right_leg": 1.1
+    },
+    "startingMoney": 100,
+    "startingItems": ["unlabeled_box"],
+    "statModifiers": {
+        "perception": 10,
+        "fortune": 7,
+        "resilience": 3
+    },
+    "birthLottery": "native"
+}

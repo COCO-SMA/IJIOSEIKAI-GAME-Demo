@@ -1,0 +1,23 @@
+{
+    "id": "xiao_ma_01",
+    "speaker": "Little Ma",
+    "start": { "id": "start", "text": "OH HEY. sorry. sorry. i was just — did you see the board? DID YOU SEE IT? red. everything red. it's beautiful. it's terrible. it's — sorry. who are you?", "choices": [
+        { "id": "intro", "text": "i'm new around here.", "next": "new_person" },
+        { "id": "board", "text": "what board?", "next": "the_board" }
+    ]},
+    "nodes": {
+        "start": { "id": "start", "text": "OH HEY. sorry. sorry. i was just — did you see the board? DID YOU SEE IT? red. everything red. it's beautiful. it's terrible. it's — sorry. who are you?", "choices": [
+            { "id": "intro", "text": "i'm new around here.", "next": "new_person" },
+            { "id": "board", "text": "what board?", "next": "the_board" }
+        ]},
+        "new_person": { "id": "new_person", "text": "new! right! welcome to Jinyong! where dreams come true and then leave! ...sorry. that was dark. ...i'm Ma. everyone calls me Little Ma. i work in — well. i WORKED in finance. past tense. ...the board is... it's a long story. ...you want coffee? i need coffee. you need coffee. everyone needs coffee. let's get coffee.", "choices": [
+            { "id": "coffee", "text": "sure. coffee.", "next": "coffee_time" },
+            { "id": "pass", "text": "i'm good. thanks.", "next": "pass_coffee" }
+        ]},
+        "the_board": { "id": "the_board", "text": "the BOARD. the stock — you know what, never mind. it doesn't matter. what matters is — (phone buzzes. he looks at it. goes pale. puts it away.) ...what matters is that some days you're up and some days you're down and some days you're not sure which direction is which. ...you new?", "choices": [
+            { "id": "intro", "text": "yeah. i'm new.", "next": "new_person" }
+        ]},
+        "coffee_time": { "id": "coffee_time", "text": "(walking. fast. talking. faster.) ...so i had this plan, right? buy low, sell high. classic. except the thing about low is sometimes it goes lower. and the thing about high is sometimes it's not real. ...you know what IS real? this city. ...it does something to numbers. ...i had a stock that was at twelve. TWELVE. and then the anomaly hit and the number started... blinking. ...the stock doesn't blink. stocks don't have EYES. ...anyway. coffee's on me. i still have some money. ...for now.", "choices": []},
+        "pass_coffee": { "id": "pass_coffee", "text": "good. right. good for you. ...look. if you're staying in Jinyong — and i mean really staying — ...be careful with the numbers. any numbers. money. time. the bus schedule. ...they're not always... accurate. ...i gotta go. (phone buzzing again.) ...good luck. ...you'll need it. ...i mean that in the nicest way.", "choices": []}
+    }
+}
