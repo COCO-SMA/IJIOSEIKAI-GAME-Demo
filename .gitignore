@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.cache/
+assets/icons/
+data/
+.workbuddy/

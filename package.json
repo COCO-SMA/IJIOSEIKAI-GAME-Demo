@@ -1,0 +1,34 @@
+{
+  "name": "kuncheng-rpg",
+  "version": "0.2.0",
+  "description": "A pixel-art JRPG set in a fantastical modern Kuncheng",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "start.bat",
+    "dev": "start.bat --dev",
+    "build": "electron-builder --win",
+    "build:all": "electron-builder --win --mac --linux"
+  },
+  "build": {
+    "appId": "com.coco.kuncheng-rpg",
+    "productName": "鲲城 RPG",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "assets/**/*",
+      "index.html",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
