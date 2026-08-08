@@ -1,0 +1,49 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Memory/IDE
+.workbuddy/
+.vs/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Unity meta files for ignored dirs
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Crash reports
+sysinfo.txt
+crashlytics-build-timestamps.txt
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Original web project (not part of Unity)
+electron/
+node_modules/
+data/
+start.bat

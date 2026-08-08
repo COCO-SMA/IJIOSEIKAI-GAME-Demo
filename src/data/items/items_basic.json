@@ -1,0 +1,108 @@
+[
+    {
+        "id": "pineapple_bun",
+        "name": "Pineapple Bun",
+        "type": "consumable",
+        "category": "food",
+        "desc": "warm. sweet. the crust crackles. uncle chen makes them right.",
+        "effects": { "hp": 10, "stamina": 5 },
+        "price": 5,
+        "stackable": true,
+        "maxStack": 99
+    },
+    {
+        "id": "congee",
+        "name": "Congee",
+        "type": "consumable",
+        "category": "food",
+        "desc": "rice porridge. plain. exactly what you need when everything else isn't.",
+        "effects": { "hp": 15, "stamina": 8 },
+        "price": 8,
+        "stackable": true,
+        "maxStack": 99
+    },
+    {
+        "id": "commute_card",
+        "name": "Kuncheng Commute Card",
+        "type": "key_item",
+        "category": "key",
+        "desc": "gets you on the bus. sometimes the bus takes you somewhere the card didn't intend.",
+        "effects": {},
+        "price": 0,
+        "stackable": false
+    },
+    {
+        "id": "work_id_card",
+        "name": "Work ID Card",
+        "type": "key_item",
+        "category": "key",
+        "desc": "an ID card. the photo is someone who looks like you but younger. or maybe that is you.",
+        "effects": {},
+        "price": 0,
+        "stackable": false
+    },
+    {
+        "id": "bandage",
+        "name": "Bandage",
+        "type": "consumable",
+        "category": "medical",
+        "desc": "a basic bandage. fixes scrapes. doesn't fix whatever that is.",
+        "effects": { "hp": 5 },
+        "price": 3,
+        "stackable": true,
+        "maxStack": 99
+    },
+    {
+        "id": "herbal_tea",
+        "name": "Herbal Tea",
+        "type": "consumable",
+        "category": "drink",
+        "desc": "bitter. the kind of bitter that means business. guangdong business.",
+        "effects": { "stamina": 15 },
+        "price": 6,
+        "stackable": true,
+        "maxStack": 99
+    },
+    {
+        "id": "resonance_shard",
+        "name": "Resonance Shard",
+        "type": "material",
+        "category": "material",
+        "desc": "it hums when you hold it. it hums louder near certain things. don't hold it too long.",
+        "effects": {},
+        "price": 50,
+        "stackable": true,
+        "maxStack": 99
+    },
+    {
+        "id": "brain_platinum",
+        "name": "Brain Platinum (Authentic)",
+        "type": "consumable",
+        "category": "medical",
+        "desc": "the real stuff. extends life. probably. the label says so. the label is very confident.",
+        "effects": { "hp": 50, "lifeExtension": 5 },
+        "price": 200,
+        "stackable": true,
+        "maxStack": 10
+    },
+    {
+        "id": "unlabeled_box",
+        "name": "Unlabeled Box",
+        "type": "key_item",
+        "category": "key",
+        "desc": "from grandma's cabinet. you don't know what's inside. you're not sure you want to.",
+        "effects": {},
+        "price": 0,
+        "stackable": false
+    },
+    {
+        "id": "abacus",
+        "name": "Abacus",
+        "type": "key_item",
+        "category": "key",
+        "desc": "old wooden abacus. the beads move on their own sometimes. usually when the deal is bad.",
+        "effects": {},
+        "price": 0,
+        "stackable": false
+    }
+]

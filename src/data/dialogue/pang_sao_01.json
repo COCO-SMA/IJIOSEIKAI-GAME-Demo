@@ -1,0 +1,25 @@
+{
+    "id": "pang_sao_01",
+    "speaker": "Fat Sister-in-law",
+    "start": { "id": "start", "text": "OI! you! yes you! you're stepping on my fish! get off the fish! ...it's already dead but that's not the point!", "choices": [
+        { "id": "sorry", "text": "sorry! sorry.", "next": "apology" },
+        { "id": "look_down", "text": "(look down) ...there's no fish there.", "next": "no_fish" }
+    ]},
+    "nodes": {
+        "start": { "id": "start", "text": "OI! you! yes you! you're stepping on my fish! get off the fish! ...it's already dead but that's not the point!", "choices": [
+            { "id": "sorry", "text": "sorry! sorry.", "next": "apology" },
+            { "id": "look_down", "text": "(look down) ...there's no fish there.", "next": "no_fish" }
+        ]},
+        "apology": { "id": "apology", "text": "(waves hand.) aiya, it's fine, it's fine. ...you're new. i can tell. people from here know not to stand near the stalls. the floor is... the floor has opinions.", "choices": [
+            { "id": "opinions", "text": "the floor has opinions?", "next": "floor_opinions" },
+            { "id": "buy", "text": "can i buy something?", "next": "buy_something" }
+        ]},
+        "no_fish": { "id": "no_fish", "text": "(looks down. looks back up. doesn't miss a beat.) ...there is now. you just can't see it. ...look. you want vegetables? i have vegetables. you want fish? i have fish. you want to know things? ...that costs extra.", "choices": [
+            { "id": "buy", "text": "can i buy something?", "next": "buy_something" },
+            { "id": "know", "text": "know things?", "next": "know_things" }
+        ]},
+        "floor_opinions": { "id": "floor_opinions", "text": "(laughs too loud.) opinions! right! ...the wet market floor. you slip, you fall, you land somewhere you weren't planning to be. ...like i said. opinions. ...buy something. the vegetables are fresh. the fish is fresh. the information is fresher.", "choices": []},
+        "buy_something": { "id": "buy_something", "text": "buy! yes! finally! ...what do you want. vegetables? fish? ...i also have these. (holds up something wrapped in newspaper.) don't ask what it is. it's useful. that's all you need to know.", "choices": []},
+        "know_things": { "id": "know_things", "text": "(voice drops. suddenly quiet. suddenly different person.) ...know things. right. ...the old restaurant on the corner. the one with the grumpy owner. ...his wife didn't leave. she's still there. ...you didn't hear it from me. (voice back to normal.) TWO POUNDS OF CHOI SUM COMING UP!", "choices": []}
+    }
+}

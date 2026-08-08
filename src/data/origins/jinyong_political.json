@@ -1,0 +1,29 @@
+{
+    "id": "jinyong_political",
+    "district": "jinyong",
+    "name": "political family kid",
+    "familyBackground": "parents work in the system",
+    "initialSkill": {
+        "id": "pull_strings",
+        "name": "pull strings",
+        "description": "ask an NPC for a one-time favor. the favor is strong. the debt is real."
+    },
+    "growthPath": "social/intelligence, network snowballs",
+    "drama": "family expectations are high. freedom is limited. 'you cannot go to that district, your dad will know.'",
+    "componentAffinity": {
+        "brain": 1.3,
+        "torso": 1.0,
+        "left_hand": 0.8,
+        "right_hand": 0.9,
+        "left_leg": 0.8,
+        "right_leg": 0.8
+    },
+    "startingMoney": 200,
+    "startingItems": ["work_id_card"],
+    "statModifiers": {
+        "perception": 5,
+        "fortune": 8,
+        "resilience": 3
+    },
+    "birthLottery": "native"
+}

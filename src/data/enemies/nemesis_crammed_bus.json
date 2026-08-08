@@ -1,0 +1,29 @@
+{
+    "id": "nemesis_crammed_bus",
+    "name": "The Bus That Has No Room",
+    "title": "Fatal Commute!",
+    "eventName": "The Infinite Compression Bus!",
+    "stars": 2,
+    "lifeStage": "young_adult",
+    "winCondition": "survival",
+    "winThreshold": { "turns": 5 },
+    "description": "the bus is full. you get on anyway. the bus is fuller. you can't move. the doors close. the bus is moving but the stops are wrong.",
+    "appearance": "you see the bus. it's full. your body moves toward it anyway. the door opens. it shouldn't have.",
+    "thatMoment": "the moment the door closes and your face is pressed against someone's backpack.",
+    "stats": {
+        "hp": 50,
+        "attack": 8,
+        "defense": 10,
+        "speed": 3
+    },
+    "drops": {
+        "equipment": null,
+        "anomaly": "torso_rebound",
+        "resonanceShards": 2
+    },
+    "forgedEquipment": {
+        "id": "forged_bus_pass",
+        "name": "Commuter's Sixth Sense",
+        "desc": "you always find a seat. even when the bus is empty. especially when the bus is empty."
+    }
+}

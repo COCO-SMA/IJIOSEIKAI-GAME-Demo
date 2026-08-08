@@ -1,0 +1,30 @@
+{
+    "id": "lin_jie_01",
+    "speaker": "Sister Lin",
+    "start": { "id": "start", "text": "form 27-B. counter three. ...no, counter three is on Tuesdays. today is Thursday. counter five.", "choices": [
+        { "id": "confused", "text": "i don't have a form.", "next": "no_form" },
+        { "id": "wait", "text": "(wait for her to finish)", "next": "waiting" }
+    ]},
+    "nodes": {
+        "start": { "id": "start", "text": "form 27-B. counter three. ...no, counter three is on Tuesdays. today is Thursday. counter five.", "choices": [
+            { "id": "confused", "text": "i don't have a form.", "next": "no_form" },
+            { "id": "wait", "text": "(wait for her to finish)", "next": "waiting" }
+        ]},
+        "no_form": { "id": "no_form", "text": "no form. (looks up from papers. blinks once.) ...you're not here for the housing registration? ...you just look like the type.", "choices": [
+            { "id": "explore", "text": "i'm just looking around the area.", "next": "looking_around" },
+            { "id": "help", "text": "actually, maybe you can help me.", "next": "can_help" }
+        ]},
+        "waiting": { "id": "waiting", "text": "(stamps something. stamps something else. sighs. stamps again.) ...sorry. what do you need. make it quick, i have seventeen files before lunch.", "choices": [
+            { "id": "explore", "text": "i'm just looking around the area.", "next": "looking_around" },
+            { "id": "help", "text": "actually, maybe you can help me.", "next": "can_help" }
+        ]},
+        "looking_around": { "id": "looking_around", "text": "looking around. right. (goes back to stamping.) Jinyong is not a place you look around. it's a place you learn the rules. ...or the rules learn you.", "choices": [
+            { "id": "rules", "text": "what rules?", "next": "rules_explain" }
+        ]},
+        "can_help": { "id": "can_help", "text": "(pen stops.) ...depends. i can point you to the right counter. i can't make the counter like you. ...what is it.", "choices": [
+            { "id": "info", "text": "i need to know about this area.", "next": "area_info" }
+        ]},
+        "rules_explain": { "id": "rules_explain", "text": "what rules. (almost smiles. almost.) ...if i could explain them, they wouldn't be the rules, would they. ...just. be careful around the old buildings. some of them take things personally.", "choices": []},
+        "area_info": { "id": "area_info", "text": "this area. (puts pen down. actually looks at you.) ...you're new. like, actually new. ...look. the civic center closes at five. the food court closes at nine. the things that don't close — you don't want to find those. not yet.", "choices": []}
+    }
+}

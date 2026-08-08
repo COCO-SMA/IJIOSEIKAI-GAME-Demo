@@ -1,0 +1,51 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.cache/
+assets/icons/
+/data/
+.workbuddy/
+.claude/settings.local.json
+
+# 设计资料不公开（仓库是 public）。CLAUDE.md 是 docs/ 的浓缩版，一并排除。
+docs/
+CLAUDE.md
+
+# Unity —— Library 有 1.39 GB，必须挡住；Assets 全量只有 0.5 MB
+unity/[Ll]ibrary/
+unity/[Tt]emp/
+unity/[Oo]bj/
+unity/[Bb]uild/
+unity/[Bb]uilds/
+unity/[Ll]ogs/
+unity/[Uu]ser[Ss]ettings/
+unity/[Mm]emoryCaptures/
+unity/[Rr]ecordings/
+
+# IDE 生成物（Unity 会自动重建）
+unity/*.csproj
+unity/*.unityproj
+unity/*.sln
+unity/*.suo
+unity/*.user
+unity/*.userprefs
+unity/*.pidb
+unity/*.booproj
+unity/*.pdb
+unity/*.mdb
+unity/*.opendb
+unity/*.VC.db
+unity/.vs/
+unity/.idea/
+
+# Unity 打包产物
+unity/*.apk
+unity/*.aab
+unity/*.app
+unity/*.unitypackage
+unity/crashlytics-build.properties
+
+# 注意：unity/Assets/、unity/ProjectSettings/、unity/Packages/ 和全部 *.meta
+# 必须提交。丢了 .meta 会导致引用全断。

@@ -1,0 +1,29 @@
+{
+    "id": "jiuxu_restaurant",
+    "district": "jiuxu",
+    "name": "restaurant owner's kid",
+    "familyBackground": "family runs a tea restaurant in old street",
+    "initialSkill": {
+        "id": "read_customer",
+        "name": "read the customer",
+        "description": "you can tell what someone wants before they order. sometimes you can tell what they are."
+    },
+    "growthPath": "social/perception, strong in old areas",
+    "drama": "the restaurant is a hub of information. some information has teeth.",
+    "componentAffinity": {
+        "brain": 1.1,
+        "right_hand": 1.2,
+        "left_hand": 1.0,
+        "torso": 1.0,
+        "left_leg": 0.9,
+        "right_leg": 0.9
+    },
+    "startingMoney": 150,
+    "startingItems": ["tea_shop_apron"],
+    "statModifiers": {
+        "perception": 8,
+        "fortune": 5,
+        "resilience": 4
+    },
+    "birthLottery": "native"
+}
