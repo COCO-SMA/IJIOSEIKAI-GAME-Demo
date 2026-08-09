@@ -42,8 +42,12 @@ crashlytics-build-timestamps.txt
 *.unitypackage
 *.app
 
-# Original web project (not part of Unity)
-electron/
-node_modules/
-data/
-start.bat
+# Original web project (not part of Unity).
+# Anchored with a leading slash on purpose: an unanchored "data/" matches ANY
+# directory named data at any depth, and on Windows it is case-insensitive too,
+# so it silently swallowed unity/Assets/Resources/Data/ — all 54 game data files
+# were missing from the repo. Same bug class as 216b27a8. Keep these anchored.
+/electron/
+/node_modules/
+/data/
+/start.bat

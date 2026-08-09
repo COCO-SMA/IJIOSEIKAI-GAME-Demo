@@ -1,0 +1,93 @@
+{
+    "id": "backdated_notebook",
+    "name": "补录的手记",
+    "rarity": "lethal",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 7,
+    "inheritable": true,
+    "hook": "里面是你的字。写的是你没做过的事。",
+    "statKey": "attack",
+    "baseStats": { "attack": 28 },
+    "canonSource": null,
+    "nemesisOnly": true,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2, 3],
+            "sprite": "Art/Anomaly/backdated_notebook_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [4, 5],
+            "sprite": "Art/Anomaly/backdated_notebook_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [6, 7],
+            "sprite": "Art/Anomaly/backdated_notebook_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "heal", "text": "疑心（每场战斗3%概率怀疑队友，该回合无法接受治疗）" },
+            "desc": "你翻开第一页。你的字。你的笔迹。写的事你没做过。写的地点你没去过。写的人你不认识。但字是你写的。你确定。你不确定你确定。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "retcon", "text": "补录（可\"补录\"一个刚发生的未命中攻击为命中）" },
+            "debuff": { "effectId": "retcon", "text": "被录（每场战斗5%概率自身一个成功行动被\"改录\"为失败）" },
+            "desc": "手记自己翻页了。你看见新一页上出现了你还没做的事。明天你要去电街。后天你要打一个人。大后天你受伤了。你翻到下一页——手记上的字迹变了。不是你的字了。是你的字的反面。像是有人在从纸背面临摹你。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "retcon", "text": "改写（可改写敌人一个已完成行动的结果——未命中改为命中、命中改为未命中）" },
+            "debuff": { "effectId": "retcon", "text": "墨迹（改写后自身3%概率\"被改写\"——一个属性被随机调整）" },
+            "desc": "手记上的字开始移动了。你昨天做的事在重新排列。顺序变了。结果变了。你记得你赢了那场架。但手记上写的是平局。你摸了摸脸——有淤青。你什么时候挨的？手记知道。手记早就知道了。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "buff_manip", "text": "删除（可删除一个敌人的一个技能——它\"从未存在过\"）" },
+            "debuff": { "effectId": "action_deny", "text": "被删（每场战斗4%概率自身一个技能\"被删除\"，当回合无法使用）" },
+            "desc": "手记翻到了你的出生那页。你想合上。合不上。上面写着你的名字。名字下面有一行划掉了的字。你凑近看——那是你本来该有的另一个名字。你父母差点给你取的。手记替你划掉了。你不知道那个名字。但那个名字知道你。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "retcon", "text": "原创（可\"创作\"一个全新技能，当回合使用一次）" },
+            "debuff": { "effectId": "retcon", "text": "审稿（创作的技能有15%概率被\"退稿\"，效果反弹至自身）" },
+            "desc": "你的字不再是你的字了。手记在替你写。你翻到手记最后一页——最后一页后面还有页。新的页在长出来。手记在写你的未来。你读了一行。你说：我不会做这件事。手记说：你会的。你说：我不做。手记说：已经写了。你看了一眼自己的手——你的手在动。在写字。在写手记上那行字。你停不下来。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "出版（可\"出版\"一条\"事实\"——全场所有单位必须遵守，持续整场战斗）" },
+            "debuff": { "effectId": "rule_rewrite", "text": "下架（出版后有10%概率\"被撤回\"，自身承受该\"事实\"的反噬伤害）" },
+            "desc": "手记不再只是你的了。它在流通。你看见敌人在翻它。你看见队友在翻它。你看见路边的小贩在翻它。每个人在读你做过的事。但版本不同。每个人读到的你是不同的你。你不知道哪个是真的。手记知道。手记说：都是真的。你说：那哪个是假的。手记说：也都是假的。你写了什么不重要。重要的是有人在读。在读你。"
+        },
+        {
+            "level": 7,
+            "multiplier": 11,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "全本（你成为手记的\"角色\"——你的所有行动自动\"最优\"，因为手记已经写完了）" },
+            "debuff": { "effectId": "equip_loss", "text": "完结（使用后手记\"完结\"，你失去此装备，且永久获得\"角色\"异常：偶尔按\"剧情\"行动，不受玩家控制）" },
+            "desc": "手记合上了。你站在最后一页上。不是你翻开——是你自己走进去的。页面合上。你成了字。你成了墨水。你看见自己在纸上——很小。在做着你做过的事。但纸上的你比你自己先做了一步。你一直在追。你追不上。手记写完了。你还没活完。但手记说：完了。你说：我还在这。手记说：那是因为还没人翻到下一本。你说：下一本写什么。手记翻开了第一页——空白。等你写。你拿起笔。你的手在动。在写。你写的第一行是——"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

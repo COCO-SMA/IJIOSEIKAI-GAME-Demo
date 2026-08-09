@@ -1,0 +1,77 @@
+{
+    "id": "swapped_photo_badge",
+    "name": "换了照片的工作证",
+    "rarity": "glitch",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "照片上是长得像你但更年轻的人。或者就是你。",
+    "statKey": "perception",
+    "baseStats": { "perception": 12 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/swapped_photo_badge_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/swapped_photo_badge_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/swapped_photo_badge_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": null, "text": "身份困惑（偶发性失忆，忘记当前任务）" },
+            "desc": "照片上的人比你年轻五岁。工牌是上周办的。你不确定哪一个是真的。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "social", "text": "渗透（NPC误认你是\"自己人\"，解锁特殊对话）" },
+            "debuff": { "effectId": "buff_manip", "text": "真名侵蚀（每场战斗5%概率忘记自己一个技能）" },
+            "desc": "你挂上工牌走进了一栋大楼。保安点头。前台点头。电梯里的人点头。你不是这里的员工。但工牌说你是。工牌说了算。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "disguise", "text": "身份切换（可复制一名敌人的外观，持续3回合）" },
+            "debuff": { "effectId": "action_deny", "text": "自我模糊（切换后3回合内无法使用家传技能）" },
+            "desc": "照片变了。不是你换的。是它自己换的。照片上现在是你十年后的样子。你在镜子里找不到那个人。但工牌上找得到。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "职权辐射（范围内敌人被\"管理\"，攻击力-15%）" },
+            "debuff": { "effectId": "turn_skip", "text": "考核（每回合5%概率\"被叫去开会\"，跳过回合）" },
+            "desc": "你走进战场。敌人迟疑了一下。不是因为你强——是因为你挂着工牌。工牌上有部门。部门有编制。编制比他们的大。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "存在编辑（可短暂改变一件事实，持续1回合）" },
+            "debuff": { "effectId": "equip_loss", "text": "离职（战斗结束后5%概率永久失去此装备）" },
+            "desc": "工证上的名字不是你的了。照片也不是。部门也不是。你试着摘下来——你的手也不是你的了。你用什么在摘？"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

@@ -1,4 +1,4 @@
-# 每日同步到 GitHub：本地内容覆盖远端，保留提交历史。
+﻿# 每日同步到 GitHub：本地内容覆盖远端，保留提交历史。
 #
 #   .\tools\sync-github.ps1                 # 预演：只看会推什么，不改远端
 #   .\tools\sync-github.ps1 -Push           # 真的提交并推送
@@ -74,6 +74,8 @@ $banned = @{
     "data/"         = "^data/"
     ".workbuddy"    = "^\.workbuddy/"
     "settings.local"= "settings\.local\.json$"
+    "docs/ 设计资料"= "^docs/"
+    "CLAUDE.md"     = "^CLAUDE\.md$"
 }
 foreach ($name in $banned.Keys) {
     $hit = @($staged | Where-Object { $_ -match $banned[$name] })

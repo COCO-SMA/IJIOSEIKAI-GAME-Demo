@@ -1,0 +1,55 @@
+{
+    "id": "waistband_elastic",
+    "name": "裤头松紧带",
+    "rarity": "normal",
+    "category": "equipment",
+    "slot": "torso",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "它记得你上个月的腰围，不肯改。",
+    "statKey": "defense",
+    "baseStats": { "defense": 2 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/waistband_elastic_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/waistband_elastic_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "action_deny", "text": "偶尔滑落（战斗中3%概率分心）" },
+            "desc": "它松了。但不是慢慢松的——是某天突然松的。像是在表态。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "heal", "text": "贴合（受到攻击时5%概率自动收紧，减伤一次）" },
+            "debuff": { "effectId": "resource", "text": "腰围焦虑（饱食度消耗+1）" },
+            "desc": "它自己收紧了。不是因为你瘦了。它只是有意见。你也不知道意见是什么。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "记忆弹力（防御力随连续战斗轮数递增）" },
+            "debuff": { "effectId": "equip_lock", "text": "拒绝新腰围（无法更换躯干装备）" },
+            "desc": "它记得你所有的腰围。过去的、现在的、未来的。未来的那个有点吓人。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

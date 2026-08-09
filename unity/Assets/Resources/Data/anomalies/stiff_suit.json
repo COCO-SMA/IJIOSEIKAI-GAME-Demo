@@ -1,0 +1,77 @@
+{
+    "id": "stiff_suit",
+    "name": "硬挺的西装",
+    "rarity": "glitch",
+    "category": "equipment",
+    "slot": "torso",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "穿上它你坐得比平时直。不是你想坐直。",
+    "statKey": "defense",
+    "baseStats": { "defense": 14 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/stiff_suit_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/stiff_suit_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/stiff_suit_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "action_deny", "text": "体态强迫（无法蹲下/隐藏）" },
+            "desc": "你穿上它。背挺直了。不是你挺的——是它挺的。你的脊椎只是配合。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "immunity", "text": "职场威压（免疫恐惧/威慑类效果）" },
+            "debuff": { "effectId": "action_deny", "text": "休闲丧失（无法使用\"摸鱼\"\"偷懒\"类技能）" },
+            "desc": "你穿着它走进菜市场。摊主叫你领导。你穿着它走进公园。保安问你来视察什么。你穿着它回家。猫从沙发上弹起来。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "自动纠偏（每回合自动选择最优防御策略）" },
+            "debuff": { "effectId": "action_deny", "text": "无选择权（无法手动选择防御类操作）" },
+            "desc": "西装替你做决定了。你不用想。它替你想。它比你更知道什么时候该挡。你有点不习惯不疼。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "团队着装（全队获得\"正装\"状态，防御+20%）" },
+            "debuff": { "effectId": "action_deny", "text": "着装规范（队友无法使用\"非正式\"技能）" },
+            "desc": "你的队友开始穿西装了。没人给他们发。是西装自己长的。它觉得团队需要统一。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "immunity", "text": "社交护甲（免疫一切社交/叙事类负面效果）" },
+            "debuff": { "effectId": "equip_lock", "text": "脱不下来（装备锁定，无法更换躯干装备）" },
+            "desc": "你试过脱掉它。拉链不在了。纽扣不在了。缝线长进了皮肤里。你穿着它洗澡。穿着它睡觉。你做梦都穿着它。梦里你坐在会议室。永远坐着。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

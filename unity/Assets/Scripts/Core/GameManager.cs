@@ -27,6 +27,29 @@ namespace KunchengRPG.Core
         public Game.CitySystem City { get; private set; }
         public Game.InheritanceSystem Inheritance { get; private set; }
         public Game.EndingSystem Endings { get; private set; }
+        public Game.AnomalySystem Anomalies { get; private set; }
+
+        /// <summary>
+        /// Stat modifiers from equipped anomalies and district effects. Rebuilt on demand;
+        /// nothing here mutates PlayerStats, so the attribute chain stays intact.
+        /// </summary>
+        public Game.StatModifierSet Modifiers { get; private set; } = new Game.StatModifierSet();
+
+        /// <summary>Player stats with every active modifier applied. Build per query.</summary>
+        public Game.EffectiveStats EffectivePlayerStats
+        {
+            get
+            {
+                RebuildModifiers();
+                return new Game.EffectiveStats(Player?.stats ?? new Game.PlayerStats(), Modifiers);
+            }
+        }
+
+        public void RebuildModifiers()
+        {
+            Modifiers.Clear();
+            Anomalies?.CollectModifiers(Modifiers);
+        }
 
         /// <summary>The ending the most recent life earned. Read by the result screen.</summary>
         public Game.EndingResult LastEnding { get; private set; }
@@ -37,6 +60,7 @@ namespace KunchengRPG.Core
         public System.Collections.Generic.Dictionary<string, Data.EnemyData> enemies;
         public System.Collections.Generic.Dictionary<string, Data.ItemData> items;
         public System.Collections.Generic.List<Data.EventData> events;
+        public System.Collections.Generic.Dictionary<string, Data.AnomalyData> anomalies;
 
         // Player reference (created at character creation)
         public Game.Player Player { get; set; }
@@ -92,6 +116,8 @@ namespace KunchengRPG.Core
             var save = Save.Load() ?? Save.CreateNewSave();
             generation = Mathf.Max(1, save.generation);
             City.InitFromSave(save);
+            Anomalies.Load(save.anomalyInstances);
+            RebuildModifiers();
         }
 
         void LoadAllData()
@@ -101,6 +127,8 @@ namespace KunchengRPG.Core
             enemies = AssetLoader.LoadAllEnemies();
             items = AssetLoader.LoadAllItems();
             events = AssetLoader.LoadEvents();
+            anomalies = AssetLoader.LoadAllAnomalies();
+            Anomalies = new Game.AnomalySystem(anomalies);
             Endings.LoadData();
 
             Debug.Log($"[GameManager] Data loaded: {districts.Count} districts, " +
@@ -245,6 +273,7 @@ namespace KunchengRPG.Core
                 if (!save.unlockedEndings.Contains(LastEnding.endingId))
                     save.unlockedEndings.Add(LastEnding.endingId);
                 City.WriteToSave(save);
+                save.anomalyInstances = Anomalies.Export();
                 Save.Save(save);
 
                 OnGenerationEnded?.Invoke(inheritance);
@@ -261,6 +290,7 @@ namespace KunchengRPG.Core
             if (!save.unlockedEndings.Contains(LastEnding.endingId))
                 save.unlockedEndings.Add(LastEnding.endingId);
             City.WriteToSave(save);
+            save.anomalyInstances = Anomalies.Export();
             Save.Save(save);
 
             OnGenerationEnded?.Invoke(inheritance);
@@ -283,6 +313,7 @@ namespace KunchengRPG.Core
             save.currentDistrictId = currentDistrictId;
             save.currentOriginId = Player?.originId;
             City.WriteToSave(save);
+            save.anomalyInstances = Anomalies.Export();
             Save.Save(save);
         }
     }

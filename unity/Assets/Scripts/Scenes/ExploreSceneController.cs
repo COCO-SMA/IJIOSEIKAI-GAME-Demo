@@ -44,6 +44,7 @@ namespace KunchengRPG.Scenes
                 return;
             }
 
+            EnsureCombatRuntime();
             mapController.LoadDistrict(district);
 
             // Place player at spawn
@@ -76,6 +77,9 @@ namespace KunchengRPG.Scenes
             if (Game.EventSystem.Instance != null && Game.EventSystem.Instance.isActive) return;
             if (Game.DialogueSystem.Instance != null && Game.DialogueSystem.Instance.isActive) return;
             if (Game.CombatSystem.Instance != null && Game.CombatSystem.Instance.isActive) return;
+            // Also blocked while the result screen is still up, so its dismiss key
+            // does not double as a map interaction.
+            if (UI.CombatPanel.Instance != null && UI.CombatPanel.Instance.IsShowing) return;
 
             // Handle input
             var input = Core.InputManager.Instance;
@@ -176,7 +180,49 @@ namespace KunchengRPG.Scenes
         private void OnPOIInteract(Data.POIData poi)
         {
             Debug.Log($"[ExploreScene] POI interaction: {poi.name}");
+
+            // A POI can carry an encounter instead of an event, so putting a fight
+            // on a map stays a content edit rather than a code change.
+            if (poi.type == "enemy" && !string.IsNullOrEmpty(poi.enemyId))
+            {
+                if (TryStartCombat(poi.enemyId)) return;
+            }
+
             Game.EventSystem.Instance.TriggerRandomEvent();
+        }
+
+        private bool TryStartCombat(string enemyId)
+        {
+            var gm = Core.GameManager.Instance;
+            if (gm?.enemies == null || !gm.enemies.TryGetValue(enemyId, out var enemy))
+            {
+                Debug.LogWarning($"[ExploreScene] Unknown enemy: {enemyId}");
+                return false;
+            }
+            if (Game.CombatSystem.Instance == null)
+            {
+                Debug.LogWarning("[ExploreScene] No CombatSystem in the scene.");
+                return false;
+            }
+
+            Game.CombatSystem.Instance.StartCombat(enemy);
+            return true;
+        }
+
+        /// <summary>
+        /// The scene predates grid combat and has no CombatSystem or panel wired
+        /// in, so build them here. Doing it in code rather than in the scene file
+        /// keeps the encounter runnable in batchmode too.
+        /// </summary>
+        private void EnsureCombatRuntime()
+        {
+            if (Game.CombatSystem.Instance != null && UI.CombatPanel.Instance != null) return;
+
+            var host = new GameObject("CombatRuntime");
+            if (Game.CombatSystem.Instance == null)
+                host.AddComponent<Game.CombatSystem>();
+            if (UI.CombatPanel.Instance == null)
+                host.AddComponent<UI.CombatPanel>();
         }
     }
 }

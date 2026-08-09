@@ -1,0 +1,55 @@
+{
+    "id": "borrowed_reading_glasses",
+    "name": "别人的老花镜",
+    "rarity": "normal",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "度数不是你的。但有些东西反而看得更清楚。",
+    "statKey": "perception",
+    "baseStats": { "perception": 3 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/borrowed_reading_glasses_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/borrowed_reading_glasses_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "偶尔眯眼（远距离对话选项-1）" },
+            "desc": "不是你的眼镜。你戴上之后看东西反而清楚了。这不合理。但你不想摘。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "透视文字（可阅读模糊/加密文本）" },
+            "debuff": { "effectId": "social", "text": "认错人（5%概率误判NPC身份）" },
+            "desc": "镜片上有指纹。不是你的指纹。主人用它看过什么？你好像也看见了。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "透视（可看穿一层遮挡）" },
+            "debuff": { "effectId": null, "text": "面孔模糊（所有人脸变模糊）" },
+            "desc": "你不戴的时候看不清。戴了之后看得太清。你想回去看不清。来不及了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

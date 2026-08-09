@@ -1,0 +1,77 @@
+{
+    "id": "borrowed_ring",
+    "name": "借来的戒指",
+    "rarity": "glitch",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "主人说过会来拿。那是十年前。",
+    "statKey": "attack",
+    "baseStats": { "attack": 13 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/borrowed_ring_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/borrowed_ring_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/borrowed_ring_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "戒指发凉（每回合3%概率手部僵硬1回合）" },
+            "desc": "借的。说好还。但主人没来。十年了。戒指还在等。你不确定它等的是主人还是你。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "taunt", "text": "嘲讽光环（敌人攻击优先瞄准你）" },
+            "debuff": { "effectId": "stat_mod", "text": "被盯上（闪避-5%）" },
+            "desc": "戒指开始发烫了。不是它在发热——是有什么东西在顺着戒指找你。你转过头。什么都没有。但戒指知道在哪儿。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "action_grant", "text": "前主之力（攻击时10%概率触发前任佩戴者的招式）" },
+            "debuff": { "effectId": "resource", "text": "借用代价（触发后自身精力-20%）" },
+            "desc": "你的手做了一个你没练过的动作。干净、凶狠、老到。不是你的手。是戒指上一个主人的手。他比你会打。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "归巢（攻击必中，且附带追踪效果）" },
+            "debuff": { "effectId": "stat_mod", "text": "戒指收紧（每回合2%概率手部受伤）" },
+            "desc": "戒指越来越紧了。不是金属缩了——是它在往肉里长。你想拔下来。它说再等等。主人快来了。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "summon", "text": "召唤前主（召唤戒指前主人之灵参战3回合，极强力）" },
+            "debuff": { "effectId": "summon", "text": "主人索回（召唤结束后25%概率永久失去戒指和该手装备位）" },
+            "desc": "有人敲门了。不是快递。不是邻居。你从猫眼看出去——猫眼那面也有一只眼。戒指说：来了。你说：我没说不借。戒指说：太晚了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

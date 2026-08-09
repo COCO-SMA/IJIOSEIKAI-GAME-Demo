@@ -1,0 +1,93 @@
+{
+    "id": "landlord_keyring",
+    "name": "房东的钥匙串",
+    "rarity": "lethal",
+    "category": "equipment",
+    "slot": "torso",
+    "maxLevel": 7,
+    "inheritable": true,
+    "hook": "二十七把。他知道每把开哪扇。你不知道。",
+    "statKey": "defense",
+    "baseStats": { "defense": 32 },
+    "canonSource": null,
+    "nemesisOnly": true,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2, 3],
+            "sprite": "Art/Anomaly/landlord_keyring_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [4, 5],
+            "sprite": "Art/Anomaly/landlord_keyring_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [6, 7],
+            "sprite": "Art/Anomaly/landlord_keyring_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "租客心态（在自身\"住所\"内防御-10%，不像在自己家）" },
+            "desc": "二十七把钥匙。你试了第一把——开了你的门。你试了第二把——开了邻居的门。你试了第三把——开了一间你从没去过的房间。里面有人的东西。那个人不在了。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "万能入户（可进入当前区域任意建筑，无触发警报）" },
+            "debuff": { "effectId": "resource", "text": "收租（每场战斗后扣除金钱，不足则防御-30%）" },
+            "desc": "你拿着钥匙串走在街上。每栋楼的门都在动。不是你开——是锁自己在认钥匙。它们认识这串钥匙。比认识你更认。它们替主人开了门。你只是拿着。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "displace", "text": "驱逐（可强制一个敌人\"搬离\"战场——但不会退出战斗，只是换了位置）" },
+            "debuff": { "effectId": "displace", "text": "驱逐令（自身每场战斗3%概率\"被驱逐\"至战场边缘）" },
+            "desc": "你把钥匙对准了敌人。它后退了。不是被推开——是被退租了。战场不是它的家了。它不知道为什么。但钥匙知道。钥匙知道每个人的租约什么时候到。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "resource", "text": "收租日（每回合从所有敌人处\"收取\"少量资源——金钱/精力/属性）" },
+            "debuff": { "effectId": "damage", "text": "欠租（如果敌人无资源可收，则自身承受等量伤害）" },
+            "desc": "钥匙串开始自己收租了。它不需要你。它插进空气里——转了一圈——拔出来。带出了一缕什么东西。你说不清是什么。但敌人变轻了。你变重了。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "地权（当前战场变为\"房东所有\"，所有敌人每回合受到\"场地费\"伤害）" },
+            "debuff": { "effectId": "displace", "text": "续约（战场变为房东所有后，5%概率\"租约到期\"，全队被驱逐）" },
+            "desc": "你拿着钥匙串站在战场正中间。地面变了。不是变了颜色——是变了性质。这块地有主人了。主人不是你。是钥匙串。你只是租客。你在这里打。但你在替谁打？钥匙串不回答。它在数钱。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "summon", "text": "召唤房东（召唤\"房东\"实体参战——强力NPC，持续至战斗结束）" },
+            "debuff": { "effectId": "summon", "text": "查房（房东参战后每回合检查你的装备，有10%概率\"没收\"一件）" },
+            "desc": "你把二十七把钥匙全插进了地面。地面裂了。从裂缝里爬出来一个人。他不看你。他看战场。他说：这间漏了。你说：什么漏了。他说：你的时间漏了。他开始修补战场。缝补空气。堵住裂缝。你不明白。但战场变结实了。也更挤了。他在装东西。在你的战斗里装东西。你打不下去了。他说：等一下。你等了。你不知道等什么。但你在等。"
+        },
+        {
+            "level": 7,
+            "multiplier": 11,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "万物归租（所有装备、道具、技能的\"使用权\"归你——但\"所有权\"归钥匙串）" },
+            "debuff": { "effectId": "equip_lock", "text": "永续租约（使用后无法卸下此装备，且所有其他装备每场战斗耐久-2）" },
+            "desc": "你不再拥有任何东西了。钥匙串拥有。你的刀是租的。你的鞋是租的。你的技能是租的。你的记忆是租的。你的名字是租的。钥匙串不收你钱。它收你别的。每场战斗你少一点什么。你不知道少了什么。但钥匙串知道。它把少的东西挂在了圈上。现在是二十八把了。你不知道第二十八把开什么。但你害怕。因为你确定——它开的是你。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

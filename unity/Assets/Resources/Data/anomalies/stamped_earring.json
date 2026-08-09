@@ -1,0 +1,93 @@
+{
+    "id": "stamped_earring",
+    "name": "签过章的耳环",
+    "rarity": "lethal",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 7,
+    "inheritable": true,
+    "hook": "你听见的是别人正要说的话。",
+    "statKey": "perception",
+    "baseStats": { "perception": 30 },
+    "canonSource": null,
+    "nemesisOnly": true,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2, 3],
+            "sprite": "Art/Anomaly/stamped_earring_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [4, 5],
+            "sprite": "Art/Anomaly/stamped_earring_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [6, 7],
+            "sprite": "Art/Anomaly/stamped_earring_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "耳鸣（每场战斗5%概率眩晕1回合）" },
+            "desc": "你戴上的那一刻，听到了旁边两个人没说出口的话。不是读心——是他们的嘴还没动，你已经听到了。声音是官方的。盖了章的那种官方。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "预判（可读取敌人行动意图，准确率80%）" },
+            "debuff": { "effectId": "action_deny", "text": "噪声层（每回合3%概率被\"噪声\"淹没，感知归零1回合）" },
+            "desc": "你不光能听到将要说的话了。你能听到将不想说的话。那些话在别人嗓子里挣扎。你听见它们被咽回去的声音。比说出来更响。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "buff_manip", "text": "思维截取（可截取敌人一个Buff，转移给自己）" },
+            "debuff": { "effectId": "buff_manip", "text": "截取残留（截取后3回合内偶尔说出敌人的口头禅）" },
+            "desc": "耳环开始接信号了。不是你附近的人——是整栋楼的人。你在脑子里同时听到两百个人的想法。大部分是午餐吃什么。但有一个声音在说：跑。你还没找到是谁。但那个声音知道你是谁。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "action_replace", "text": "替言（可在敌人\"说\"出行动前替换其内容——将攻击替换为防御等）" },
+            "debuff": { "effectId": "action_deny", "text": "失语（每场战斗8%概率自身无法使用技能1回合）" },
+            "desc": "你说话的时候，嘴在动但声音不是你的。是耳环在替你说。它说的比你说的好。它说的比你说的对。你开始不说话了。反正它替你说。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "广播（可将一个指令\"广播\"至全场，所有单位必须执行——包括队友）" },
+            "debuff": { "effectId": "turn_skip", "text": "签证（广播后8%概率\"签证过期\"，自身被\"驱逐\"离场2回合）" },
+            "desc": "耳环不只是接收了。它在发章。你说的话被它盖了章之后就不是话了——是规定。你说了'停'。所有人都停了。包括你的心跳。你赶紧说了'继续'。心跳回来了。但你不确定是你的心跳还是耳环的心跳。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "盖章（可对任何\"事实\"盖章——盖了章的就是真的）" },
+            "debuff": { "effectId": "rule_rewrite", "text": "红头文件（盖章后自身8%概率被\"追责\"，承受该\"事实\"的反噬）" },
+            "desc": "你给敌人盖了一个章：你是空的。敌人空了。你给自己盖了一个章：你是清醒的。你醒了。你不确定之前是不是在睡。你给耳环盖了一个章：你是我的。耳环没认。章弹了回来。盖不上去。耳环说：你不给盖章。我给。你低头——你手上多了一个章。不是你拿的。是耳环给你的。它说：你用。但章是我的。"
+        },
+        {
+            "level": 7,
+            "multiplier": 11,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "绝对批准（一切行动自动\"获批\"——你的行动无法被阻止、打断、闪避）" },
+            "debuff": { "effectId": "action_deny", "text": "全权代理（耳环永久接管\"发言权\"——你无法主动发起任何对话或选择）" },
+            "desc": "你不再说话了。耳环替你说。你不再做决定了。耳环替你决定。你不再思考了。耳环替你——不。你还在思考。但你的思考需要审批。耳环在审。大部分时候它批了。偶尔它不批。不批的时候你的想法就消失了。你不知道消失的想法是什么。但耳环知道。它替你想过了。它觉得不重要。你同意了。你同意了是因为它替你同意了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

@@ -1,0 +1,63 @@
+{
+    "id": "liberation_shoes",
+    "name": "解放鞋",
+    "rarity": "uneasy",
+    "category": "equipment",
+    "slot": "leg",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "鞋底薄。你能感觉到地面在想什么。",
+    "statKey": "speed",
+    "baseStats": { "speed": 5 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/liberation_shoes_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/liberation_shoes_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "脚底板疼（长途移动后速度-1）" },
+            "desc": "鞋底薄到你能感觉到地砖的接缝。地面在说什么。你不想听，但你听见了。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "地感（可感知当前区域隐藏事件）" },
+            "debuff": { "effectId": "stat_mod", "text": "碎石敏感（崎岖地形速度-20%）" },
+            "desc": "地面开始跟你说话。不是语言——是震动的频率。金涌的地面在嗡。旧墟的地面在叹气。铁围的地面在咬。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "地脉共振（站立不动时可释放一次范围震击）" },
+            "debuff": { "effectId": "displace", "text": "扎根（每回合5%概率无法移动）" },
+            "desc": "你的脚底板和地面之间没有了鞋底。也没有了皮肤。你不确定你的脚是不是已经长进去了。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "immunity", "text": "不可撼动（免疫击退/位移类效果）" },
+            "debuff": { "effectId": "resource", "text": "寸步难行（每回合必须消耗额外精力才能移动）" },
+            "desc": "地面说它不想让你走。你同意了。不是你想同意——是你的脚同意了。它们不再是你的脚了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

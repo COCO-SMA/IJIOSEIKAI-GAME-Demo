@@ -1,0 +1,85 @@
+{
+    "id": "real_umbrella",
+    "name": "真伞",
+    "rarity": "absurd",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 6,
+    "inheritable": true,
+    "hook": "和室内打伞不是同一把。它才是伞。",
+    "statKey": "attack",
+    "baseStats": { "attack": 21 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/real_umbrella_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/real_umbrella_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6],
+            "sprite": "Art/Anomaly/real_umbrella_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "伞威（手持时NPC态度偏敬畏，对话选项受限）" },
+            "desc": "这把伞和室内打伞不是同一把。室内打伞是假的。这把才是真的。你怎么知道的？伞告诉你的。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "天气操控（可改变当前天气，影响战场环境）" },
+            "debuff": { "effectId": "terrain", "text": "天气依赖（恶劣天气下攻击力+30%，晴天-20%）" },
+            "desc": "你打开伞。雨停了。你收起伞。雨下了。你打开伞。雨又停了。你对天气有了发言权。天气对你也有。它不服气。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "immunity", "text": "绝对防御（举伞时免疫一切远程攻击）" },
+            "debuff": { "effectId": "action_deny", "text": "放不下（举伞期间无法使用双手技能）" },
+            "desc": "你举起伞。所有射向你的东西——子弹、雨水、目光、恶意——全部弹开。伞说：这些不该到你身上。你问什么该。伞说：我说的才算。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "室内降雨（在室内打开伞，制造局部暴风雨攻击全场敌人）" },
+            "debuff": { "effectId": "terrain", "text": "洪涝（室内降雨后全场潮湿，全队闪避-10%持续3回合）" },
+            "desc": "你在室内打开了真伞。天花板裂了。雨从裂口灌进来。不是漏雨——是天空认错了房子。它以为这间屋子的天花板是地面。伞告诉它的。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "天威（持伞期间获得\"天\"属性，攻击无法被格挡）" },
+            "debuff": { "effectId": "damage", "text": "天怒（每回合7%概率被雷劈，对全队造成伤害）" },
+            "desc": "伞不再只是伞了。它是天和地之间的那根棍子。你举着它——你不是举伞。你是举着天。天很重。但你放不下。天不想被放下。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "化身风暴（自身变为龙卷风，攻击全场，持续3回合）" },
+            "debuff": { "effectId": "terrain", "text": "风暴之心（风暴结束后失去真伞，且永久获得\"怕风\"异常）" },
+            "desc": "伞打开了。你不是拿着伞。你是伞里面的人。风从伞骨之间灌进来。你变成了风的一部分。伞变成了你的一部分。别人看你——看到的是一把行走的伞。伞里面有没有人？有。但那个人已经不是你了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

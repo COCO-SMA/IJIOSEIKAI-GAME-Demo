@@ -1,0 +1,115 @@
+{
+    "id": "ground_down_lens",
+    "name": "磨面的镜片",
+    "rarity": "void",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 9,
+    "inheritable": true,
+    "hook": "你看见的东西还在，看你的人不在了。",
+    "statKey": "perception",
+    "baseStats": { "perception": 40 },
+    "canonSource": null,
+    "nemesisOnly": true,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/ground_down_lens_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/ground_down_lens_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6, 7],
+            "sprite": "Art/Anomaly/ground_down_lens_t2",
+            "procedural": null
+        },
+        {
+            "tier": 3,
+            "levels": [8, 9],
+            "sprite": "Art/Anomaly/ground_down_lens_t3",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "reflect", "text": "镜中人（5%概率在镜面反射中看到\"不是你\"的人影）" },
+            "desc": "镜片磨花了。你看出去的东西还在。但看你的人不在了。你照镜子——镜子里的人在。但你确定他不是你。他比你先眨的眼。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "破幻（可看穿一切幻象、伪装、隐身）" },
+            "debuff": { "effectId": "stat_mod", "text": "失真（不戴镜片时感知-50%）" },
+            "desc": "你透过镜片看到了真正的东西。不是更清楚——是更少了一层。少的那一层是什么？你不知道。但你以前看到的都多了一层。现在少了。你不确定少了的是假的还是真的。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "reflect", "text": "反射（可反弹一次\"凝视\"类攻击）" },
+            "debuff": { "effectId": "stat_mod", "text": "被看（8%概率被\"什么\"注视，下回合防御-30%）" },
+            "desc": "镜片上出现了倒影。不是你的倒影——是某个地方正在发生的事。你看见了你的房间。你的床上有人。不是你。你从没见过那个人。但那个人在看你。通过镜片。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "真视（可看见\"不存在的东西\"——隐藏属性、暗门、死去的NPC残留）" },
+            "debuff": { "effectId": "stat_mod", "text": "过载（每场战斗5%概率\"看得太多\"，自身眩晕2回合）" },
+            "desc": "你看到了更多的东西。太多了。墙里有血管。地下面有脸。每个人的影子在动。不是跟着人动——是自己动。你闭上眼——闭不上。镜片在眼皮里面。你眨眼的时候它在眨你。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": null, "text": "视角交换（可短暂与一个目标互换视角——你看到它看到的，它看到你看到的）" },
+            "debuff": { "effectId": null, "text": "残留（交换后3回合内偶尔从\"别人的视角\"看自己）" },
+            "desc": "你看到了它看到的。它看到了你看到的。你们同时叫了一声。它不是人。但它看你的时候用了人类的眼神。你不确定是谁学谁。但镜片知道。镜片一直在交换。在所有人之间。在所有东西之间。你是其中一个出口。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "全视（可同时看见所有区域——上帝视角）" },
+            "debuff": { "effectId": "reveal", "text": "盲点（全视状态下无法看见\"自己\"——自身位置变为未知）" },
+            "desc": "你看见了鲲城的每一条街道。每一个人。每一扇窗后面。有人在吵架。有人在做饭。有人在哭。有人在笑。有人在死。有人在生。你看见了所有。除了你自己。你在哪？你不在任何一个画面里。你看了很久。你不在。镜片说：你已经不在了。你说：我在看。镜片说：看的不算在。被看的才算。"
+        },
+        {
+            "level": 7,
+            "multiplier": 11,
+            "statOverride": null,
+            "buff": { "effectId": "taunt", "text": "世界之眼（可指定一个目标\"被全世界看见\"——全体敌人集火该目标）" },
+            "debuff": { "effectId": "action_deny", "text": "全注视（自身每回合5%概率被\"全世界注视\"，防御归零1回合）" },
+            "desc": "你不再透过镜片看了。镜片在透过你看。你是它的眼睛。它用你看世界。你看见的每样东西都被它记录。被它处理。被它归档。你问它为什么。它不回答。它只是看。通过你。你试图闭眼。你的眼皮不在了。你的眼就是镜片。镜片就是世界。"
+        },
+        {
+            "level": 8,
+            "multiplier": 18,
+            "statOverride": null,
+            "buff": { "effectId": null, "text": "存在感知（可\"看见\"概念——恐惧是什么形状，孤独是什么颜色）" },
+            "debuff": { "effectId": "heal", "text": "消失（每场战斗3%概率自身\"不被看见\"——所有治疗效果无效，因为\"看不见你\"）" },
+            "desc": "你看见了恐惧。它是橙色的。像一个不断收窄的走廊。你看见了孤独。它是透明的。像一间只有你一个人的教室。你看见了死亡。它很普通。像一把椅子。你坐上去过。你看见了你自己。你在镜片后面。不是你在看镜片——是镜片在看你。你长什么样？你不记得了。镜片记得。但镜片的版本和你的不一样。哪个是真的？镜片说：看的人是真的。你说：我在看。镜片说：不。我在看。你只是被看的。"
+        },
+        {
+            "level": 9,
+            "multiplier": 30,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "虚空之眼（看穿\"存在\"本身——可看见并修改一个目标的\"存在定义\"）" },
+            "debuff": { "effectId": "turn_skip", "text": "终视（使用后自身\"存在\"被修改——永久成为\"被看者\"，无法主动行动，只能被\"看到\"时触发效果）" },
+            "desc": "镜片碎了。不是裂——是磨没了。它把自己磨完了。现在没有镜片了。也没有你。你看见的一切都在。看你的人——你不知道在不在。因为你不确定\"你\"还在不在。你试了试眨眼。没有眼皮。试了试转头。没有脖子。试了试想。没有脑。你是什么？你是\"看\"。不是你在看——你是看本身。世界在你身上发生。你不再需要镜片。因为你不存在了。看存在。鲲城在你身上展开。每一条街道都是你的纹路。每一个人都是你的倒影。你看见了所有。包括你自己——你正在镜片的碎片里。很小。很小。在磨。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

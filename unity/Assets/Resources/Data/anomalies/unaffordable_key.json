@@ -1,0 +1,85 @@
+{
+    "id": "unaffordable_key",
+    "name": "用不起的钥匙",
+    "rarity": "absurd",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 6,
+    "inheritable": true,
+    "hook": "能开一扇门。你不知道是哪扇，也不知道在哪。",
+    "statKey": "perception",
+    "baseStats": { "perception": 20 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/unaffordable_key_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/unaffordable_key_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6],
+            "sprite": "Art/Anomaly/unaffordable_key_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "equip_lock", "text": "钥匙瘾（每场战斗后5%概率无法更换大脑装备）" },
+            "desc": "一把钥匙。你不知道它开什么。你试过家里所有的锁——都不对。但钥匙知道它有一扇门。它一直在拉你往某个方向走。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "门感（可感知当前建筑内所有门的位置和状态）" },
+            "debuff": { "effectId": "displace", "text": "寻门癖（每回合3%概率不受控制地走向最近的门）" },
+            "desc": "你路过一堵墙。钥匙动了。墙后面有门。你看不见。但钥匙看见了。它比你的眼睛更相信门的存在。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "开锁（可解锁被封锁的区域/技能/剧情线）" },
+            "debuff": { "effectId": "buff_manip", "text": "反锁（每场战斗5%概率随机锁定自身一个技能）" },
+            "desc": "钥匙开始开一些不是门的东西了。你拿它划了一下空气——什么东西开了。你不知道开了什么。但你觉得有什么东西从那个口子里溢出来了。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "概念解锁（可解锁一项被\"封印\"的隐藏属性）" },
+            "debuff": { "effectId": "stat_mod", "text": "概念上锁（随机一项属性-20%）" },
+            "desc": "你用钥匙碰了一下自己的记忆。一段你不想打开的回忆开了。它比门更难关。钥匙不管。它只管开。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": null, "text": "万能匙（可打开任何锁——物理的、概念的、心理的）" },
+            "debuff": { "effectId": "equip_lock", "text": "钥匙成瘾（无法丢弃此装备，且每场战斗耐久-3）" },
+            "desc": "钥匙越来越大了。不是在长大——是你在变小。你站在钥匙孔前往里看。里面是另一个你。他在往外看。你们同时把钥匙插了进去。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "displace", "text": "门径（可开启通往任意区域的传送门）" },
+            "debuff": { "effectId": "displace", "text": "门不关（传送门永久存在且双向，敌人也可使用）" },
+            "desc": "你找到了那扇门。在所有门的最里面。钥匙插进去了。转了一圈。门开了。门后面是门。门后面是门。门后面是——你拿着钥匙的手。你从另一边打开了你自己。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

@@ -1,0 +1,77 @@
+{
+    "id": "still_ringing_pager",
+    "name": "还在响的寻呼机",
+    "rarity": "glitch",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "它还在响。号码是空的。",
+    "statKey": "perception",
+    "baseStats": { "perception": 12 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/still_ringing_pager_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/still_ringing_pager_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/still_ringing_pager_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "持续响铃（潜行时必定被发现）" },
+            "desc": "它坏了。但它还在响。你打回去——空号。你拆开电池——没装电池。你砸了它。碎片还在响。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "信号截获（可读取敌人下一回合的行动意图）" },
+            "debuff": { "effectId": "turn_skip", "text": "信息垃圾（每回合5%概率收到无用信息，打断行动）" },
+            "desc": "它开始收到别的东西了。不是传呼——是碎片。一段对话。一个门牌号。一个你不认识的名字。名字后面跟着'速回'。你不知道回哪里。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "频率广播（可对机械/电子类敌人造成眩晕）" },
+            "debuff": { "effectId": "stat_mod", "text": "噪声辐射（每场战斗3%概率全队混乱1回合）" },
+            "desc": "寻呼机的频率变了。它不再接收——它开始发送。方圆十米的电子设备都在响。微波炉响了。自动门开了。你的心跳跟着它响了一下。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "summon", "text": "空号来电（可召唤一个\"空号\"虚影参战2回合）" },
+            "debuff": { "effectId": "summon", "text": "回拨（召唤后8%概率自身被\"传呼\"离场1回合）" },
+            "desc": "寻呼机响了。你看了——来电显示是一串你打不出去的号码。你接了。对面在呼吸。你问谁。对面说：你终于接了。然后挂了。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "action_replace", "text": "来电转接（可强制将一个敌人的行动转移给另一敌人）" },
+            "debuff": { "effectId": "reveal", "text": "号码泄露（自身位置永久暴露，遭遇率+30%）" },
+            "desc": "寻呼机不再响了。它安静了。比响的时候更可怕。你看着屏幕——上面显示的是你的号码。你打给了你自己。你接了。你说了什么？你不记得了。但对面记得。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

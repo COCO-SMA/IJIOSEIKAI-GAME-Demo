@@ -1,0 +1,77 @@
+{
+    "id": "indoor_umbrella",
+    "name": "室内打伞",
+    "rarity": "glitch",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "你从来没在室内打开过这把伞。不是因为你迷信。",
+    "statKey": "dodge",
+    "baseStats": { "dodge": 0.05 },
+    "canonSource": "GDD v1.2 §20.4",
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/indoor_umbrella_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/indoor_umbrella_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/indoor_umbrella_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "社交尴尬（NPC对话选项-1）" },
+            "desc": "一把伞。你在室内撑开了它。不知为何觉得安全了一点。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "小范围降雨（降雨格内闪避+15%）" },
+            "debuff": { "effectId": "social", "text": "社交尴尬加剧" },
+            "desc": "伞下开始下雨了。只在你头顶。别人开始注意到。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": { "dodge": 0.12 },
+            "buff": { "effectId": "resource", "text": "口袋空间（携带上限+2）" },
+            "debuff": { "effectId": null, "text": "偶尔忘记自己在哪" },
+            "desc": "伞内空间似乎比外面大。你收了几个东西进去。不确定还能不能拿出来。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": { "dodge": 0.18 },
+            "buff": { "effectId": null, "text": "伞开始说话" },
+            "debuff": { "effectId": null, "text": "建议很烂（战斗中随机使用错误道具）" },
+            "desc": "伞开始和你聊天。话不多，但每句都让你怀疑人生。它建议你用鱼打那个火系敌人。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": { "dodge": 0.25 },
+            "buff": { "effectId": "immunity", "text": "完全异空间（免疫一次致命伤害）" },
+            "debuff": { "effectId": "turn_skip", "text": "现实偏移（每回合5%概率跳过）" },
+            "desc": "你撑着伞站在那里。外面的人看你的表情不太对。他们看到的可能已经不是你了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

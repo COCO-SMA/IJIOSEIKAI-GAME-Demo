@@ -1,0 +1,29 @@
+{
+    "id": "nemesis_bully_grade6",
+    "name": "The Sixth Grader at the Stairs",
+    "title": "Calamity Encounter!",
+    "eventName": "The Sixth Grader at the Stairs!",
+    "stars": 1,
+    "lifeStage": "childhood",
+    "winCondition": "attrition",
+    "winThreshold": { "stat": "resilience", "value": 8 },
+    "description": "a kid two years older, three inches taller, blocking the stairs. you need to go up. they need someone to push around.",
+    "appearance": "you see them at the top of the stairs. uniform untucked. smile that hasn't earned the right to be there.",
+    "thatMoment": "the moment your foot touches the first step.",
+    "stats": {
+        "hp": 40,
+        "attack": 6,
+        "defense": 4,
+        "speed": 7
+    },
+    "drops": {
+        "equipment": null,
+        "anomaly": "left_leg_routing",
+        "resonanceShards": 1
+    },
+    "forgedEquipment": {
+        "id": "forged_bully_legs",
+        "name": "Bully's Shadow",
+        "desc": "you walk past stairs without flinching now. sometimes you hear laughter. it's probably nothing."
+    }
+}

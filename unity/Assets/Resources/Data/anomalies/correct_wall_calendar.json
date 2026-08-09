@@ -1,0 +1,85 @@
+{
+    "id": "correct_wall_calendar",
+    "name": "正确的挂历",
+    "rarity": "absurd",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 6,
+    "inheritable": true,
+    "hook": "上面写着今天。今天写的事都会发生。",
+    "statKey": "fortune",
+    "baseStats": { "fortune": 5 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/correct_wall_calendar_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/correct_wall_calendar_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6],
+            "sprite": "Art/Anomaly/correct_wall_calendar_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "action_deny", "text": "已知命运（无法触发\"意外收获\"类事件）" },
+            "desc": "今天的事写在上面了。每一件都发生了。你想改一件——翻到明天，明天也写好了。你没法翻到没有字的那一页。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "预知（可查看下一场战斗的敌人类型和数量）" },
+            "debuff": { "effectId": "initiative_mod", "text": "预定（无法更改战斗策略中的行动顺序）" },
+            "desc": "挂历上的字在变。不是你翻的——是日子自己在走。今天的格子里多了一行：你会看完这行字。你抬头。字停了。你低头。字在笑。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "retcon", "text": "改写（每场战斗可改写一个\"事件\"——将敌人的一次攻击改为未命中）" },
+            "debuff": { "effectId": "retcon", "text": "代价（改写后挂历上多出一行无法阅读的文字）" },
+            "desc": "你在今天的格子里写了一行字：没有敌人。你合上挂历。战斗结束了。你打开挂历——你写的那行字下面多了一行。不是你写的。写着：你以为你改了？"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "retcon", "text": "命令（可在挂历上\"写\"一件事，使其在战斗中发生——限一次/场）" },
+            "debuff": { "effectId": "retcon", "text": "逆写（每次使用后挂历自动写一件对你不利的事）" },
+            "desc": "挂历开始自己写了。你不用翻——它自己翻。今天的格子满了。明天的也满了。你翻到下个月——全满了。你翻到明年——全满了。最后一页写着：你翻到了最后一页。你翻到了。后面没有页了。但挂历还在翻。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "时间冻结（每场战斗可冻结时间1回合，所有人不动）" },
+            "debuff": { "effectId": "stat_mod", "text": "欠债（冻结后下回合所有人速度翻倍，包括敌人）" },
+            "desc": "你撕掉了今天的日历。今天没有发生。但明天翻倍了。你欠了一天。时间来收债了。它不急。但它在数。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "造物主（可重写战斗的胜负条件——但必须以\"等价交换\"形式）" },
+            "debuff": { "effectId": "retcon", "text": "终页（使用后挂历上所有日期变为同一天——\"今天\"——且永久无法触发时间相关效果）" },
+            "desc": "挂历的最后一页被你撕了。但下面还有一页。你撕了一千页。下面还有。你终于明白了——挂历不是日子的记录。挂历是日子本身。你撕掉了明天。明天没了。你撕掉了昨天。你忘了你是谁。你撕掉了今天。你停了。挂历还在翻。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

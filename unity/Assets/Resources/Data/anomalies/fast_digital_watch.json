@@ -1,0 +1,63 @@
+{
+    "id": "fast_digital_watch",
+    "name": "电子表（走快两分钟）",
+    "rarity": "uneasy",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "你从没迟到过。也从没准时到过。",
+    "statKey": "speed",
+    "baseStats": { "speed": 6 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/fast_digital_watch_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/fast_digital_watch_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "时间错位（NPC对话偶尔错位一句）" },
+            "desc": "快两分钟。你每次都早到。但早到的那两分钟里发生的事，你不记得。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "initiative_mod", "text": "先手（战斗开始时额外行动一次）" },
+            "debuff": { "effectId": "initiative_mod", "text": "节奏偏移（每回合3%概率行动顺序错位）" },
+            "desc": "表越走越快了。你看见别人还没说完的话——以字幕的形式飘在嘴前面。他们觉得你抢话。你只是太快了。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "时间加速（自身行动速度+50%）" },
+            "debuff": { "effectId": "stat_mod", "text": "速老（战斗后恢复时间+30%）" },
+            "desc": "你走在路上，旁边的人在慢动作。你到站了，地铁还没来——但下一班是给两分钟后的你准备的。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "extra_action", "text": "时间差（每回合可额外行动一次）" },
+            "debuff": { "effectId": "turn_skip", "text": "跳帧（每回合8%概率跳过自身回合）" },
+            "desc": "表不再显示时间了。它显示的是'你的时间'和'世界的时间'。中间差了不止两分钟。差了你自己。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

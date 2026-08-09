@@ -1,0 +1,63 @@
+{
+    "id": "bailing_lighter",
+    "name": "白铃火机",
+    "rarity": "uneasy",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "打第一下不着，第二下必着。从不例外。",
+    "statKey": "attack",
+    "baseStats": { "attack": 8 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/bailing_lighter_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/bailing_lighter_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "hit_override", "text": "第一击必空（每场战斗第一次攻击必定未命中）" },
+            "desc": "白铃火机。第一下不着。第二下必着。从不例外。你开始依赖这个规则。它也开始依赖你的依赖。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "必然二击（第二次攻击必定命中且暴击）" },
+            "debuff": { "effectId": "action_deny", "text": "规则成瘾（无法在第一击后选择防御）" },
+            "desc": "火机的规则开始蔓延。你喝水要喝两口。敲门要敲两下。跟人说话要重复一遍。第二遍才是真的。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "连锁引燃（攻击附带灼烧，可传播至相邻敌人）" },
+            "debuff": { "effectId": "damage", "text": "反向连锁（自身也持续灼烧）" },
+            "desc": "火苗从火机上爬到了你手上。不是烫——是痒。你的手想做点火的事。你不确定是什么事。但手知道。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "点燃万物（可点燃任何目标，包括无形之物：记忆、技能、关系）" },
+            "debuff": { "effectId": "damage", "text": "不灭（火机每回合自动点燃一个随机目标，包括队友）" },
+            "desc": "火机不再需要你按了。它自己决定什么该着。它点着了你口袋里的一张收据。收据上的日期是你出生那天。灰烬还是温的。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

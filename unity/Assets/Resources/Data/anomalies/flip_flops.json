@@ -1,0 +1,55 @@
+{
+    "id": "flip_flops",
+    "name": "人字拖",
+    "rarity": "normal",
+    "category": "equipment",
+    "slot": "leg",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "啪嗒啪嗒。全楼都知道你回来了。",
+    "statKey": "dodge",
+    "baseStats": { "dodge": 0.03 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/flip_flops_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/flip_flops_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "朔料声（潜行必定失败）" },
+            "desc": "啪嗒。啪嗒。全楼都知道你回来了。包括那些不想让你回来的。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "回声定位（可感知同层敌人数量）" },
+            "debuff": { "effectId": "exploration", "text": "走路声响+200%（无法绕过任何敌人）" },
+            "desc": "啪嗒声变大了。不是你走重了。是拖鞋想让整个街区知道你在这。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "hit_override", "text": "自动闪避（每场战斗第一次受击100%闪避）" },
+            "debuff": { "effectId": "displace", "text": "拖鞋自己走（10%概率移动到非预期位置）" },
+            "desc": "你脱了鞋。鞋自己走到门口等你。你不想穿。但它已经在你脚上了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

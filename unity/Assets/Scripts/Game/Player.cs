@@ -61,13 +61,15 @@ namespace KunchengRPG.Game
         public int vitality;     // 生命 (feeds HP)
 
         // Tier 3: Derived attributes (calculated)
-        public int Attack => strength; // Simplified: attack = strength
-        public float CritRate => Mathf.Min(0.5f, fortune * 0.005f);
-        public float CritDamage => 1.5f + fortune * 0.01f;
-        public float DodgeRate => Mathf.Min(0.4f, actionPower * 0.004f);
-        public float HitRate => Mathf.Min(0.95f, 0.7f + perception * 0.005f);
-        public float DamageReduction => Mathf.Min(0.5f, resilience * 0.005f);
-        public float AnomalyTriggerRate => Mathf.Min(0.3f, fortune * 0.003f);
+        // Formulas live in StatFormulas so unmodified and modifier-adjusted stats
+        // derive identically. These are the values before equipment/district modifiers.
+        public int Attack => StatFormulas.Attack(strength);
+        public float CritRate => StatFormulas.CritRate(fortune);
+        public float CritDamage => StatFormulas.CritDamage(fortune);
+        public float DodgeRate => StatFormulas.DodgeRate(actionPower);
+        public float HitRate => StatFormulas.HitRate(perception);
+        public float DamageReduction => StatFormulas.DamageReduction(resilience);
+        public float AnomalyTriggerRate => StatFormulas.AnomalyTriggerRate(fortune);
     }
 
     /// <summary>

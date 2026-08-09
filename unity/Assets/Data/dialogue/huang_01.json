@@ -1,0 +1,24 @@
+{
+    "id": "huang_01",
+    "speaker": "Principal Huang",
+    "start": { "id": "start", "text": "(sitting behind a desk piled with papers. looks at you over glasses that are too old.) ...sit. ...no, the other chair. that one has a wobble. i keep meaning to fix it.", "choices": [
+        { "id": "sit", "text": "(sit in the good chair)", "next": "seated" },
+        { "id": "stand", "text": "i can stand.", "next": "standing" }
+    ]},
+    "nodes": {
+        "start": { "id": "start", "text": "(sitting behind a desk piled with papers. looks at you over glasses that are too old.) ...sit. ...no, the other chair. that one has a wobble. i keep meaning to fix it.", "choices": [
+            { "id": "sit", "text": "(sit in the good chair)", "next": "seated" },
+            { "id": "stand", "text": "i can stand.", "next": "standing" }
+        ]},
+        "seated": { "id": "seated", "text": "(nods.) good. sitting is half of listening. ...you're new. not to the city, maybe. but to this school. to this street. ...things are different here.", "choices": [
+            { "id": "how", "text": "how so?", "next": "different" },
+            { "id": "nod", "text": "(nod and wait)", "next": "waiting" }
+        ]},
+        "standing": { "id": "standing", "text": "stand. (sighs. takes off glasses. cleans them on a tie that has seen better decades.) ...young people stand. old people sit. this is the natural order. ...but you came here for a reason. so. what is it.", "choices": [
+            { "id": "how", "text": "how so?", "next": "different" },
+            { "id": "nod", "text": "(nod and wait)", "next": "waiting" }
+        ]},
+        "different": { "id": "different", "text": "how. (puts glasses back on. they're still dirty.) ...the children here, they know things. they don't say what they know. but they know. ...you watch them. you watch the way they avoid certain corners. certain windows. ...there's a reason for that. ...you'll figure it out. or you won't. either way, the school bell rings at eight.", "choices": []},
+        "waiting": { "id": "waiting", "text": "(silence for a long moment. he looks at something on the desk that isn't paper.) ...your face. you remind me of someone. ...never mind. ...the library is on the second floor. the door that's always locked — don't try it. ...ask me why, and i'll tell you it's a storage room. ask me again next year, and i might tell you the truth.", "choices": []}
+    }
+}

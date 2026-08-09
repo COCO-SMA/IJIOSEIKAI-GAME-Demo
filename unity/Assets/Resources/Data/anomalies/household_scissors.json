@@ -1,0 +1,55 @@
+{
+    "id": "household_scissors",
+    "name": "剪刀（家用）",
+    "rarity": "normal",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "剪什么都行，就是剪不断该剪的。",
+    "statKey": "attack",
+    "baseStats": { "attack": 4 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/household_scissors_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/household_scissors_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "hit_override", "text": "偶卡壳（5%概率攻击无效）" },
+            "desc": "家里那把剪刀。剪胶带、剪标签、剪指甲。就是不太愿意剪该剪的东西。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "buff_manip", "text": "剪断（可解除敌人一个Buff）" },
+            "debuff": { "effectId": "buff_manip", "text": "误剪（5%概率剪掉自己一个Buff）" },
+            "desc": "它开始剪一些看不见的东西。你刚说完一句话，它把那个语气剪了。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "剪裂（攻击有10%概率撕裂现实，造成额外伤害）" },
+            "debuff": { "effectId": "action_deny", "text": "剪不断（无法对同一目标连续攻击）" },
+            "desc": "它剪开了一道口子。口子那边是哪里？你不想知道。但剪刀知道。它正在往那边剪。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

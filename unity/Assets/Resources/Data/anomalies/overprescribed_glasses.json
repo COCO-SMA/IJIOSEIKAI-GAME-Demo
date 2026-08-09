@@ -1,0 +1,63 @@
+{
+    "id": "overprescribed_glasses",
+    "name": "金丝眼镜（度数过高）",
+    "rarity": "uneasy",
+    "category": "equipment",
+    "slot": "brain",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "戴上之后你看见的细节比你想知道的多。",
+    "statKey": "perception",
+    "baseStats": { "perception": 8 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/overprescribed_glasses_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/overprescribed_glasses_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "眼疲劳（长时间战斗后感知-2）" },
+            "desc": "度数不是你的。你看见的每样东西都多了三层细节。第三层你不该看见。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "弱点洞悉（可看见敌人弱点标记）" },
+            "debuff": { "effectId": "stat_mod", "text": "信息过载（命中率-5%）" },
+            "desc": "你看见敌人皮肤下面的血管走向。看见墙里面的钢筋锈蚀程度。看见NPC在说谎时睫毛抖的频率。你想摘眼镜。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "预判（可看见敌人下一回合行动意图）" },
+            "debuff": { "effectId": "stat_mod", "text": "视觉残留（关闭后仍有重影，感知-3）" },
+            "desc": "你看见了一秒之后的事。然后是两秒。然后是你不想看见的那个画面。它在未来等着你。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "全知视角（全场敌人状态、弱点、行动全部可见）" },
+            "debuff": { "effectId": "action_deny", "text": "闭不上眼（无法选择防御/等待）" },
+            "desc": "镜片焊在了你脸上。不是生锈——是长住了。你看见的一切都在看着你回来。你闭不上眼。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

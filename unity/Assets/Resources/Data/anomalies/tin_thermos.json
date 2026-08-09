@@ -1,0 +1,55 @@
+{
+    "id": "tin_thermos",
+    "name": "铁皮保温杯",
+    "rarity": "normal",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "里面的水永远是三小时前的温度。",
+    "statKey": "resilience",
+    "baseStats": { "resilience": 2 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/tin_thermos_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/tin_thermos_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "heal", "text": "永远不对温（恢复道具效果-10%）" },
+            "desc": "里面装的是三小时前的水。不冷不热。像是时间被闷在里面出不来。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "保温（携带的消耗品不过期）" },
+            "debuff": { "effectId": "heal", "text": "口感凝固（所有恢复道具附带\"隔夜味\"描述）" },
+            "desc": "你放进去一杯热水。三小时后拿出来还是热的。六小时后还是热的。十二小时后——你不敢打开了。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "时温锁定（可冻结一个敌人的行动1回合）" },
+            "debuff": { "effectId": "stat_mod", "text": "冷热错乱（每场战斗5%概率自身冻结）" },
+            "desc": "杯壁开始渗水。不是水——是三小时前的时间。你闻到了那个下午的味道。你不记得那个下午。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

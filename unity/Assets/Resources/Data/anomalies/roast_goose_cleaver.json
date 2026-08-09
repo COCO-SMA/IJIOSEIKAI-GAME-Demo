@@ -1,0 +1,63 @@
+{
+    "id": "roast_goose_cleaver",
+    "name": "烧鹅刀",
+    "rarity": "uneasy",
+    "category": "equipment",
+    "slot": "hand",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "三代人用同一把刀切烧鹅。刀记住的不是鹅，是火。",
+    "statKey": "attack",
+    "baseStats": { "attack": 10 },
+    "canonSource": "GDD v1.2 §20.4",
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/roast_goose_cleaver_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/roast_goose_cleaver_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "火焰附魔" },
+            "debuff": null,
+            "desc": "一把切烧鹅的刀。切别的也行，但总觉得不对。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "damage", "text": "灼烧持续伤害" },
+            "debuff": { "effectId": "stat_mod", "text": "命中率-5%" },
+            "desc": "刀开始冒烟。不是热气，是那种'你确定要拿这个'的烟。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": { "attack": 30 },
+            "buff": { "effectId": "damage", "text": "火焰溅射（波及相邻敌人）" },
+            "debuff": { "effectId": "stat_mod", "text": "命中率-10%" },
+            "desc": "火势蔓延到了你的手上。不疼，但手指在不听使唤地做切烧鹅的动作。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": { "attack": 60 },
+            "buff": { "effectId": "damage", "text": "地狱火（全体伤害）" },
+            "debuff": { "effectId": "action_force", "text": "必须每回合攻击，无法选择其他行动" },
+            "desc": "这把刀已经不在乎烧鹅了。它在乎的是燃烧本身。你只是它的载体。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

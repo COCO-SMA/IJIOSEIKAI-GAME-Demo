@@ -181,5 +181,23 @@ namespace KunchengRPG.Core
             }
             return JsonConvert.DeserializeObject<Data.TilesetData>(file.text);
         }
+
+        // --- Anomalies ---
+        /// <summary>
+        /// One file per anomaly item, keyed by id. 30 items in v1.0.
+        /// </summary>
+        public static Dictionary<string, Data.AnomalyData> LoadAllAnomalies()
+        {
+            var result = new Dictionary<string, Data.AnomalyData>();
+            TextAsset[] files = Resources.LoadAll<TextAsset>($"{DATA_ROOT}/anomalies");
+            foreach (var file in files)
+            {
+                var data = JsonConvert.DeserializeObject<Data.AnomalyData>(file.text);
+                if (data != null && !string.IsNullOrEmpty(data.id))
+                    result[data.id] = data;
+            }
+            Debug.Log($"[AssetLoader] Loaded {result.Count} anomalies");
+            return result;
+        }
     }
 }

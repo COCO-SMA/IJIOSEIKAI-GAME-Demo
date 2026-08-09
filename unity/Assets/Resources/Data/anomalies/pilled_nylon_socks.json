@@ -1,0 +1,55 @@
+{
+    "id": "pilled_nylon_socks",
+    "name": "尼龙袜（起球）",
+    "rarity": "normal",
+    "category": "equipment",
+    "slot": "leg",
+    "maxLevel": 3,
+    "inheritable": true,
+    "hook": "洗过太多次。它开始记住你走过的路。",
+    "statKey": "resilience",
+    "baseStats": { "resilience": 2 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/pilled_nylon_socks_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3],
+            "sprite": "Art/Anomaly/pilled_nylon_socks_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "起球尴尬（社交选项-1）" },
+            "desc": "洗了太多次。球结像勋章。每颗球是一个你没记住的地方。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "reveal", "text": "路径记忆（走过的区域永久标记，可查看）" },
+            "debuff": { "effectId": "displace", "text": "绕路（10%概率多走一个区域）" },
+            "desc": "它开始替你记路。你想去菜市场，它带你绕到一间粉店。粉还挺好吃的。你后来再没找到。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "脚下生根（站立不动时韧性翻倍）" },
+            "debuff": { "effectId": "displace", "text": "挪不动（每回合5%概率无法移动）" },
+            "desc": "袜底的球结扎进了地面。不是破了——是长住了。你走过的路不让你走了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

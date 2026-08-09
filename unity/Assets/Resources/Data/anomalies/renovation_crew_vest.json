@@ -1,0 +1,85 @@
+{
+    "id": "renovation_crew_vest",
+    "name": "装修队的马甲",
+    "rarity": "absurd",
+    "category": "equipment",
+    "slot": "torso",
+    "maxLevel": 6,
+    "inheritable": true,
+    "hook": "穿上它没人问你为什么在这里。",
+    "statKey": "defense",
+    "baseStats": { "defense": 22 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/renovation_crew_vest_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/renovation_crew_vest_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6],
+            "sprite": "Art/Anomaly/renovation_crew_vest_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "施工人员（社交互动默认\"工人\"身份，高级NPC不理你）" },
+            "desc": "你穿上它走进了一栋写字楼。保安没拦你。前台没拦你。你进了机房。没人问。马甲比通行证好使。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "施工许可（可进入通常被封锁的区域，无触发警报）" },
+            "debuff": { "effectId": "turn_skip", "text": "工期（每场战斗5%概率被\"叫去干活\"，跳过1回合）" },
+            "desc": "你穿着马甲站在战场上。敌人看了你一眼，去找你的工头了。没有工头。但他们在找。马甲让他们觉得一定有人管你。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "summon", "text": "施工队（召唤2名\"装修工\"虚影协助战斗3回合）" },
+            "debuff": { "effectId": "resource", "text": "欠薪（每场战斗后扣除少量金钱，不足则马甲效果减半）" },
+            "desc": "你穿着马甲走在路上。后面多了两个人。你没叫他们。马甲叫的。他们穿着一样的马甲。手里拿着不存在的工具。在修一些不存在的东西。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "terrain", "text": "改造（可改变战场地形，制造掩体或通道）" },
+            "debuff": { "effectId": "damage", "text": "违建（改造后有10%概率\"被举报\"，地形恢复且受到伤害）" },
+            "desc": "你穿着马甲走到一面墙前。墙裂了。不是你砸的——是马甲觉得这面墙不该在这。墙同意了。墙自己也想走。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "stat_mod", "text": "翻新（可\"装修\"一件装备，临时提升其属性50%）" },
+            "debuff": { "effectId": "equip_loss", "text": "拆迁（翻新结束后该装备有15%概率被\"拆除\"，永久消失）" },
+            "desc": "马甲开始装修你了。不是改你的装备——是改你。你左手的技能被刷了一层新漆。你右腿的属性被敲掉了旧瓷砖。你觉得自己在变新。也在变少。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "rule_rewrite", "text": "全面改造（可重写当前区域的\"规则\"——敌人类型、环境效果、胜负条件）" },
+            "debuff": { "effectId": "exploration", "text": "交付（改造完成后马甲消失，当前区域永久改变且无法恢复）" },
+            "desc": "你穿着马甲站在鲲城的正中间。马甲说：这里可以改。你说：改什么。马甲说：所有。你脱下了马甲。马甲自己穿在了城市身上。城市开始装修自己。你听到钻孔的声音。从地底传来。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

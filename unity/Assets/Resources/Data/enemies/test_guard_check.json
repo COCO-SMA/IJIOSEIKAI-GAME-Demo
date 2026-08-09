@@ -1,0 +1,24 @@
+{
+    "id": "test_guard_check",
+    "name": "查证的",
+    "title": "例行检查！",
+    "eventName": "例行检查！《门口三个保安·证件地狱！》",
+    "stars": 1,
+    "lifeStage": "childhood",
+    "winCondition": "annihilation",
+    "description": "三个保安。你没有工牌。他们今天也没有别的事做。",
+    "appearance": "玻璃门映出你的脸——黑眼圈，头发像刚从洗衣机里捞出来。保安抬手。「证。」",
+    "thatMoment": "你掏出鲲通卡。他看了一眼。「这不是工牌。」「我知道。」「那你怎么进来的？」好问题。门确实是开着的。",
+    "stats": {
+        "hp": 30,
+        "attack": 1,
+        "defense": 2,
+        "speed": 7
+    },
+    "randomizeStats": true,
+    "drops": {
+        "equipment": null,
+        "anomaly": null,
+        "resonanceShards": 1
+    }
+}

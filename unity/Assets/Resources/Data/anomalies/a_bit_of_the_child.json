@@ -1,0 +1,85 @@
+{
+    "id": "a_bit_of_the_child",
+    "name": "孩子的一点",
+    "rarity": "absurd",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 6,
+    "inheritable": true,
+    "hook": "你不记得放进包里过。它一直在。",
+    "statKey": "resilience",
+    "baseStats": { "resilience": 20 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/a_bit_of_the_child_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/a_bit_of_the_child_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6],
+            "sprite": "Art/Anomaly/a_bit_of_the_child_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "stat_mod", "text": "莫名悲伤（每场战斗后3%概率陷入低落，下场战斗属性-10%）" },
+            "desc": "你不知道这是什么。一小团东西。软的。温的。你不知道什么时候放进去的。你问家人——他们说一直都在。你不记得了。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "heal", "text": "守护（受到致命伤害时5%概率自动恢复至半血）" },
+            "debuff": { "effectId": "action_deny", "text": "注视（无法使用\"偷袭\"\"欺骗\"类技能）" },
+            "desc": "那团东西变暖了。你受伤的时候它会动。像是在担心你。你没有孩子。但它在用孩子的目光看你。你开始注意脚下的蚂蚁。你以前不会。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "growth", "text": "成长（每场战斗后永久+1韧性，可叠加）" },
+            "debuff": { "effectId": "move_cost_mod", "text": "变重（每场战斗后移动消耗精力+1）" },
+            "desc": "它长大了。不是变大——是变密。你把它放桌上，桌子裂了。不是重——是存在感太强了。它在。它非常在。你开始觉得整个房间都是多余的。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "social", "text": "童年回声（可触发一段独特的\"童年记忆\"对话选项）" },
+            "debuff": { "effectId": "turn_skip", "text": "乡愁（战斗中5%概率\"想回家\"，强制撤退）" },
+            "desc": "你想起了一些事。不是你的事——是它的事。它记得一双手。一扇门。一碗饭。一个名字。名字你念不出来。但你嘴里有味道。是粥的味道。你不喝粥。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "回家（可标记一个安全区为\"家\"，在\"家\"中全属性翻倍）" },
+            "debuff": { "effectId": "equip_loss", "text": "逝去（被标记为\"家\"的安全区每场战斗后5%概率永久消失）" },
+            "desc": "它开始说话了。不是语言——是温度。它在说：回家吧。你问哪是家。它说：你在的地方。你说：那我已经在家了。它说：不。你不在。你只是在这里。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "buff": { "effectId": "growth", "text": "童年化（自身所有属性重置为初始值，但成长率永久×3）" },
+            "debuff": { "effectId": "equip_loss", "text": "失去（使用后\"孩子的一点\"消失，且永久无法再次获得）" },
+            "desc": "你把它拿出来了。放在手心。它比你记忆里小了。或者是你大了。你想起来的事情越来越多。都不是你的事。是它的事。是它给你的事。你把它放下。它不跟着你了。你说再见。它没有回答。但你听到了一个声音。很远。像是有人在叫你。叫的不是你的名字。是你小时候的名字。你很久没听到了。你站起来。你走了。你不知道它在不在身后。你没回头。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

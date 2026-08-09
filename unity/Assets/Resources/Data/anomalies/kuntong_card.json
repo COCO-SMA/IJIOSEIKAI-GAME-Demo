@@ -1,0 +1,124 @@
+{
+    "id": "kuntong_card",
+    "name": "鲲通卡",
+    "rarity": "void",
+    "category": "carriable",
+    "slot": "carry",
+    "maxLevel": 9,
+    "inheritable": true,
+    "hook": "余额¥47.50。另含：一段对M372路公交的未解怨气，来源不明。",
+    "statKey": null,
+    "baseStats": {},
+    "canonSource": "GDD v1.2 §20.4 (L1/4/7/9)",
+    "nemesisOnly": true,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/kuntong_card_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/kuntong_card_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5, 6, 7],
+            "sprite": "Art/Anomaly/kuntong_card_t2",
+            "procedural": null
+        },
+        {
+            "tier": 3,
+            "levels": [8, 9],
+            "sprite": "Art/Anomaly/kuntong_card_t3",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "effectText": "移动不消耗精力",
+            "buff": null,
+            "debuff": null,
+            "desc": "一张鲲通卡。余额¥12.00。偶尔在闸机里刷得出来。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "effectText": "区间移动不消耗阶段",
+            "buff": { "effectId": "resource", "text": "半价（商店折扣5%）" },
+            "debuff": { "effectId": "displace", "text": "偶尔刷不上（3%概率移动失败，仍消耗阶段）" },
+            "desc": "余额变了。你没充值。它自己变了。多了三块。交易记录写着'系统退款'。你退了什么？你不记得买过什么。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "effectText": "跨区传送（可传送到已访问分区）",
+            "buff": { "effectId": "initiative_mod", "text": "快速通行（战斗开始时先手+1）" },
+            "debuff": { "effectId": "displace", "text": "坐过站（5%概率传送到非预期分区）" },
+            "desc": "你刷卡进站。出来在另一个区。闸机没响。你回头——站名变了。不是你进来的那个站。但卡说这就是你选的。卡比你更知道你要去哪。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "effectText": "瞬移到已访问区域",
+            "buff": { "effectId": "displace", "text": "快速位移" },
+            "debuff": { "effectId": "displace", "text": "偶尔传送到错误地点" },
+            "desc": "你刷了一下卡，出现在3公里外。闸机还没反应过来。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "effectText": "无视封锁区域（可进入被封锁/隐藏的分区）",
+            "buff": { "effectId": "exploration", "text": "隐藏路线（可发现并使用\"末班车\"路线）" },
+            "debuff": { "effectId": "exploration", "text": "末班车（进入隐藏路线后10%概率遇到\"查票员\"——强敌）" },
+            "desc": "卡面上多了一条线。不在时刻表上的线。你问站务员。站务员说没有这条线。你给他看卡。他说这卡过期了。你说它刚才还能用。他看了一眼。脸色变了。他说：你坐过末班。你问末班是什么。他不说了。他在翻记录。翻了很久。他说：这卡没有记录。但它有欠款。"
+        },
+        {
+            "level": 6,
+            "multiplier": 7,
+            "statOverride": null,
+            "effectText": "空间折叠（移动距离不再受限——任何区域1阶段到达）",
+            "buff": { "effectId": "move_cost_mod", "text": "路径优化（全队移动消耗减半）" },
+            "debuff": { "effectId": "exploration", "text": "迷路（折叠后8%概率到达\"不存在的站\"——随机异常区域）" },
+            "desc": "卡开始不需要闸机了。你拿着它在空气里刷了一下——一扇门开了。门后面是另一个区的街道。你走过去。门关了。你回头。门没了。你在这。但\"这\"是哪？卡说：这是你没选的那站。你说：我没选。卡说：你选了。你只是不记得了。"
+        },
+        {
+            "level": 7,
+            "multiplier": 11,
+            "statOverride": null,
+            "effectText": "穿越区域边界（无视法则限制）",
+            "buff": { "effectId": null, "text": "绝对通行(部分)" },
+            "debuff": { "effectId": "social", "text": "NPC 认不出你" },
+            "desc": "鲲通卡开始尊重现实规则。不是遵守，是尊重——以居高临下的态度。"
+        },
+        {
+            "level": 8,
+            "multiplier": 18,
+            "statOverride": null,
+            "effectText": "通行证（可携带他人穿越——全队瞬移）",
+            "buff": { "effectId": "share_effect", "text": "编组（全队共享鲲通卡效果）" },
+            "debuff": { "effectId": "equip_loss", "text": "超载（每场战斗后10%概率\"超载\"，随机失去一件道具）" },
+            "desc": "你拿着卡。你的队友站在你身后。你刷了卡——所有人一起到了。但多了一个人。你没叫他。卡叫的。多出来的人穿着制服。他在查票。你说我们刷过了。他看着卡。他说：这张卡坐过不该坐的车。你说什么车。他说：末班。你说末班是什么。他说：你已经在上面了。你低头看——脚下的地面在动。像车厢。但你看不到窗外。窗外什么都没有。卡说：到了。谁到了？你到了。所有人到了。但你们没动过。"
+        },
+        {
+            "level": 9,
+            "multiplier": 30,
+            "statOverride": null,
+            "effectText": "任意地点出现，包括不应存在的地方",
+            "buff": { "effectId": "exploration", "text": "绝对通行（无视一切封锁/限制）" },
+            "debuff": { "effectId": "equip_loss", "text": "与卡融合（每场战斗后随机失一物、获一新物）" },
+            "desc": "你不是在用鲲通卡。你就是鲲通卡。鲲城的每一条线路都是你的血管。余额：∞。怨气：∞。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

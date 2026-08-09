@@ -1,0 +1,77 @@
+{
+    "id": "foot_soaked_shoes",
+    "name": "泡过脚的皮鞋",
+    "rarity": "glitch",
+    "category": "equipment",
+    "slot": "leg",
+    "maxLevel": 5,
+    "inheritable": true,
+    "hook": "它知道回家的路。哪条都行，只要不是这条。",
+    "statKey": "speed",
+    "baseStats": { "speed": 11 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/foot_soaked_shoes_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/foot_soaked_shoes_t1",
+            "procedural": null
+        },
+        {
+            "tier": 2,
+            "levels": [5],
+            "sprite": "Art/Anomaly/foot_soaked_shoes_t2",
+            "procedural": null
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "脚臭外交（社交互动时5%概率对方退后一步）" },
+            "desc": "泡过脚。皮鞋记住了你脚的温度和形状。也记住了你脚的味道。它对这个味道有意见。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "exploration", "text": "捷径感知（可发现当前区域隐藏路径）" },
+            "debuff": { "effectId": "displace", "text": "绕路（10%概率移动到非预期区域）" },
+            "desc": "你想往左走。鞋子往右。你跟它争了三秒。它赢了。你到了一个你没想去的地方。但那地方有你该见的人。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "displace", "text": "自动闪离（受击时8%概率自动位移至安全位）" },
+            "debuff": { "effectId": "action_deny", "text": "停不下（无法选择\"原地防御\"）" },
+            "desc": "你不想走了。鞋子还在走。你站在原地——不对，你蹲下来了。鞋子还在走。它们从你脚上脱下来，自己走了。你在后面追。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "move_cost_mod", "text": "踏遍（已访问区域间移动不消耗精力）" },
+            "debuff": { "effectId": null, "text": "归属感错乱（每次移动后5%概率忘记当前目标）" },
+            "desc": "鞋子带你去了很多地方。每个地方都有人在等你。他们叫你名字。不是你的名字。是上一个穿这双鞋的人的名字。你纠正了三次。第三次你没纠正。"
+        },
+        {
+            "level": 5,
+            "multiplier": 4.5,
+            "statOverride": null,
+            "buff": { "effectId": "displace", "text": "回家（可随时传送至任意已访问的安全区）" },
+            "debuff": { "effectId": "displace", "text": "无家可归（传送后5%概率该安全区永久消失）" },
+            "desc": "鞋子带你回了家。不是你的家。是它的家。门口的鞋柜里有它的位置。旁边还有一双。那双也在等你。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

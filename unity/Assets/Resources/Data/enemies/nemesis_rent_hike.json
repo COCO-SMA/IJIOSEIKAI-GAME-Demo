@@ -1,0 +1,29 @@
+{
+    "id": "nemesis_rent_hike",
+    "name": "The Rent Notice",
+    "title": "Eviction Declaration!",
+    "eventName": "Rent Surge: Final Notice!",
+    "stars": 3,
+    "lifeStage": "young_adult",
+    "winCondition": "resource",
+    "winThreshold": { "money": 500 },
+    "description": "a notice on your door. the rent doubled. then tripled. the number keeps moving. your bank account is watching.",
+    "appearance": "you see the notice. the number is wrong. the number is always wrong. but this time it's wrong in a way that has teeth.",
+    "thatMoment": "the moment you realize the number on the notice is the same as your bank balance. exactly.",
+    "stats": {
+        "hp": 220,
+        "attack": 22,
+        "defense": 22,
+        "speed": 12
+    },
+    "drops": {
+        "equipment": null,
+        "anomaly": "left_hand_empty_pocket",
+        "resonanceShards": 3
+    },
+    "forgedEquipment": {
+        "id": "forged_rent_notice",
+        "name": "Eviction Order: Reversed",
+        "desc": "the rent doesn't go up when you're around. landlords look at you and forget why they came. sometimes they leave money."
+    }
+}

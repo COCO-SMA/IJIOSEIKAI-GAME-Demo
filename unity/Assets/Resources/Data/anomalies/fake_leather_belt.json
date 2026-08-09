@@ -1,0 +1,63 @@
+{
+    "id": "fake_leather_belt",
+    "name": "真皮腰带（假的）",
+    "rarity": "uneasy",
+    "category": "equipment",
+    "slot": "torso",
+    "maxLevel": 4,
+    "inheritable": true,
+    "hook": "标签写着真皮。它自己也这么认为。",
+    "statKey": "defense",
+    "baseStats": { "defense": 7 },
+    "canonSource": null,
+    "nemesisOnly": false,
+    "visualTiers": [
+        {
+            "tier": 0,
+            "levels": [1, 2],
+            "sprite": "Art/Anomaly/fake_leather_belt_t0",
+            "procedural": null
+        },
+        {
+            "tier": 1,
+            "levels": [3, 4],
+            "sprite": "Art/Anomaly/fake_leather_belt_t0",
+            "procedural": { "tint": null, "outline": null, "shake": null }
+        }
+    ],
+    "levels": [
+        {
+            "level": 1,
+            "multiplier": 1,
+            "statOverride": null,
+            "buff": null,
+            "debuff": { "effectId": "social", "text": "偶有异味（社交互动时5%概率对方皱眉）" },
+            "desc": "标签写着真皮。摸起来像塑料。但腰带自己深信不疑。你不想戳穿它。"
+        },
+        {
+            "level": 2,
+            "multiplier": 1.5,
+            "statOverride": null,
+            "buff": { "effectId": "resource", "text": "自信加成（防御力随金钱持有量微升）" },
+            "debuff": { "effectId": "action_deny", "text": "偶露馅（每场战斗5%概率防御归零1回合）" },
+            "desc": "它开始变得越来越像真皮了。不是材料变了——是信念变了。它信得太真，连你都有点信了。"
+        },
+        {
+            "level": 3,
+            "multiplier": 2,
+            "statOverride": null,
+            "buff": { "effectId": "immunity", "text": "假作真时（免疫\"伪造\"\"幻象\"类效果）" },
+            "debuff": { "effectId": "action_force", "text": "自尊心（被敌人嘲讽时必定反击，无论是否划算）" },
+            "desc": "有个鉴定师说它是假的。腰带勒紧了。鉴定师改口了。你不确定他是被说服了还是被勒的。"
+        },
+        {
+            "level": 4,
+            "multiplier": 3,
+            "statOverride": null,
+            "buff": { "effectId": "reflect", "text": "真实化（防御时10%概率将敌人攻击转化为\"错觉\"，免伤）" },
+            "debuff": { "effectId": "durability", "text": "标签脱落（装备耐久每场战斗-2）" },
+            "desc": "标签掉了。但已经无所谓了——它已经是真皮了。不是材料变了。是现实认了。"
+        }
+    ],
+    "source": { "events": [], "nemeses": [], "quests": [] }
+}

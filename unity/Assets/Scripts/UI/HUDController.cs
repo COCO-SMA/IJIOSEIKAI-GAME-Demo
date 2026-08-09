@@ -104,7 +104,12 @@ namespace KunchengRPG.UI
                 return $"[SPACE] Talk to {mapController.nearbyNpc.name}";
 
             if (mapController.nearbyPoi != null)
-                return $"[SPACE] Investigate {mapController.nearbyPoi.name}";
+            {
+                var poi = mapController.nearbyPoi;
+                if (poi.type == "enemy")
+                    return $"[SPACE] 打一场：{poi.name}";
+                return $"[SPACE] Investigate {poi.name}";
+            }
 
             return "";
         }
