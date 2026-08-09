@@ -73,8 +73,11 @@ namespace KunchengRPG.Game
             UpdateSpriteFacing();
 
             // Try to move
+            // Input y is screen-up-positive, but map rows grow downward — GridToWorld
+            // negates y to compensate. So walking "up" means a smaller data row. Adding
+            // dir.y directly is what made up and down come out swapped.
             int targetX = gridPosition.x + dir.x;
-            int targetY = gridPosition.y + dir.y;
+            int targetY = gridPosition.y - dir.y;
 
             if (mapController.IsWalkable(targetX, targetY))
             {

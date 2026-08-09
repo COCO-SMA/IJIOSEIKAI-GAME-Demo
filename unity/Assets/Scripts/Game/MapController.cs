@@ -18,6 +18,19 @@ namespace KunchengRPG.Game
         [Header("Tile Assets")]
         public TileBase[] tiles; // Array indexed by tile ID (0-23)
 
+        /// <summary>
+        /// NPC and enemy markers. Nothing ever drew actors, which is why NPCs were
+        /// invisible while their data loaded fine: proximity checks read the JSON
+        /// happily, but no GameObject was ever created to look at.
+        /// </summary>
+        [Header("Actor Sprites")]
+        public Sprite npcSprite;
+        public Sprite enemySprite;
+        public Color npcColor = new Color(1f, 0.85f, 0.45f, 1f);
+        public Color enemyColor = new Color(0.95f, 0.35f, 0.35f, 1f);
+
+        private Transform actorRoot;
+
         [Header("Settings")]
         public int tileSize = 32;
 
@@ -52,6 +65,8 @@ namespace KunchengRPG.Game
                 }
             }
 
+            SpawnActors(data);
+
             // Center camera on map
             CenterCamera(data.width, data.height);
             Debug.Log($"[MapController] Loaded district: {data.id} ({data.width}x{data.height})");
@@ -77,6 +92,42 @@ namespace KunchengRPG.Game
                 // Walkable tiles go to ground layer
                 groundTilemap.SetTile(pos, tiles[tileId]);
             }
+        }
+
+        /// <summary>
+        /// Rebuild the district's actor markers. They hang off one parent so switching
+        /// district is a single Destroy, and they sort below the player (10) so walking
+        /// past an NPC never hides you behind it.
+        /// </summary>
+        private void SpawnActors(Data.DistrictData data)
+        {
+            if (actorRoot != null) Destroy(actorRoot.gameObject);
+            actorRoot = new GameObject("Actors").transform;
+            actorRoot.SetParent(transform, false);
+
+            if (data.npcs != null)
+                foreach (var npc in data.npcs)
+                    SpawnActor(npc.name, npc.x, npc.y, npcSprite, npcColor);
+
+            // Enemy POIs get a marker of their own: an encounter you can see coming is
+            // a 明雷, and that visibility is decision information, not decoration.
+            if (data.points != null)
+                foreach (var poi in data.points)
+                    if (poi.type == "enemy")
+                        SpawnActor(poi.name, poi.x, poi.y, enemySprite, enemyColor);
+        }
+
+        private void SpawnActor(string label, int x, int y, Sprite sprite, Color color)
+        {
+            var go = new GameObject(string.IsNullOrEmpty(label) ? "Actor" : label,
+                                    typeof(SpriteRenderer));
+            go.transform.SetParent(actorRoot, false);
+            go.transform.position = GridToWorld(x, y);
+
+            var sr = go.GetComponent<SpriteRenderer>();
+            sr.sprite = sprite;
+            sr.color = color;
+            sr.sortingOrder = 5;
         }
 
         private void ClearTilemaps()

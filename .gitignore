@@ -40,6 +40,14 @@ unity/*.VC.db
 unity/.vs/
 unity/.idea/
 
+# 播放器构建输出（PlayerBuilder 写到仓库根的 Build/，不在 unity/ 底下，
+# 所以上面那条 unity/[Bb]uild/ 盖不住它）。一个 Windows 播放器上百 MB，
+# 漏进来会撞上同步脚本的 50 MB 硬闸，或者更糟：推上公开仓库。
+# 带前导斜杠锚定到仓库根 —— 不带斜杠会匹配任意层级的同名目录，
+# 那正是 unity/Assets/Resources/Data/ 被吞掉的原因。
+/Build/
+/Builds/
+
 # Unity 打包产物
 unity/*.apk
 unity/*.aab

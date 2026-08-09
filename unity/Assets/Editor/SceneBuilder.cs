@@ -87,7 +87,16 @@ namespace KunchengRPG.EditorTools
                 NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
             // GameManager persists across the load into ExploreScene, so it lives here.
-            var boot = new GameObject("GameManager", typeof(GameManager));
+            // Every MonoBehaviour singleton rides along on this one object: each of them
+            // only ever assigned Instance in Awake and nothing created them, so every
+            // Instance lookup was null. The keyboard was dead, and DialogueSystem was
+            // worse than dead — ExploreSceneController calls it unguarded, so talking to
+            // an NPC threw. GameManager's DontDestroyOnLoad covers the whole object,
+            // which is why they all belong here rather than in each scene.
+            var boot = new GameObject("GameManager",
+                                      typeof(GameManager), typeof(InputManager),
+                                      typeof(DialogueSystem), typeof(EventSystem),
+                                      typeof(CombatSystem), typeof(LifecycleManager));
 
             var cam = new GameObject("Main Camera", typeof(Camera)).GetComponent<Camera>();
             cam.tag = "MainCamera";
@@ -251,6 +260,9 @@ namespace KunchengRPG.EditorTools
             if (missing > 0)
                 Debug.LogWarning($"[SceneBuilder] {missing}/{TilesetBuilder.TileCount} tile assets missing — run 'Build Tileset Assets' first.");
 
+            map.npcSprite = MakeNpcSprite();
+            map.enemySprite = MakeEnemySprite();
+
             // --- Player ---
             var playerGo = new GameObject("Player", typeof(SpriteRenderer), typeof(PlayerController));
             var sr = playerGo.GetComponent<SpriteRenderer>();
@@ -290,21 +302,39 @@ namespace KunchengRPG.EditorTools
             return go.GetComponent<Tilemap>();
         }
 
-        /// <summary>
-        /// A 1x1 white sprite for the player placeholder. Generated rather than
-        /// committed so there is no stray art asset to keep in sync.
-        /// </summary>
-        private static Sprite MakePlayerSprite()
+        // Actor placeholders are generated from Unity's own Texture2D API rather than
+        // imported, so there is no third-party asset to license or keep in sync and a
+        // clean checkout can regenerate them. Shape carries the distinction, not just
+        // colour: a square player, a round NPC and a spiky enemy stay readable on a
+        // greyscale screenshot and survive a later palette change.
+
+        private static Sprite MakePlayerSprite() =>
+            MakeActorSprite("player_placeholder", (x, y, half) => true);
+
+        private static Sprite MakeNpcSprite() =>
+            MakeActorSprite("npc_placeholder", (x, y, half) =>
+                (x - half) * (x - half) + (y - half) * (y - half) <= half * half);
+
+        private static Sprite MakeEnemySprite() =>
+            MakeActorSprite("enemy_placeholder", (x, y, half) =>
+                Mathf.Abs(x - half) + Mathf.Abs(y - half) <= half);
+
+        private static Sprite MakeActorSprite(
+            string name, System.Func<int, int, float, bool> mask)
         {
-            const string path = "Assets/Art/Sprites/player_placeholder.png";
+            string path = $"Assets/Art/Sprites/{name}.png";
             var existing = AssetDatabase.LoadAssetAtPath<Sprite>(path);
             if (existing != null) return existing;
 
             Directory.CreateDirectory("Assets/Art/Sprites");
 
-            var tex = new Texture2D(TilesetBuilder.TileSize, TilesetBuilder.TileSize);
-            var px = new Color[tex.width * tex.height];
-            for (int i = 0; i < px.Length; i++) px[i] = Color.white;
+            int size = TilesetBuilder.TileSize;
+            float half = (size - 1) / 2f;
+            var tex = new Texture2D(size, size);
+            var px = new Color[size * size];
+            for (int y = 0; y < size; y++)
+                for (int x = 0; x < size; x++)
+                    px[y * size + x] = mask(x, y, half) ? Color.white : Color.clear;
             tex.SetPixels(px);
             tex.Apply();
 
@@ -317,6 +347,7 @@ namespace KunchengRPG.EditorTools
             importer.spritePixelsPerUnit = TilesetBuilder.TileSize;
             importer.filterMode = FilterMode.Point;
             importer.mipmapEnabled = false;
+            importer.alphaIsTransparency = true;
             importer.SaveAndReimport();
 
             return AssetDatabase.LoadAssetAtPath<Sprite>(path);

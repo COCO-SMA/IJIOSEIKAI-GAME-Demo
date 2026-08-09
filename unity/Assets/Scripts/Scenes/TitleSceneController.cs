@@ -124,7 +124,8 @@ namespace KunchengRPG.Scenes
 
         private void HandleTitle(Core.InputManager input)
         {
-            // Blink "Press Space"
+            // Blink the start prompt. Confirm takes Enter or Space; the scene text
+            // says Enter because that is what players try first.
             if (pressStartText)
                 pressStartText.gameObject.SetActive(Mathf.FloorToInt(bobTimer * 2) % 2 == 0);
 
@@ -141,12 +142,54 @@ namespace KunchengRPG.Scenes
         {
             var result = new List<(string, string)>();
             var districts = Core.GameManager.Instance.districts;
-            // Only show available districts (jinyong, jiuxu for demo)
-            if (districts.ContainsKey("jinyong"))
-                result.Add(("jinyong", "Jinyong (金涌) - CBD, rules actually enforced here"));
-            if (districts.ContainsKey("jiuxu"))
-                result.Add(("jiuxu", "Jiuxu (旧墟) - old town, dense, wet, alive"));
+            if (districts == null) return result;
+
+            // Data-driven: every shipped district file shows up on its own. The old
+            // version hardcoded jinyong/jiuxu, so the walk from 2 districts to 11
+            // would have needed a code edit per district.
+            var ids = new List<string>(districts.Keys);
+            ids.Sort();
+            foreach (var id in ids)
+            {
+                var d = districts[id];
+                if (d == null) continue;
+                string label = string.IsNullOrEmpty(d.name) ? id : d.name;
+                string type = AnomalyTypeName(d.anomalyType);
+                result.Add((id, string.IsNullOrEmpty(type) ? label : $"{label} · {type}"));
+            }
             return result;
+        }
+
+        private static string DistrictDisplayName(string id)
+        {
+            var districts = Core.GameManager.Instance?.districts;
+            if (districts != null && districts.TryGetValue(id, out var d)
+                && d != null && !string.IsNullOrEmpty(d.name))
+                return d.name;
+            return id;
+        }
+
+        /// <summary>
+        /// Anomaly type ids to their NamingBible names. All eleven are listed so
+        /// dropping in a new district file needs no code change.
+        /// </summary>
+        private static string AnomalyTypeName(string id)
+        {
+            switch (id)
+            {
+                case "authority_anomaly":   return "权力异常";
+                case "information_anomaly": return "信息异常";
+                case "legacy_anomaly":      return "旧物异常";
+                case "manufacture_anomaly": return "制造异常";
+                case "path_anomaly":        return "路径异常";
+                case "origin_anomaly":      return "来路异常";
+                case "time_anomaly":        return "时间异常";
+                case "forest_anomaly":      return "山林异常";
+                case "growth_anomaly":      return "生长异常";
+                case "tide_anomaly":        return "潮汐异常";
+                case "border_anomaly":      return "边境异常";
+                default:                    return null;
+            }
         }
 
         private void BuildDistrictList()
@@ -156,7 +199,7 @@ namespace KunchengRPG.Scenes
             optionNames.Clear();
 
             if (districtPromptText)
-                districtPromptText.text = "Choose your starting district:";
+                districtPromptText.text = "选择你的出身之地";
 
             // Clear existing items
             if (districtListContainer)
@@ -194,8 +237,9 @@ namespace KunchengRPG.Scenes
             optionIds.Clear();
             optionNames.Clear();
 
+            // Was printing the raw id ("jinyong"). Show the district's own name.
             if (originPromptText)
-                originPromptText.text = $"Choose your family background in {selectedDistrictId}:";
+                originPromptText.text = $"你在{DistrictDisplayName(selectedDistrictId)}的出身";
 
             if (originListContainer)
             {
@@ -217,7 +261,9 @@ namespace KunchengRPG.Scenes
 
         private void HandleNameInput(Core.InputManager input)
         {
-            if (input.ConfirmPressed || (confirmButton != null && Input.GetKeyDown(KeyCode.Return)))
+            // Enter only. ConfirmPressed also covers Space, and the name field has
+            // focus here, so a space in the middle of a name would submit the form.
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 input.ConsumeConfirm();
                 ConfirmName();
@@ -243,12 +289,14 @@ namespace KunchengRPG.Scenes
         {
             if (options.Count == 0) return;
 
-            if (input.Direction.y > 0) // Up
+            // Edge-triggered: Direction is held-state, which scrolled a two-item
+            // list at frame rate and made it impossible to land on a choice.
+            if (input.DirectionPressed.y > 0) // Up
             {
                 selectedIndex = (selectedIndex - 1 + options.Count) % options.Count;
                 RefreshSelection();
             }
-            else if (input.Direction.y < 0) // Down
+            else if (input.DirectionPressed.y < 0) // Down
             {
                 selectedIndex = (selectedIndex + 1) % options.Count;
                 RefreshSelection();
@@ -298,6 +346,9 @@ namespace KunchengRPG.Scenes
             if (container == null) return;
 
             var go = Instantiate(choiceItemPrefab, container);
+            // The prefab's own ApplyCJKFont lost its script reference, so rows swap the
+            // font here the way CombatPanel already does rather than trusting the prefab.
+            UI.CJKFont.ApplyTo(go);
             var uiText = go.GetComponent<Text>();
             if (uiText == null) uiText = go.GetComponentInChildren<Text>();
             if (uiText != null) uiText.text = text;

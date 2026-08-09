@@ -76,13 +76,14 @@ namespace KunchengRPG.UI
 
             int count = choices.Count;
 
-            if (input.Direction.y > 0) // Up
+            // Edge-triggered, same reason as EventPanel: one keypress, one step.
+            if (input.DirectionPressed.y > 0) // Up
             {
                 int idx = Game.DialogueSystem.Instance.selectedChoiceIndex;
                 Game.DialogueSystem.Instance.SelectChoice((idx - 1 + count) % count);
                 RefreshChoices();
             }
-            else if (input.Direction.y < 0) // Down
+            else if (input.DirectionPressed.y < 0) // Down
             {
                 int idx = Game.DialogueSystem.Instance.selectedChoiceIndex;
                 Game.DialogueSystem.Instance.SelectChoice((idx + 1) % count);
@@ -118,6 +119,7 @@ namespace KunchengRPG.UI
                 if (choiceItemPrefab != null && choiceListContainer != null)
                 {
                     var go = Instantiate(choiceItemPrefab, choiceListContainer);
+                    CJKFont.ApplyTo(go);
                     var text = go.GetComponent<Text>();
                     if (text == null) text = go.GetComponentInChildren<Text>();
                     if (text != null)
@@ -134,6 +136,7 @@ namespace KunchengRPG.UI
             {
                 if (choiceItemPrefab == null || choiceListContainer == null) continue;
                 var go = Instantiate(choiceItemPrefab, choiceListContainer);
+                CJKFont.ApplyTo(go);
                 var text = go.GetComponent<Text>();
                 if (text == null) text = go.GetComponentInChildren<Text>();
                 if (text != null)

@@ -79,13 +79,15 @@ namespace KunchengRPG.UI
 
             int choiceCount = evt.choices.Count;
 
-            if (input.Direction.y > 0) // Up
+            // Edge-triggered: held Direction moved the cursor once per frame, so a
+            // single keypress skipped the whole list.
+            if (input.DirectionPressed.y > 0) // Up
             {
                 int idx = Game.EventSystem.Instance.selectedChoiceIndex;
                 Game.EventSystem.Instance.SelectChoice((idx - 1 + choiceCount) % choiceCount);
                 RefreshChoices();
             }
-            else if (input.Direction.y < 0) // Down
+            else if (input.DirectionPressed.y < 0) // Down
             {
                 int idx = Game.EventSystem.Instance.selectedChoiceIndex;
                 Game.EventSystem.Instance.SelectChoice((idx + 1) % choiceCount);
@@ -130,6 +132,7 @@ namespace KunchengRPG.UI
             foreach (var choice in evt.choices)
             {
                 var go = Instantiate(choiceItemPrefab, choiceListContainer);
+                CJKFont.ApplyTo(go);
                 var text = go.GetComponent<Text>();
                 if (text == null)
                     text = go.GetComponentInChildren<Text>();

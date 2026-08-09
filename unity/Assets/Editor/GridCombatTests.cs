@@ -390,9 +390,13 @@ namespace KunchengRPG.EditorTools
                 if (!seen.Add(u.pos)) unique = false;
             Check("no two units share a cell", unique);
 
+            // Asserted once outside the loop: rosters are 3-7 units, so a per-unit Check
+            // made the total test count drift between runs and hid whether a case ran.
+            string strayed = null;
             foreach (var u in state.grid.LivingUnits)
                 if (u.side == BattleSide.Enemy && u.pos.x < state.grid.width / 2)
-                    Check("enemies stay on their half", false, $"{u.id} at {u.pos}");
+                    strayed = $"{u.id} at {u.pos}";
+            Check("enemies stay on their half", strayed == null, strayed ?? "");
 
             CheckEq("player speed from action power", state.player.speed, 12);
             CheckEq("player move range", state.player.MoveRange, 3);
@@ -501,6 +505,9 @@ namespace KunchengRPG.EditorTools
                 // Play it out. The player closes in and swings; the AI does its own.
                 int guard = 0;
                 bool movedWithoutEndingTurn = false;
+                // Swings are counted, not asserted per swing: roster size and HP are
+                // randomised, so a Check in here made the suite total drift run to run.
+                int swings = 0, refused = 0;
                 while (cs.isActive && guard++ < 400)
                 {
                     if (!cs.IsPlayerTurn) break;   // AI turns resolve inside AdvanceTurn
@@ -508,7 +515,7 @@ namespace KunchengRPG.EditorTools
                     var targets = cs.AttackableTargets();
                     if (targets.Count > 0)
                     {
-                        Check("attack accepted", cs.PlayerAttack(targets[0]));
+                        if (cs.PlayerAttack(targets[0])) swings++; else refused++;
                         continue;
                     }
 
@@ -520,6 +527,8 @@ namespace KunchengRPG.EditorTools
                     cs.PlayerWait();
                 }
 
+                Check("every attack accepted", refused == 0, $"{refused} of {swings + refused} refused");
+                Check("player actually swung", swings > 0);
                 Check("movement does not spend the turn", movedWithoutEndingTurn);
                 Check("fight terminates", !cs.isActive || guard < 400,
                       $"guard={guard} active={cs.isActive}");

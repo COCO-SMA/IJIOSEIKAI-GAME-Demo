@@ -174,6 +174,17 @@ namespace KunchengRPG.Scenes
         private void OnNPCTalk(Data.NPCData npc)
         {
             Debug.Log($"[ExploreScene] Talking to NPC: {npc.name}");
+
+            // Loud rather than silent: this call used to throw because nothing created
+            // DialogueSystem. A quiet early return would have turned a crash into an
+            // NPC who just refuses to talk, which is harder to diagnose, not easier.
+            if (Game.DialogueSystem.Instance == null)
+            {
+                Debug.LogError("[ExploreScene] DialogueSystem missing from the scene — " +
+                               "rebuild scenes so the boot object carries it.");
+                return;
+            }
+
             Game.DialogueSystem.Instance.StartDialogue(npc);
         }
 

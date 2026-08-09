@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 111177547314815209}
   - component: {fileID: 5281616983373552088}
   - component: {fileID: 1378440051316567241}
-  - component: {fileID: 5446438983830375317}
+  - component: {fileID: 6847253563595082733}
   m_Layer: 0
   m_Name: ChoiceItem
   m_TagString: Untagged
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5446438983830375317
+--- !u!114 &6847253563595082733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5506908012977525804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: baab77ef4967e934caeed99efb7b9735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -69,16 +69,7 @@ namespace KunchengRPG.UI
         }
     }
 
-    /// <summary>
-    /// Drop this on a Canvas root or on any prefab instantiated at runtime, and every
-    /// Text under it gets the CJK font on Awake. Attaching it to prefabs is what keeps
-    /// dynamically spawned choice rows from falling back to Arial.
-    /// </summary>
-    public class ApplyCJKFont : MonoBehaviour
-    {
-        void Awake()
-        {
-            CJKFont.ApplyTo(gameObject);
-        }
-    }
+    // ApplyCJKFont lives in its own file: Unity only serialises a MonoBehaviour whose
+    // class name matches its file name, and as a second class in here it saved into
+    // every scene and prefab as a null script reference.
 }
