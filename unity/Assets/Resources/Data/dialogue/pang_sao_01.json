@@ -1,25 +1,25 @@
 {
     "id": "pang_sao_01",
-    "speaker": "Fat Sister-in-law",
-    "start": { "id": "start", "text": "OI! you! yes you! you're stepping on my fish! get off the fish! ...it's already dead but that's not the point!", "choices": [
-        { "id": "sorry", "text": "sorry! sorry.", "next": "apology" },
-        { "id": "look_down", "text": "(look down) ...there's no fish there.", "next": "no_fish" }
+    "speaker": "胖嫂",
+    "start": { "id": "start", "text": "喂！你！系你！\n踩住我条鱼啦！让开让开！\n……死咗都好，都系我条鱼！", "choices": [
+        { "id": "sorry", "text": "对不起对不起。", "next": "apology" },
+        { "id": "look_down", "text": "（低头看）……这没有鱼。", "next": "no_fish" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "OI! you! yes you! you're stepping on my fish! get off the fish! ...it's already dead but that's not the point!", "choices": [
-            { "id": "sorry", "text": "sorry! sorry.", "next": "apology" },
-            { "id": "look_down", "text": "(look down) ...there's no fish there.", "next": "no_fish" }
+        "start": { "id": "start", "text": "喂！你！系你！\n踩住我条鱼啦！让开让开！\n……死咗都好，都系我条鱼！", "choices": [
+            { "id": "sorry", "text": "对不起对不起。", "next": "apology" },
+            { "id": "look_down", "text": "（低头看）……这没有鱼。", "next": "no_fish" }
         ]},
-        "apology": { "id": "apology", "text": "(waves hand.) aiya, it's fine, it's fine. ...you're new. i can tell. people from here know not to stand near the stalls. the floor is... the floor has opinions.", "choices": [
-            { "id": "opinions", "text": "the floor has opinions?", "next": "floor_opinions" },
-            { "id": "buy", "text": "can i buy something?", "next": "buy_something" }
+        "apology": { "id": "apology", "text": "（挥手。）哎呀算啦算啦。\n新嚟嘅系咪。一睇就知。\n本地人唔会站得咁埋档口。\n呢个地板……呢个地板有主意嘅。", "choices": [
+            { "id": "opinions", "text": "地板有主意？", "next": "floor_opinions" },
+            { "id": "buy", "text": "我能买点什么吗？", "next": "buy_something" }
         ]},
-        "no_fish": { "id": "no_fish", "text": "(looks down. looks back up. doesn't miss a beat.) ...there is now. you just can't see it. ...look. you want vegetables? i have vegetables. you want fish? i have fish. you want to know things? ...that costs extra.", "choices": [
-            { "id": "buy", "text": "can i buy something?", "next": "buy_something" },
-            { "id": "know", "text": "know things?", "next": "know_things" }
+        "no_fish": { "id": "no_fish", "text": "（低头看。又抬头。一点没卡壳。）\n……现在有啦。你睇唔到咋。\n睇下。要菜？有菜。要鱼？有鱼。\n想知啲嘢？\n……嗰啲另计。", "choices": [
+            { "id": "buy", "text": "我能买点什么吗？", "next": "buy_something" },
+            { "id": "know", "text": "知道什么？", "next": "know_things" }
         ]},
-        "floor_opinions": { "id": "floor_opinions", "text": "(laughs too loud.) opinions! right! ...the wet market floor. you slip, you fall, you land somewhere you weren't planning to be. ...like i said. opinions. ...buy something. the vegetables are fresh. the fish is fresh. the information is fresher.", "choices": []},
-        "buy_something": { "id": "buy_something", "text": "buy! yes! finally! ...what do you want. vegetables? fish? ...i also have these. (holds up something wrapped in newspaper.) don't ask what it is. it's useful. that's all you need to know.", "choices": []},
-        "know_things": { "id": "know_things", "text": "(voice drops. suddenly quiet. suddenly different person.) ...know things. right. ...the old restaurant on the corner. the one with the grumpy owner. ...his wife didn't leave. she's still there. ...you didn't hear it from me. (voice back to normal.) TWO POUNDS OF CHOI SUM COMING UP!", "choices": []}
+        "floor_opinions": { "id": "floor_opinions", "text": "（笑得整条街都听到。）\n主意！系呀！\n菜市场地板嘛。你一滑，一跌，就跌到你本来唔想去嘅地方。\n（顿。）我讲咗系有主意。\n买啲嘢啦。菜新鲜，鱼新鲜。\n……买完再讲。", "choices": []},
+        "buy_something": { "id": "buy_something", "text": "买！好！终于有个买嘢嘅！\n要咩？菜？鱼？\n（举起一包用报纸裹住的东西。）\n……仲有呢啲。\n唔好问系咩。有用。你知咁多够啦。", "choices": []},
+        "know_things": { "id": "know_things", "text": "（声音突然低下来。整个人像换了一个。）\n……知啲嘢。嗯。\n街口那间茶餐厅。老板脾气差嗰间。\n……他老婆没走。\n……佢仲喺度。\n（顿了很久。）\n……我什么都没说。\n（嗓门突然回来。）菜心两斤！嚟啦！", "choices": []}
     }
 }

@@ -1,35 +1,35 @@
 {
     "id": "chen_bo_01",
-    "speaker": "Uncle Chen",
-    "start": { "id": "start", "text": "...you're new. sit or don't. the menu's on the wall. it's also not on the wall. depends.", "choices": [
-        { "id": "order", "text": "what do you recommend?", "next": "recommend" },
-        { "id": "look", "text": "just looking around.", "next": "looking" },
-        { "id": "silent", "text": "(sit down quietly)", "next": "quiet" }
+    "speaker": "陈伯",
+    "start": { "id": "start", "text": "食咗未。\n（没等你答，已经在擦一张不用擦的桌子。）\n坐啦。菜牌喺墙上。有时候唔喺。睇情况。", "choices": [
+        { "id": "order", "text": "有什么好吃的？", "next": "recommend" },
+        { "id": "look", "text": "我就看看。", "next": "looking" },
+        { "id": "silent", "text": "（安静坐下）", "next": "quiet" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "...you're new. sit or don't. the menu's on the wall. it's also not on the wall. depends.", "choices": [
-            { "id": "order", "text": "what do you recommend?", "next": "recommend" },
-            { "id": "look", "text": "just looking around.", "next": "looking" },
-            { "id": "silent", "text": "(sit down quietly)", "next": "quiet" }
+        "start": { "id": "start", "text": "食咗未。\n（没等你答，已经在擦一张不用擦的桌子。）\n坐啦。菜牌喺墙上。有时候唔喺。睇情况。", "choices": [
+            { "id": "order", "text": "有什么好吃的？", "next": "recommend" },
+            { "id": "look", "text": "我就看看。", "next": "looking" },
+            { "id": "silent", "text": "（安静坐下）", "next": "quiet" }
         ]},
-        "recommend": { "id": "recommend", "text": "recommend. hm. you look like a pineapple bun person. or a congee person. ...you're not from here, are you.", "choices": [
-            { "id": "no", "text": "no. just arrived.", "next": "newcomer" },
-            { "id": "yes", "text": "i'm from here.", "next": "local_test" }
+        "recommend": { "id": "recommend", "text": "好吃。（想了一下。）\n菠萝油。或者粥。\n……你瘦了。\n（顿。）我都唔识你。不过你就系瘦。", "choices": [
+            { "id": "no", "text": "我刚来的。", "next": "newcomer" },
+            { "id": "yes", "text": "我本地的。", "next": "local_test" }
         ]},
-        "looking": { "id": "looking", "text": "looking around. right. (wipes counter that doesn't need wiping.) this place has been here since before you were a thought. look all you want.", "choices": [
-            { "id": "leave", "text": "thanks. i'll come back.", "next": "come_back" }
+        "looking": { "id": "looking", "text": "睇下。（继续擦那张干的桌子。）\n呢间铺喺呢条街三十年。\n无咩好睇。你要睇就睇。\n……风扇嗰边凉一点。", "choices": [
+            { "id": "leave", "text": "谢了。我下次再来。", "next": "come_back" }
         ]},
-        "quiet": { "id": "quiet", "text": "(sets down a cup of tea you didn't order. doesn't look at you.) ...it's on the house. don't get used to it.", "choices": [
-            { "id": "thanks", "text": "thank you.", "next": "thanks_resp" }
+        "quiet": { "id": "quiet", "text": "（一杯茶放在你面前。你没点。他也没看你。）\n……唔收钱。\n唔好习惯。", "choices": [
+            { "id": "thanks", "text": "谢谢。", "next": "thanks_resp" }
         ]},
-        "newcomer": { "id": "newcomer", "text": "just arrived. (nods.) the city eats newcomers. but it also feeds them. ...you want the congee. trust me.", "choices": [
-            { "id": "okay", "text": "okay. congee.", "next": "order_done" }
+        "newcomer": { "id": "newcomer", "text": "刚嚟。（点头。）\n嗯。\n（又擦了一下那张桌子。）\n食粥啦。今日嘅粥煲得够火。", "choices": [
+            { "id": "okay", "text": "好，粥。", "next": "order_done" }
         ]},
-        "local_test": { "id": "local_test", "text": "from here. (pauses. looks at you properly for the first time.) ...right. then you know the pineapple bun is the only correct answer.", "choices": [
-            { "id": "laugh", "text": "(laugh) okay. pineapple bun.", "next": "order_done" }
+        "local_test": { "id": "local_test", "text": "本地。\n（停下来，第一次真的看你一眼。）\n……哦。\n（顿。）咁你自己知食咩。", "choices": [
+            { "id": "laugh", "text": "（笑）菠萝油。", "next": "order_done" }
         ]},
-        "come_back": { "id": "come_back", "text": "come back. sure. (doesn't look up.) the door doesn't lock. never needed to.", "choices": []},
-        "thanks_resp": { "id": "thanks_resp", "text": "(grunts.) don't mention it. literally. ...you need anything else, i'm not the person to ask. but i'm the person who's here.", "choices": []},
-        "order_done": { "id": "order_done", "text": "(calls to the kitchen without looking up.) one congee. ...it'll be five minutes. or ten. depends on whether the stove is in a good mood.", "choices": []}
+        "come_back": { "id": "come_back", "text": "下次。（没抬头。）\n门唔锁嘅。\n……记得食饭。", "choices": []},
+        "thanks_resp": { "id": "thanks_resp", "text": "（哼了一声。）\n……唔使谢。\n你有咩事唔好问我。我唔识。\n（顿。）不过我日日喺呢度。", "choices": []},
+        "order_done": { "id": "order_done", "text": "（朝厨房喊了一声，还是没抬头。）\n……五分钟。或者十分钟。\n睇个炉今日心情。", "choices": []}
     }
 }

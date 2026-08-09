@@ -44,6 +44,7 @@ namespace KunchengRPG.Core
         private bool _cancelPressed;
         private bool _idlePressed;
         private bool _endYearPressed;
+        private bool _menuPressed;
 
         // Buffered input (consumed once per frame)
         private Vector2Int _bufferedDirection;
@@ -61,6 +62,9 @@ namespace KunchengRPG.Core
         public bool CancelPressed => _cancelPressed;
         public bool IdlePressed => _idlePressed;
         public bool EndYearPressed => _endYearPressed;
+
+        /// <summary>Tab: opens and closes the pause menu (equipment / backpack).</summary>
+        public bool MenuPressed => _menuPressed;
 
         void Awake()
         {
@@ -117,6 +121,7 @@ namespace KunchengRPG.Core
             _cancelPressed = Input.GetKeyDown(KeyCode.Escape);
             _idlePressed = Input.GetKeyDown(KeyCode.I);
             _endYearPressed = Input.GetKeyDown(KeyCode.E);
+            _menuPressed = Input.GetKeyDown(KeyCode.Tab);
         }
 
         /// <summary>
@@ -140,6 +145,11 @@ namespace KunchengRPG.Core
         public void ConsumeEndYear()
         {
             _endYearPressed = false;
+        }
+
+        public void ConsumeMenu()
+        {
+            _menuPressed = false;
         }
 
         /// <summary>

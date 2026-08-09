@@ -281,6 +281,7 @@ namespace KunchengRPG.EditorTools
             var hud = BuildHUD(canvasRoot.transform);
             var eventPanel = BuildEventPanel(canvasRoot.transform, choiceItem);
             var dialoguePanel = BuildDialoguePanel(canvasRoot.transform, choiceItem);
+            var menuPanel = BuildMenuPanel(canvasRoot.transform);
 
             var sceneGo = new GameObject("ExploreSceneController", typeof(ExploreSceneController));
             var controller = sceneGo.GetComponent<ExploreSceneController>();
@@ -289,6 +290,7 @@ namespace KunchengRPG.EditorTools
             controller.hud = hud;
             controller.eventPanel = eventPanel;
             controller.dialoguePanel = dialoguePanel;
+            controller.menuPanel = menuPanel;
             controller.mainCamera = cam;
 
             EditorSceneManager.SaveScene(scene, ExploreScenePath);
@@ -358,28 +360,25 @@ namespace KunchengRPG.EditorTools
             var root = UIBuilder.CreateRect("HUD", parent);
             var hud = root.AddComponent<HUDController>();
 
-            // Status strip, top-left. One Text per stat so the controller can update
-            // each independently.
+            // Status block, top-left. One tall Text instead of a row per stat: the
+            // panel now shows every attribute, every component and the live anomaly
+            // modifiers, and that set changes as systems land. A single Text means
+            // adding a line is a controller edit, not a scene rebuild.
             var strip = new GameObject("Status", typeof(RectTransform));
             strip.transform.SetParent(root.transform, false);
             UIBuilder.Place(strip, new Vector2(0f, 1f), new Vector2(0f, 1f),
-                new Vector2(20, -20), new Vector2(420, 210));
+                new Vector2(16, -16), new Vector2(440, 620));
             strip.AddComponent<Image>().color = UIBuilder.PanelBg;
 
-            var col = strip.AddComponent<VerticalLayoutGroup>();
-            col.padding = new RectOffset(14, 14, 12, 12);
-            col.spacing = 3f;
-            col.childControlHeight = false;
-            col.childForceExpandHeight = false;
-
-            hud.nameText = Row(strip.transform, "Name", "姓名");
-            hud.ageText = Row(strip.transform, "Age", "年龄");
-            hud.stageText = Row(strip.transform, "Stage", "阶段");
-            hud.apText = Row(strip.transform, "AP", "行动点");
-            hud.moneyText = Row(strip.transform, "Money", "钱");
-            hud.hpText = Row(strip.transform, "HP", "体力");
-            hud.staminaText = Row(strip.transform, "Stamina", "精力");
-            hud.districtText = Row(strip.transform, "District", "地区");
+            hud.statusText = UIBuilder.CreateText(
+                "StatusText", strip.transform, "", 16, TextAnchor.UpperLeft);
+            var statusRect = hud.statusText.rectTransform;
+            statusRect.anchorMin = Vector2.zero;
+            statusRect.anchorMax = Vector2.one;
+            statusRect.offsetMin = new Vector2(12, 10);
+            statusRect.offsetMax = new Vector2(-12, -10);
+            hud.statusText.horizontalOverflow = HorizontalWrapMode.Overflow;
+            hud.statusText.verticalOverflow = VerticalWrapMode.Overflow;
 
             // Interaction prompt, bottom-center.
             var prompt = UIBuilder.CreateRect("PromptPanel", root.transform);
@@ -402,12 +401,40 @@ namespace KunchengRPG.EditorTools
             return hud;
         }
 
-        private static Text Row(Transform parent, string name, string label)
+        /// <summary>
+        /// Tab menu. Title / body / footer, all three plain Text — the body diagram
+        /// and the backpack grid are drawn as characters by MenuPanel, so there is
+        /// no per-cell widget to keep in sync with the slot layout.
+        /// </summary>
+        private static MenuPanel BuildMenuPanel(Transform parent)
         {
-            var text = UIBuilder.CreateText(name, parent, label, 18, TextAnchor.MiddleLeft);
-            var le = text.gameObject.AddComponent<LayoutElement>();
-            le.preferredHeight = 22;
-            return text;
+            var root = UIBuilder.CreateRect("MenuPanel", parent);
+            var panel = root.AddComponent<MenuPanel>();
+
+            var box = UIBuilder.CreatePanel("Box", root.transform);
+            UIBuilder.Place(box, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                Vector2.zero, new Vector2(820, 600));
+
+            panel.root = box;
+
+            panel.titleText = UIBuilder.CreateText(
+                "Title", box.transform, "菜单", 24, TextAnchor.UpperLeft, UIBuilder.Accent);
+            UIBuilder.Place(panel.titleText.gameObject, new Vector2(0f, 1f), new Vector2(0f, 1f),
+                new Vector2(28, -22), new Vector2(500, 34));
+
+            panel.contentText = UIBuilder.CreateText(
+                "Content", box.transform, "", 18, TextAnchor.UpperLeft);
+            UIBuilder.Place(panel.contentText.gameObject, new Vector2(0f, 1f), new Vector2(0f, 1f),
+                new Vector2(28, -68), new Vector2(764, 470));
+            panel.contentText.horizontalOverflow = HorizontalWrapMode.Overflow;
+            panel.contentText.verticalOverflow = VerticalWrapMode.Overflow;
+
+            panel.footerText = UIBuilder.CreateText(
+                "Footer", box.transform, "", 16, TextAnchor.LowerLeft);
+            UIBuilder.Place(panel.footerText.gameObject, new Vector2(0f, 0f), new Vector2(0f, 0f),
+                new Vector2(28, 22), new Vector2(764, 28));
+
+            return panel;
         }
 
         private static EventPanel BuildEventPanel(Transform parent, GameObject choiceItem)

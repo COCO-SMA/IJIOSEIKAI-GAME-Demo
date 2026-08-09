@@ -1,23 +1,23 @@
 {
     "id": "a_qiang_01",
-    "speaker": "Ah Qiang",
-    "start": { "id": "start", "text": "(leaning against a wall. doesn't look at you. takes a drag from a cigarette that smells wrong.) ...you're standing on my spot.", "choices": [
-        { "id": "move", "text": "sorry. (step aside)", "next": "moves" },
-        { "id": "stay", "text": "i don't see your name on it.", "next": "challenge" }
+    "speaker": "阿强",
+    "start": { "id": "start", "text": "（靠着墙。没看你。抽一口烟，那烟的味道不太对。）\n……你站着我的位。", "choices": [
+        { "id": "move", "text": "抱歉。（让开）", "next": "moves" },
+        { "id": "stay", "text": "这上面没写你名字。", "next": "challenge" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "(leaning against a wall. doesn't look at you. takes a drag from a cigarette that smells wrong.) ...you're standing on my spot.", "choices": [
-            { "id": "move", "text": "sorry. (step aside)", "next": "moves" },
-            { "id": "stay", "text": "i don't see your name on it.", "next": "challenge" }
+        "start": { "id": "start", "text": "（靠着墙。没看你。抽一口烟，那烟的味道不太对。）\n……你站着我的位。", "choices": [
+            { "id": "move", "text": "抱歉。（让开）", "next": "moves" },
+            { "id": "stay", "text": "这上面没写你名字。", "next": "challenge" }
         ]},
-        "moves": { "id": "moves", "text": "(nods. barely.) ...smart. ...you eat? the stall around the corner. the one with the red sign. tell them Qiang sent you. they'll give you the good stuff. ...don't tell them i said that.", "choices": [
-            { "id": "thanks", "text": "thanks. why?", "next": "why_help" }
+        "moves": { "id": "moves", "text": "（点了一下头。很轻。）\n……醒目。\n（顿。）\n……食咗未。\n转角那个档，红招牌那个。讲阿强叫你嚟。\n佢会畀好嘢你。\n……唔好讲系我讲嘅。", "choices": [
+            { "id": "thanks", "text": "谢了。为什么？", "next": "why_help" }
         ]},
-        "challenge": { "id": "challenge", "text": "(finally looks at you. the smile doesn't reach anywhere.) ...no name on it. right. ...you know what else has no name on it? the cargo that comes in at 2am. the van that picks it up. the building it goes into. ...you want to keep standing? go ahead. but some spots have reasons.", "choices": [
-            { "id": "back_down", "text": "(step aside slowly)", "next": "moves" },
-            { "id": "push", "text": "are you threatening me?", "next": "threat" }
+        "challenge": { "id": "challenge", "text": "（终于看你。笑了一下，只有嘴在笑。）\n……没写名字。对。\n……你知道还有什么没写名字？\n凌晨两点靠岸的货。来收货的车。车开进去的那栋楼。\n（顿。）\n……你想继续站，站啦。\n有些位是有原因的。", "choices": [
+            { "id": "back_down", "text": "（慢慢让开）", "next": "moves" },
+            { "id": "push", "text": "你在威胁我？", "next": "threat" }
         ]},
-        "why_help": { "id": "why_help", "text": "why. (takes another drag. exhales something that isn't quite smoke.) ...because you stepped aside. most people don't. most people stand there until they learn. ...you learn fast. that's worth a meal.", "choices": []},
-        "threat": { "id": "threat", "text": "threatening. (flicks the cigarette. it lands somewhere it shouldn't.) ...no. i'm educating. ...the spot is yours. i'll find another. (pushes off the wall. walks away. the air where he stood smells like the harbor at midnight.)", "choices": []}
+        "why_help": { "id": "why_help", "text": "为什么。\n（又抽一口。呼出来的东西不完全是烟。）\n……因为你让了。\n大部分人唔让。大部分人站到学会为止。\n（顿。）\n……你学得快。\n值一餐饭。", "choices": []},
+        "threat": { "id": "threat", "text": "威胁。\n（把烟弹掉。落在一个不该落的地方。）\n……唔系。我系教你。\n（从墙上站直。）\n……位系你嘅。我另外揾。\n（走了。他站过的地方，空气闻起来像半夜的码头。）", "choices": []}
     }
 }

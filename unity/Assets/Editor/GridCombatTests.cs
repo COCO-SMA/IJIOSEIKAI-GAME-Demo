@@ -14,6 +14,9 @@ namespace KunchengRPG.EditorTools
         private const string Tag = "[GridTest]";
         private static int passed, failed;
 
+        /// <summary>Failures from the last run, so FullVerify can chain suites.</summary>
+        public static int FailCount => failed;
+
         public static void RunAll()
         {
             passed = failed = 0;

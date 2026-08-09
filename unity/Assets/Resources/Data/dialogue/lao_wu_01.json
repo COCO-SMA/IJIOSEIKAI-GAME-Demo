@@ -1,24 +1,24 @@
 {
     "id": "lao_wu_01",
-    "speaker": "Old Wu",
-    "start": { "id": "start", "text": "(sitting on a cement bag. eating rice from a metal box. doesn't look up.) ...", "choices": [
-        { "id": "hello", "text": "hello.", "next": "hello_resp" },
-        { "id": "wait", "text": "(wait)", "next": "waiting" }
+    "speaker": "老吴",
+    "start": { "id": "start", "text": "（坐在一袋水泥上。铁盒饭。没抬头。）\n……", "choices": [
+        { "id": "hello", "text": "您好。", "next": "hello_resp" },
+        { "id": "wait", "text": "（等）", "next": "waiting" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "(sitting on a cement bag. eating rice from a metal box. doesn't look up.) ...", "choices": [
-            { "id": "hello", "text": "hello.", "next": "hello_resp" },
-            { "id": "wait", "text": "(wait)", "next": "waiting" }
+        "start": { "id": "start", "text": "（坐在一袋水泥上。铁盒饭。没抬头。）\n……", "choices": [
+            { "id": "hello", "text": "您好。", "next": "hello_resp" },
+            { "id": "wait", "text": "（等）", "next": "waiting" }
         ]},
-        "hello_resp": { "id": "hello_resp", "text": "(chews. swallows. takes a sip from a thermos that's older than you.) ...you're standing in the way of the truck. ...truck comes at noon. ...it's not noon yet. but it will be.", "choices": [
-            { "id": "move", "text": "(move aside)", "next": "moved" },
-            { "id": "work", "text": "you work here?", "next": "work_here" }
+        "hello_resp": { "id": "hello_resp", "text": "（嚼。咽下去。喝了一口比你年纪还大的水壶里的水。）\n……你站着车道上了。\n……车中午到。\n……还没到中午。\n（顿。）但会到。", "choices": [
+            { "id": "move", "text": "（让开）", "next": "moved" },
+            { "id": "work", "text": "您在这儿干活？", "next": "work_here" }
         ]},
-        "waiting": { "id": "waiting", "text": "(five minutes pass. he finishes eating. puts the metal box down. finally looks at you.) ...you waited. ...most people don't wait. ...you need something. or you're lost. ...either way, sit down. the cement's dry.", "choices": [
-            { "id": "sit", "text": "(sit on a cement bag)", "next": "sit_down" }
+        "waiting": { "id": "waiting", "text": "（五分钟。他把饭吃完，铁盒放下，才看你。）\n……你等了。\n……没几个人等。\n（顿。）\n……你要找人，还是走错了。\n……都一样。坐啦。水泥干的。", "choices": [
+            { "id": "sit", "text": "（在水泥袋上坐下）", "next": "sit_down" }
         ]},
-        "moved": { "id": "moved", "text": "(nods.) ...good. ...the site closes at six. don't be here after six. ...things are different after six. ...the workers go home. something else comes to work.", "choices": []},
-        "work_here": { "id": "work_here", "text": "work. (looks at his hands. looks at the building going up. looks back at his hands.) ...twenty years. ...the building goes up. another one comes down. ...the city breathes. ...you just have to be careful where you stand when it exhales.", "choices": []},
-        "sit_down": { "id": "sit_down", "text": "(silence. a truck passes. dust settles.) ...you remind me of someone. ...can't remember who. ...doesn't matter. they didn't stay either. ...if you're looking for work, the foreman's office is behind the blue fence. if you're looking for something else... ...the old market. the one with the loud woman. she knows things. ...just buy something first. she doesn't talk to freeloaders.", "choices": []}
+        "moved": { "id": "moved", "text": "（点头。）\n……嗯。\n……六点收工。六点之后别在这。\n……（想说什么。停住了。）\n……人走了。\n……就不一样了。", "choices": []},
+        "work_here": { "id": "work_here", "text": "干活。\n（看自己的手。看正在起的那栋楼。又看自己的手。）\n……二十年。\n……这栋起来，那栋拆掉。\n……（顿了很久。）\n……我本来想讲一句。算了。\n……站的时候留意脚下就行。", "choices": []},
+        "sit_down": { "id": "sit_down", "text": "（沉默。一辆车过去。灰落下来。）\n……你像一个人。\n……想不起是谁了。\n……不重要。他也没留下来。\n（顿。）\n……找工，蓝围栏后面是工头办公室。\n……找别的……\n……旧市场。那个大嗓门的女人。她知道事。\n……先买点东西。她不跟白问的人讲话。", "choices": []}
     }
 }

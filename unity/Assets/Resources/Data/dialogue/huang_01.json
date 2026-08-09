@@ -1,24 +1,24 @@
 {
     "id": "huang_01",
-    "speaker": "Principal Huang",
-    "start": { "id": "start", "text": "(sitting behind a desk piled with papers. looks at you over glasses that are too old.) ...sit. ...no, the other chair. that one has a wobble. i keep meaning to fix it.", "choices": [
-        { "id": "sit", "text": "(sit in the good chair)", "next": "seated" },
-        { "id": "stand", "text": "i can stand.", "next": "standing" }
+    "speaker": "黄校长",
+    "start": { "id": "start", "text": "（桌上堆满纸。从一副太旧的眼镜后面看你。）\n……坐。\n……不是那张，另一张。\n那张脚有点晃。我一直想修。", "choices": [
+        { "id": "sit", "text": "（坐好的那张）", "next": "seated" },
+        { "id": "stand", "text": "我站着就行。", "next": "standing" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "(sitting behind a desk piled with papers. looks at you over glasses that are too old.) ...sit. ...no, the other chair. that one has a wobble. i keep meaning to fix it.", "choices": [
-            { "id": "sit", "text": "(sit in the good chair)", "next": "seated" },
-            { "id": "stand", "text": "i can stand.", "next": "standing" }
+        "start": { "id": "start", "text": "（桌上堆满纸。从一副太旧的眼镜后面看你。）\n……坐。\n……不是那张，另一张。\n那张脚有点晃。我一直想修。", "choices": [
+            { "id": "sit", "text": "（坐好的那张）", "next": "seated" },
+            { "id": "stand", "text": "我站着就行。", "next": "standing" }
         ]},
-        "seated": { "id": "seated", "text": "(nods.) good. sitting is half of listening. ...you're new. not to the city, maybe. but to this school. to this street. ...things are different here.", "choices": [
-            { "id": "how", "text": "how so?", "next": "different" },
-            { "id": "nod", "text": "(nod and wait)", "next": "waiting" }
+        "seated": { "id": "seated", "text": "（点头。）\n好。坐下来，听话就听进去一半了。\n……你是新来的。\n对这座城可能不算新。对这间学校算。对这条街算。\n（顿。）\n……这里跟别处不一样。", "choices": [
+            { "id": "how", "text": "怎么不一样？", "next": "different" },
+            { "id": "nod", "text": "（点头，等他说）", "next": "waiting" }
         ]},
-        "standing": { "id": "standing", "text": "stand. (sighs. takes off glasses. cleans them on a tie that has seen better decades.) ...young people stand. old people sit. this is the natural order. ...but you came here for a reason. so. what is it.", "choices": [
-            { "id": "how", "text": "how so?", "next": "different" },
-            { "id": "nod", "text": "(nod and wait)", "next": "waiting" }
+        "standing": { "id": "standing", "text": "站着。\n（叹气。摘下眼镜，用一条见过好年头的领带擦。）\n……年轻人站，老人坐。天经地义。\n（顿。）\n……不过你来是有事的。\n讲吧。", "choices": [
+            { "id": "how", "text": "怎么不一样？", "next": "different" },
+            { "id": "nod", "text": "（点头，等他说）", "next": "waiting" }
         ]},
-        "different": { "id": "different", "text": "how. (puts glasses back on. they're still dirty.) ...the children here, they know things. they don't say what they know. but they know. ...you watch them. you watch the way they avoid certain corners. certain windows. ...there's a reason for that. ...you'll figure it out. or you won't. either way, the school bell rings at eight.", "choices": []},
-        "waiting": { "id": "waiting", "text": "(silence for a long moment. he looks at something on the desk that isn't paper.) ...your face. you remind me of someone. ...never mind. ...the library is on the second floor. the door that's always locked — don't try it. ...ask me why, and i'll tell you it's a storage room. ask me again next year, and i might tell you the truth.", "choices": []}
+        "different": { "id": "different", "text": "怎么不一样。\n（把眼镜戴回去。还是脏的。）\n……这里的小孩，知道一些事。\n他们不讲。但他们知道。\n（顿。）\n……你看他们走路。\n看他们绕开哪几个墙角。哪几扇窗。\n……那是有原因的。\n……你会看明白。或者不会。\n都一样。八点上课。", "choices": []},
+        "waiting": { "id": "waiting", "text": "（很长的沉默。他在看桌上一件不是纸的东西。）\n……你这张脸。\n……像一个人。\n……算了。\n（顿。）\n……图书室在二楼。\n那扇一直锁着的门，别去试。\n……你问我为什么，我会讲那是杂物间。\n明年你再问一次，我可能讲真话。", "choices": []}
     }
 }

@@ -16,7 +16,15 @@ namespace KunchengRPG.EditorTools
     {
         private static readonly List<string> Failures = new List<string>();
 
-        public static void RunEndingTests()
+        /// <summary>Failures from the last run. Lets FullVerify chain suites in one launch.</summary>
+        public static int FailCount => Failures.Count;
+
+        /// <summary>Run without exiting the editor, so other suites can follow.</summary>
+        public static void RunEndingTestsNoExit() => RunEndingTests(false);
+
+        public static void RunEndingTests() => RunEndingTests(true);
+
+        private static void RunEndingTests(bool exitWhenDone)
         {
             Failures.Clear();
 
@@ -43,7 +51,7 @@ namespace KunchengRPG.EditorTools
             Case(system, districts, "devoured outranks all", "devoured",
                  children: false, celibate: true, rooted: true, cause: DeathCause.Devoured);
 
-            Report();
+            Report(exitWhenDone);
         }
 
         private static void VerifyCopyExists(EndingSystem system)
@@ -115,19 +123,19 @@ namespace KunchengRPG.EditorTools
 
         private static void Log(string message) => Debug.Log($"[EndingTest] {message}");
 
-        private static void Report()
+        private static void Report(bool exitWhenDone = true)
         {
             if (Failures.Count == 0)
             {
                 Debug.Log("[EndingTest] PASS — all ending branches resolve correctly");
-                EditorApplication.Exit(0);
+                if (exitWhenDone) EditorApplication.Exit(0);
                 return;
             }
 
             var sb = new StringBuilder($"[EndingTest] FAIL — {Failures.Count} problem(s):\n");
             foreach (var f in Failures) sb.AppendLine("  - " + f);
             Debug.LogError(sb.ToString());
-            EditorApplication.Exit(1);
+            if (exitWhenDone) EditorApplication.Exit(1);
         }
     }
 }

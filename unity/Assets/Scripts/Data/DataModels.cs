@@ -224,6 +224,15 @@ namespace KunchengRPG.Data
         public string id;
         public string text;
         public string next;
+
+        /// <summary>
+        /// Optional side effect fired when the choice is taken. Recognised verbs
+        /// live in DialogueSystem.ApplyEffect; unknown ones are logged and ignored
+        /// so a typo in content cannot break a conversation.
+        /// Examples: "grant_all_anomalies", "grant:roast_goose_cleaver",
+        /// "affinity:jiuxu:5", "flag:chose_celibacy:1", "money:-50".
+        /// </summary>
+        public string effect;
     }
 
     // === Tileset Data ===

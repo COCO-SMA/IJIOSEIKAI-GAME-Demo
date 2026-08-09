@@ -24,7 +24,15 @@ namespace KunchengRPG.EditorTools
     {
         private static readonly List<string> Failures = new List<string>();
 
-        public static void BuildAndVerify()
+        /// <summary>Failures from the last run. Lets FullVerify chain suites in one launch.</summary>
+        public static int FailCount => Failures.Count;
+
+        public static void BuildAndVerify() => BuildAndVerify(true);
+
+        /// <summary>Build and verify without exiting, so other suites can follow.</summary>
+        public static void BuildAndVerifyNoExit() => BuildAndVerify(false);
+
+        private static void BuildAndVerify(bool exitWhenDone)
         {
             Failures.Clear();
 
@@ -35,14 +43,14 @@ namespace KunchengRPG.EditorTools
             catch (Exception e)
             {
                 Fail($"Build threw: {e}");
-                Report();
+                Report(exitWhenDone);
                 return;
             }
 
             VerifyTileAssets();
             VerifyTitleScene();
             VerifyExploreScene();
-            Report();
+            Report(exitWhenDone);
         }
 
         /// <summary>Verify only, assuming assets already exist.</summary>
@@ -129,14 +137,24 @@ namespace KunchengRPG.EditorTools
 
             if (c.hud != null)
             {
-                Require(c.hud.nameText, "hud.nameText");
-                Require(c.hud.apText, "hud.apText");
-                Require(c.hud.hpText, "hud.hpText");
-                Require(c.hud.districtText, "hud.districtText");
+                // One panel now, not four labels: the status block renders name,
+                // stage, HP, attributes and district as a single Chinese text body.
+                Require(c.hud.statusText, "hud.statusText");
                 Require(c.hud.promptPanel, "hud.promptPanel");
                 Require(c.hud.promptText, "hud.promptText");
                 Require(c.hud.messagePanel, "hud.messagePanel");
                 Require(c.hud.messageText, "hud.messageText");
+            }
+
+            // The Tab menu is new; an unwired panel would fail silently at runtime
+            // rather than at build time, so it gets checked like everything else.
+            Require(c.menuPanel, "controller.menuPanel");
+            if (c.menuPanel != null)
+            {
+                Require(c.menuPanel.root, "menuPanel.root");
+                Require(c.menuPanel.titleText, "menuPanel.titleText");
+                Require(c.menuPanel.contentText, "menuPanel.contentText");
+                Require(c.menuPanel.footerText, "menuPanel.footerText");
             }
 
             if (c.eventPanel != null)
@@ -185,19 +203,19 @@ namespace KunchengRPG.EditorTools
 
         private static void Log(string message) => Debug.Log($"[Verify] {message}");
 
-        private static void Report()
+        private static void Report(bool exitWhenDone = true)
         {
             if (Failures.Count == 0)
             {
                 Debug.Log("[Verify] PASS — scenes built and fully wired");
-                EditorApplication.Exit(0);
+                if (exitWhenDone) EditorApplication.Exit(0);
                 return;
             }
 
             var sb = new StringBuilder($"[Verify] FAIL — {Failures.Count} problem(s):\n");
             foreach (var f in Failures) sb.AppendLine("  - " + f);
             Debug.LogError(sb.ToString());
-            EditorApplication.Exit(1);
+            if (exitWhenDone) EditorApplication.Exit(1);
         }
     }
 }

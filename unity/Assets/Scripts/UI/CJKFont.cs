@@ -15,9 +15,11 @@ namespace KunchengRPG.UI
     {
         private static readonly string[] Candidates =
         {
-            "Microsoft YaHei UI", "Microsoft YaHei", "SimHei", "SimSun",
-            "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC",
-            "Heiti SC", "Arial Unicode MS"
+            "Microsoft YaHei UI", "Microsoft YaHei", "微软雅黑",
+            "SimHei", "黑体", "SimSun", "宋体", "NSimSun",
+            "DengXian", "等线", "KaiTi", "楷体", "FangSong", "仿宋",
+            "Noto Sans CJK SC", "Noto Sans SC", "Source Han Sans SC",
+            "PingFang SC", "Heiti SC", "Hiragino Sans GB", "Arial Unicode MS"
         };
 
         private static Font cached;
@@ -32,27 +34,70 @@ namespace KunchengRPG.UI
             if (resolved) return cached;
             resolved = true;
 
-            string[] installed = Font.GetOSInstalledFontNames();
+            string[] installed = Font.GetOSInstalledFontNames() ?? new string[0];
+
+            // Exact match first, then a loosened pass. Windows reports family names
+            // inconsistently ("Microsoft YaHei" vs "Microsoft YaHei UI Light" vs a
+            // localised "微软雅黑"), and an exact-only compare silently fell through
+            // to Arial, which has no CJK glyphs at all.
+            cached = TryCandidates(installed, exact: true)
+                     ?? TryCandidates(installed, exact: false)
+                     ?? TryBlind();
+
+            if (cached != null) return cached;
+
+            // Log what the OS actually offered; guessing at this costs a 10-minute
+            // editor launch, so the failure has to describe itself.
+            Debug.LogWarning("[CJKFont] No CJK font found. Installed fonts (" +
+                             installed.Length + "): " +
+                             string.Join(", ", installed, 0, Mathf.Min(40, installed.Length)));
+            return null;
+        }
+
+        private static Font TryCandidates(string[] installed, bool exact)
+        {
             foreach (var candidate in Candidates)
             {
                 foreach (var name in installed)
                 {
-                    if (name != candidate) continue;
+                    bool match = exact
+                        ? string.Equals(name, candidate, System.StringComparison.OrdinalIgnoreCase)
+                        : Normalise(name).Contains(Normalise(candidate));
+                    if (!match) continue;
 
-                    // Size here is only the starting atlas size; dynamic fonts rasterise
-                    // per-Text fontSize at runtime.
-                    cached = Font.CreateDynamicFontFromOSFont(candidate, 16);
-                    if (cached != null)
+                    // Size here is only the starting atlas size; dynamic fonts
+                    // rasterise per-Text fontSize at runtime.
+                    var font = Font.CreateDynamicFontFromOSFont(name, 16);
+                    if (font != null)
                     {
-                        Debug.Log($"[CJKFont] Using OS font: {candidate}");
-                        return cached;
+                        Debug.Log($"[CJKFont] Using OS font: {name}" +
+                                  (exact ? "" : $" (loose match on {candidate})"));
+                        return font;
                     }
                 }
             }
-
-            Debug.LogWarning("[CJKFont] No CJK font found on this system; Chinese text may render as boxes.");
             return null;
         }
+
+        /// <summary>
+        /// Ask for the candidates by name even though the enumeration never listed
+        /// them. GetOSInstalledFontNames misses fonts on some Windows setups, but
+        /// CreateDynamicFontFromOSFont still resolves them.
+        /// </summary>
+        private static Font TryBlind()
+        {
+            foreach (var candidate in Candidates)
+            {
+                var font = Font.CreateDynamicFontFromOSFont(candidate, 16);
+                if (font == null) continue;
+                Debug.Log($"[CJKFont] Using unlisted OS font: {candidate}");
+                return font;
+            }
+            return null;
+        }
+
+        private static string Normalise(string s) =>
+            s == null ? "" : s.Replace(" ", "").Replace("-", "").ToLowerInvariant();
 
         /// <summary>
         /// Apply the CJK font to a Text and every Text beneath it.

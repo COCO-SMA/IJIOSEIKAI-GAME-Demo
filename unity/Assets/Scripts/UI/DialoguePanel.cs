@@ -124,7 +124,7 @@ namespace KunchengRPG.UI
                     if (text == null) text = go.GetComponentInChildren<Text>();
                     if (text != null)
                     {
-                        text.text = "[Space] ...";
+                        text.text = "[空格] 继续";
                         text.color = selectedColor;
                         choiceTexts.Add(text);
                     }

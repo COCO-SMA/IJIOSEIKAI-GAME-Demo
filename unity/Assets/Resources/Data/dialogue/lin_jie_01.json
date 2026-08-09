@@ -1,30 +1,30 @@
 {
     "id": "lin_jie_01",
-    "speaker": "Sister Lin",
-    "start": { "id": "start", "text": "form 27-B. counter three. ...no, counter three is on Tuesdays. today is Thursday. counter five.", "choices": [
-        { "id": "confused", "text": "i don't have a form.", "next": "no_form" },
-        { "id": "wait", "text": "(wait for her to finish)", "next": "waiting" }
+    "speaker": "林姐",
+    "start": { "id": "start", "text": "27-B 表。三号窗。\n……不对，三号窗是星期二。\n今天星期四。五号窗。", "choices": [
+        { "id": "confused", "text": "我没有表。", "next": "no_form" },
+        { "id": "wait", "text": "（等她盖完）", "next": "waiting" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "form 27-B. counter three. ...no, counter three is on Tuesdays. today is Thursday. counter five.", "choices": [
-            { "id": "confused", "text": "i don't have a form.", "next": "no_form" },
-            { "id": "wait", "text": "(wait for her to finish)", "next": "waiting" }
+        "start": { "id": "start", "text": "27-B 表。三号窗。\n……不对，三号窗是星期二。\n今天星期四。五号窗。", "choices": [
+            { "id": "confused", "text": "我没有表。", "next": "no_form" },
+            { "id": "wait", "text": "（等她盖完）", "next": "waiting" }
         ]},
-        "no_form": { "id": "no_form", "text": "no form. (looks up from papers. blinks once.) ...you're not here for the housing registration? ...you just look like the type.", "choices": [
-            { "id": "explore", "text": "i'm just looking around the area.", "next": "looking_around" },
-            { "id": "help", "text": "actually, maybe you can help me.", "next": "can_help" }
+        "no_form": { "id": "no_form", "text": "没有表。\n（从纸堆里抬头。眨了一下眼。）\n……你不是来办扎根的？\n（又看了你一眼。）\n……你就是长了一张来办扎根的脸。", "choices": [
+            { "id": "explore", "text": "我在这边逛逛。", "next": "looking_around" },
+            { "id": "help", "text": "其实你可能能帮我。", "next": "can_help" }
         ]},
-        "waiting": { "id": "waiting", "text": "(stamps something. stamps something else. sighs. stamps again.) ...sorry. what do you need. make it quick, i have seventeen files before lunch.", "choices": [
-            { "id": "explore", "text": "i'm just looking around the area.", "next": "looking_around" },
-            { "id": "help", "text": "actually, maybe you can help me.", "next": "can_help" }
+        "waiting": { "id": "waiting", "text": "（盖一个章。再盖一个。叹气。又盖一个。）\n……不好意思。你要办什么。\n快点讲，我午饭前还有十七份。\n……（顿。）\n……你吃了没？我这有饼。\n算了，你讲。", "choices": [
+            { "id": "explore", "text": "我在这边逛逛。", "next": "looking_around" },
+            { "id": "help", "text": "其实你可能能帮我。", "next": "can_help" }
         ]},
-        "looking_around": { "id": "looking_around", "text": "looking around. right. (goes back to stamping.) Jinyong is not a place you look around. it's a place you learn the rules. ...or the rules learn you.", "choices": [
-            { "id": "rules", "text": "what rules?", "next": "rules_explain" }
+        "looking_around": { "id": "looking_around", "text": "逛逛。哦。\n（继续盖章。）\n金涌不是拿来逛的。\n金涌是拿来学规矩的。\n（顿。）\n……或者规矩来学你。", "choices": [
+            { "id": "rules", "text": "什么规矩？", "next": "rules_explain" }
         ]},
-        "can_help": { "id": "can_help", "text": "(pen stops.) ...depends. i can point you to the right counter. i can't make the counter like you. ...what is it.", "choices": [
-            { "id": "info", "text": "i need to know about this area.", "next": "area_info" }
+        "can_help": { "id": "can_help", "text": "（笔停了。）\n……看情况。\n我能告诉你该去哪个窗。\n我没办法让那个窗喜欢你。\n……讲。", "choices": [
+            { "id": "info", "text": "我想了解这个区。", "next": "area_info" }
         ]},
-        "rules_explain": { "id": "rules_explain", "text": "what rules. (almost smiles. almost.) ...if i could explain them, they wouldn't be the rules, would they. ...just. be careful around the old buildings. some of them take things personally.", "choices": []},
-        "area_info": { "id": "area_info", "text": "this area. (puts pen down. actually looks at you.) ...you're new. like, actually new. ...look. the civic center closes at five. the food court closes at nine. the things that don't close — you don't want to find those. not yet.", "choices": []}
+        "rules_explain": { "id": "rules_explain", "text": "什么规矩。\n（差一点笑。差一点。）\n……我要是讲得出来，那就不叫规矩了。\n（顿。）\n……老楼那边小心点。\n有几栋，是会当真的。", "choices": []},
+        "area_info": { "id": "area_info", "text": "这个区。\n（放下笔。这次是真的看你。）\n……你新来。是真的新。\n（顿。）\n听着。政心五点关门。食街九点关门。\n……不关门的那些——\n你现在还不想找到。", "choices": []}
     }
 }

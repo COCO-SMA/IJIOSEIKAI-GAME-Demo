@@ -2,7 +2,7 @@
   "id": "jinyong",
   "name": "金涌",
   "anomalyType": "authority_anomaly",
-  "anomalyDescription": "certain rules actually get enforced here. including the unwritten ones.",
+  "anomalyDescription": "这里的规矩真的会被执行。包括没写下来的那些。",
   "width": 30,
   "height": 20,
   "tiles": [
@@ -650,51 +650,58 @@
   "subDistricts": [
     {
       "id": "zhonghuan",
-      "name": "Zhonghuan",
-      "desc": "the CBD. glass towers. people in suits walking fast."
+      "name": "金涌中环",
+      "desc": "核心商务区。玻璃楼，穿西装的人走得很快。"
     },
     {
       "id": "zhengxin",
-      "name": "Zhengxin",
-      "desc": "civic center. where forms get stamped. or don't."
+      "name": "政心",
+      "desc": "行政中心。盖章的地方。或者不盖的地方。"
     },
     {
       "id": "dianjie",
-      "name": "Dianjie",
-      "desc": "electronics street. everything has a price. some have two."
+      "name": "电街",
+      "desc": "电子街。什么都有价。有些东西有两个价。"
     },
     {
       "id": "guankou",
-      "name": "Guankou",
-      "desc": "the checkpoint. crossing means rules change."
+      "name": "关口",
+      "desc": "口岸。过去一趟，规矩就换一套。"
     },
     {
       "id": "miaodun",
-      "name": "Miaodun",
-      "desc": "old temple area. commuters rush past something old."
+      "name": "庙墩",
+      "desc": "旧庙那一带。赶班的人从一样很老的东西旁边冲过去。"
     }
   ],
   "npcs": [
     {
       "id": "lin_jie",
-      "name": "Sister Lin",
+      "name": "林姐",
       "x": 12,
       "y": 9,
       "dialogueId": "lin_jie_01"
     },
     {
       "id": "principal_huang",
-      "name": "Principal Huang",
+      "name": "黄校长",
       "x": 8,
       "y": 12,
       "dialogueId": "huang_01"
     },
     {
       "id": "lao_wu",
-      "name": "Old Wu",
+      "name": "老吴",
       "x": 20,
       "y": 12,
       "dialogueId": "lao_wu_01"
+    },
+    {
+      "id": "test_dummy_quartermaster",
+      "name": "【测试】发装备的",
+      "x": 15,
+      "y": 7,
+      "dialogueId": "test_quartermaster"
     }
   ],
   "exits": [
@@ -720,21 +727,21 @@
   "points": [
     {
       "id": "zhonghuan_poi",
-      "name": "Zhonghuan CBD",
+      "name": "中环",
       "x": 22,
       "y": 4,
       "type": "landmark"
     },
     {
       "id": "zhengxin_poi",
-      "name": "Civic Center",
+      "name": "市民中心",
       "x": 6,
       "y": 5,
       "type": "landmark"
     },
     {
       "id": "dianjie_poi",
-      "name": "Electronics Street",
+      "name": "电街",
       "x": 22,
       "y": 14,
       "type": "landmark"
@@ -749,5 +756,5 @@
     }
   ],
   "music": "jinyong_bgm",
-  "atmosphere": "glass towers, suited people walking fast, something about the air feels enforceable"
+  "atmosphere": "玻璃楼、走得很快的西装、空气里有种什么都能被执行的感觉"
 }

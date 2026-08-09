@@ -1,23 +1,23 @@
 {
     "id": "xiao_ma_01",
-    "speaker": "Little Ma",
-    "start": { "id": "start", "text": "OH HEY. sorry. sorry. i was just — did you see the board? DID YOU SEE IT? red. everything red. it's beautiful. it's terrible. it's — sorry. who are you?", "choices": [
-        { "id": "intro", "text": "i'm new around here.", "next": "new_person" },
-        { "id": "board", "text": "what board?", "next": "the_board" }
+    "speaker": "小马",
+    "start": { "id": "start", "text": "喂！你等等！\n你有没有看那个板？红的。全红。\n（拍了一下大腿。）\n我早就讲过会红。我讲过没有？我讲过。\n……你是谁？", "choices": [
+        { "id": "intro", "text": "我刚来这边。", "next": "new_person" },
+        { "id": "board", "text": "什么板？", "next": "the_board" }
     ]},
     "nodes": {
-        "start": { "id": "start", "text": "OH HEY. sorry. sorry. i was just — did you see the board? DID YOU SEE IT? red. everything red. it's beautiful. it's terrible. it's — sorry. who are you?", "choices": [
-            { "id": "intro", "text": "i'm new around here.", "next": "new_person" },
-            { "id": "board", "text": "what board?", "next": "the_board" }
+        "start": { "id": "start", "text": "喂！你等等！\n你有没有看那个板？红的。全红。\n（拍了一下大腿。）\n我早就讲过会红。我讲过没有？我讲过。\n……你是谁？", "choices": [
+            { "id": "intro", "text": "我刚来这边。", "next": "new_person" },
+            { "id": "board", "text": "什么板？", "next": "the_board" }
         ]},
-        "new_person": { "id": "new_person", "text": "new! right! welcome to Jinyong! where dreams come true and then leave! ...sorry. that was dark. ...i'm Ma. everyone calls me Little Ma. i work in — well. i WORKED in finance. past tense. ...the board is... it's a long story. ...you want coffee? i need coffee. you need coffee. everyone needs coffee. let's get coffee.", "choices": [
-            { "id": "coffee", "text": "sure. coffee.", "next": "coffee_time" },
-            { "id": "pass", "text": "i'm good. thanks.", "next": "pass_coffee" }
+        "new_person": { "id": "new_person", "text": "刚来。好。我告诉你，来对了。\n金涌这个地方，讲道理的。\n（顿。）\n……不讲道理的是人。\n我姓马，大家叫我小马。我以前在营业部做。\n以前。\n（拍你肩膀，力气有点大。）\n走，食晏。我请。我从来不欠人的。", "choices": [
+            { "id": "coffee", "text": "行，一起。", "next": "coffee_time" },
+            { "id": "pass", "text": "不用了，谢谢。", "next": "pass_coffee" }
         ]},
-        "the_board": { "id": "the_board", "text": "the BOARD. the stock — you know what, never mind. it doesn't matter. what matters is — (phone buzzes. he looks at it. goes pale. puts it away.) ...what matters is that some days you're up and some days you're down and some days you're not sure which direction is which. ...you new?", "choices": [
-            { "id": "intro", "text": "yeah. i'm new.", "next": "new_person" }
+        "the_board": { "id": "the_board", "text": "那个板！报价板！\n——算了，跟你讲你都不明白。\n（寻呼机响。他看了一眼。脸白了。塞回腰上。）\n……不重要。\n重要的是，有些日子你上去，有些日子你下来。\n（顿。）\n有些日子你不知道哪边是上。\n……你新来的？", "choices": [
+            { "id": "intro", "text": "对，刚来。", "next": "new_person" }
         ]},
-        "coffee_time": { "id": "coffee_time", "text": "(walking. fast. talking. faster.) ...so i had this plan, right? buy low, sell high. classic. except the thing about low is sometimes it goes lower. and the thing about high is sometimes it's not real. ...you know what IS real? this city. ...it does something to numbers. ...i had a stock that was at twelve. TWELVE. and then the anomaly hit and the number started... blinking. ...the stock doesn't blink. stocks don't have EYES. ...anyway. coffee's on me. i still have some money. ...for now.", "choices": []},
-        "pass_coffee": { "id": "pass_coffee", "text": "good. right. good for you. ...look. if you're staying in Jinyong — and i mean really staying — ...be careful with the numbers. any numbers. money. time. the bus schedule. ...they're not always... accurate. ...i gotta go. (phone buzzing again.) ...good luck. ...you'll need it. ...i mean that in the nicest way.", "choices": []}
+        "coffee_time": { "id": "coffee_time", "text": "（走得很快。讲得更快。）\n我这个人，最讲信用。你问全条街。\n低买高卖，天经地义。\n结果呢？低会更低。高是假的。\n……我几时害过人？我一个人都没害过。\n（停下来。）\n我有只股，十二块。十二块。\n然后那个……那个东西一来，个数字就开始眨。\n……数字不会眨眼。数字没有眼。\n（又走起来。）\n食晏我请。我还有钱。\n……暂时。", "choices": []},
+        "pass_coffee": { "id": "pass_coffee", "text": "不食？好。你有主意，好。\n（顿。）\n听我一句。你要留在金涌——我是讲真留——\n对着数字小心点。什么数字都算。\n钱。时间。班车表。\n……它们不是每次都准。\n（寻呼机又响。他没看。）\n……我走先。\n祝你好运。你会需要的。\n……我这句是好意。", "choices": []}
     }
 }

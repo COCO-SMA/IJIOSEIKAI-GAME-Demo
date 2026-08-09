@@ -15,6 +15,9 @@ namespace KunchengRPG.EditorTools
         const string TAG = "[AnomalyTest]";
         static int pass, fail;
 
+        /// <summary>Failures from the last run, so FullVerify can chain suites.</summary>
+        public static int FailCount => fail;
+
         static void Check(bool ok, string label)
         {
             if (ok) { pass++; Debug.Log($"{TAG} PASS {label}"); }

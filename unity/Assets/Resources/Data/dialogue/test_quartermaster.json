@@ -1,0 +1,25 @@
+{
+    "id": "test_quartermaster",
+    "speaker": "发装备的",
+    "start": { "id": "start", "text": "（脚边一个蛇皮袋，鼓得像装了三十只鹅。）\n找我？我这没工牌，没发票，没收据。\n就一袋东西。都不太对劲。你要不要。", "choices": [
+        { "id": "all", "text": "全要。", "next": "gave_all", "effect": "grant_all_anomalies" },
+        { "id": "what", "text": "什么叫不太对劲？", "next": "explain" },
+        { "id": "leave", "text": "……我先走。", "next": "leave" }
+    ]},
+    "nodes": {
+        "start": { "id": "start", "text": "（脚边一个蛇皮袋，鼓得像装了三十只鹅。）\n找我？我这没工牌，没发票，没收据。\n就一袋东西。都不太对劲。你要不要。", "choices": [
+            { "id": "all", "text": "全要。", "next": "gave_all", "effect": "grant_all_anomalies" },
+            { "id": "what", "text": "什么叫不太对劲？", "next": "explain" },
+            { "id": "leave", "text": "……我先走。", "next": "leave" }
+        ]},
+        "explain": { "id": "explain", "text": "就……不太对劲。\n有把刀，切烧鹅切了三代人，现在会自己冒烟。\n有把伞，室内撑着，室内就会下雨。\n还有张交通卡，余额十二块，但你每次刷它都还是十二块。\n（顿。）我不问来路，你也别问。", "choices": [
+            { "id": "all2", "text": "行，全给我。", "next": "gave_all", "effect": "grant_all_anomalies" },
+            { "id": "risk", "text": "拿了会怎样？", "next": "risk" }
+        ]},
+        "risk": { "id": "risk", "text": "越用越强。这是好事。\n越强越疯。这个你自己权衡。\n（把袋子往你这边踢了半米。）\n我不是卖，我是清货。这袋东西放我这，我晚上睡不着。", "choices": [
+            { "id": "all3", "text": "那我帮你睡个好觉。", "next": "gave_all", "effect": "grant_all_anomalies" }
+        ]},
+        "gave_all": { "id": "gave_all", "text": "（袋子空了。你身上重了。）\n背包按 Tab 看。装备也在里面。\n六个格子对着人，哪块想装什么，你自己配。\n……别一次全穿上。上次有人全穿上了。\n（顿。）他现在也是一件装备。", "choices": []},
+        "leave": { "id": "leave", "text": "走就走。（重新坐回蛇皮袋上。）\n我天天在这。这袋东西比我耐得住。", "choices": []}
+    }
+}

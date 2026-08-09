@@ -2,7 +2,7 @@
     "id": "jiuxu",
     "name": "旧墟",
     "anomalyType": "legacy_anomaly",
-    "anomalyDescription": "old things remember things. sometimes they tell you. sometimes they show you.",
+    "anomalyDescription": "旧东西记得事。有时候讲给你听，有时候直接演给你看。",
     "width": 30,
     "height": 20,
     "tiles": [
@@ -650,43 +650,43 @@
     "subDistricts": [
         {
             "id": "dongxu",
-            "name": "Dongxu Night Market",
-            "desc": "night market. steam, noise, something cooking that shouldn't be."
+            "name": "东墟夜市",
+            "desc": "夜市。烟、吵、还有一锅不该在煮的东西在煮。"
         },
         {
             "id": "laojie",
-            "name": "Old Street Arcade",
-            "desc": "covered walkways. old shops. older debts."
+            "name": "老街骑楼",
+            "desc": "骑楼底下。铺头旧，欠的账更旧。"
         },
         {
             "id": "caishichang",
-            "name": "Wet Market",
-            "desc": "fish, vegetables, gossip. the real news network."
+            "name": "菜市场",
+            "desc": "鱼、菜、八卦。这条街真正的新闻台。"
         },
         {
             "id": "jiuxu_edge",
-            "name": "Jiuxu Edge",
-            "desc": "where the old buildings end and the new ones haven't started."
+            "name": "旧墟边",
+            "desc": "旧楼到这里没了，新楼还没开工。中间那块地空着，收管理费。"
         }
     ],
     "npcs": [
         {
             "id": "chen_bo",
-            "name": "Uncle Chen",
+            "name": "陈伯",
             "x": 12,
             "y": 4,
             "dialogueId": "chen_bo_01"
         },
         {
             "id": "pang_sao",
-            "name": "Fat Sister-in-law",
+            "name": "胖嫂",
             "x": 8,
             "y": 12,
             "dialogueId": "pang_sao_01"
         },
         {
             "id": "a_qiang",
-            "name": "Ah Qiang",
+            "name": "阿强",
             "x": 20,
             "y": 16,
             "dialogueId": "a_qiang_01"
@@ -709,26 +709,26 @@
     "points": [
         {
             "id": "dongxu_poi",
-            "name": "Dongxu Night Market",
+            "name": "东墟夜市",
             "x": 12,
             "y": 4,
             "type": "landmark"
         },
         {
             "id": "laojie_poi",
-            "name": "Old Street",
+            "name": "老街",
             "x": 5,
             "y": 8,
             "type": "landmark"
         },
         {
             "id": "caishichang_poi",
-            "name": "Wet Market",
+            "name": "菜市场",
             "x": 26,
             "y": 11,
             "type": "landmark"
         }
     ],
     "music": "jiuxu_bgm",
-    "atmosphere": "old arcade buildings, steam from food stalls, something remembers you were here"
+    "atmosphere": "骑楼、大排档的蒸气、有什么东西记得你来过"
 }

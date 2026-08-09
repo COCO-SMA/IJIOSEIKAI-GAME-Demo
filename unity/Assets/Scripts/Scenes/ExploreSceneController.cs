@@ -15,6 +15,7 @@ namespace KunchengRPG.Scenes
         public UI.HUDController hud;
         public UI.EventPanel eventPanel;
         public UI.DialoguePanel dialoguePanel;
+        public UI.MenuPanel menuPanel;
 
         [Header("Camera")]
         public Camera mainCamera;
@@ -62,7 +63,11 @@ namespace KunchengRPG.Scenes
             // Show intro message
             if (hud != null)
             {
-                hud.ShowMessage($"Gen {gm.Player.generation}. {gm.Player.name}, age {gm.Player.age}.\nKuncheng does not know you yet.\nArrow keys to move. Space to interact.\n[I] Slack off  [E] End Year");
+                hud.ShowMessage(
+                    $"第{gm.Player.generation}代 · {gm.Player.name} · {gm.Player.age}岁\n" +
+                    "鲲城还不认识你。\n" +
+                    "方向键走　空格 说话/查看　Tab 菜单\n" +
+                    "[I] 摸鱼　[E] 结束这年");
             }
 
             Debug.Log($"[ExploreScene] Started in {district.id}. Player at ({spawn.x}, {spawn.y})");
@@ -85,6 +90,18 @@ namespace KunchengRPG.Scenes
             var input = Core.InputManager.Instance;
             if (input == null) return;
 
+            // The menu drives its own input while open, so the map must go quiet —
+            // otherwise the confirm that picks an item also talks to whoever is
+            // standing next to you.
+            if (menuPanel != null && menuPanel.IsShowing) return;
+
+            if (input.MenuPressed)
+            {
+                input.ConsumeMenu();
+                if (menuPanel != null) menuPanel.Open();
+                return;
+            }
+
             // Interaction
             if (input.ConfirmPressed)
             {
@@ -100,12 +117,12 @@ namespace KunchengRPG.Scenes
                 if (Game.LifecycleManager.Instance.TryIdle())
                 {
                     if (hud != null)
-                        hud.ShowMessage("You slacked off. -$50. Gained weight. Lost an action.");
+                        hud.ShowMessage("摸了一天鱼。-¥50，胖了点，少了一次行动。");
                 }
                 else
                 {
                     if (hud != null)
-                        hud.ShowMessage("Too broke to slack off.");
+                        hud.ShowMessage("穷得连鱼都摸不起。");
                 }
                 return;
             }
@@ -116,7 +133,7 @@ namespace KunchengRPG.Scenes
                 input.ConsumeEndYear();
                 Game.LifecycleManager.Instance.EndYearEarly();
                 if (hud != null)
-                    hud.ShowMessage("Year ended. Moving on...");
+                    hud.ShowMessage("这年过完了。日子照走。");
                 return;
             }
 
