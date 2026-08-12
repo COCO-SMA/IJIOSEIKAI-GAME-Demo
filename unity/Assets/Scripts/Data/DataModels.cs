@@ -21,6 +21,26 @@ namespace KunchengRPG.Data
         public List<POIData> points;
         public string music;
         public string atmosphere;
+
+        /// <summary>
+        /// Optional full-map background image. When set, MapController switches to
+        /// "background mode": the image is drawn as a single sprite and movement
+        /// collision is read from <see cref="walkable"/> instead of tile IDs.
+        /// Path is relative to Resources/ (e.g. "Maps/Futian/FutianMap_full").
+        /// </summary>
+        public string background;
+
+        /// <summary>
+        /// Pixel size of one grid cell in the background image. Used to scale the
+        /// sprite so one grid cell matches one world unit.
+        /// </summary>
+        public int tileSize;
+
+        /// <summary>
+        /// Walkability grid for background mode. 1 = walkable, 0 = blocked.
+        /// Must match height rows, each with width columns.
+        /// </summary>
+        public int[][] walkable;
     }
 
     [Serializable]

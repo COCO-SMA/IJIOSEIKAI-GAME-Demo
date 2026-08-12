@@ -19,6 +19,13 @@ namespace KunchengRPG.Game
         public TileBase[] tiles; // Array indexed by tile ID (0-23)
 
         /// <summary>
+        /// Full-map background sprite renderer. When a district provides a
+        /// background image, this renderer is used instead of tilemap layers.
+        /// </summary>
+        [Header("Background Mode")]
+        public SpriteRenderer backgroundRenderer;
+
+        /// <summary>
         /// NPC and enemy markers. Nothing ever drew actors, which is why NPCs were
         /// invisible while their data loaded fine: proximity checks read the JSON
         /// happily, but no GameObject was ever created to look at.
@@ -36,6 +43,9 @@ namespace KunchengRPG.Game
 
         private Data.DistrictData districtData;
         private HashSet<int> solidTileIds = new HashSet<int> { 1, 2, 3, 8, 9, 11, 12, 13, 14, 18, 19, 20, 21 };
+
+        private bool useBackgroundMode;
+        private bool[,] walkableGrid;
 
         // Callbacks
         public System.Action<int, int> OnPlayerStep;
@@ -56,20 +66,66 @@ namespace KunchengRPG.Game
             districtData = data;
             ClearTilemaps();
 
-            for (int y = 0; y < data.height; y++)
+            useBackgroundMode = !string.IsNullOrEmpty(data.background);
+            if (useBackgroundMode)
             {
-                for (int x = 0; x < data.width; x++)
+                LoadBackgroundMap(data);
+            }
+            else
+            {
+                for (int y = 0; y < data.height; y++)
                 {
-                    int tileId = data.tiles[y][x];
-                    PlaceTile(x, y, tileId);
+                    for (int x = 0; x < data.width; x++)
+                    {
+                        int tileId = data.tiles[y][x];
+                        PlaceTile(x, y, tileId);
+                    }
                 }
             }
 
+            BuildWalkableGrid(data);
             SpawnActors(data);
 
             // Center camera on map
             CenterCamera(data.width, data.height);
-            Debug.Log($"[MapController] Loaded district: {data.id} ({data.width}x{data.height})");
+            Debug.Log($"[MapController] Loaded district: {data.id} ({data.width}x{data.height}) backgroundMode={useBackgroundMode}");
+        }
+
+        /// <summary>
+        /// Background mode: display the authored full-map image as a single sprite
+        /// scaled so one grid cell equals one world unit.
+        /// </summary>
+        private void LoadBackgroundMap(Data.DistrictData data)
+        {
+            if (backgroundRenderer == null)
+            {
+                Debug.LogError("[MapController] Background mode enabled but backgroundRenderer is not assigned.");
+                return;
+            }
+
+            string path = data.background;
+            var tex = Resources.Load<Texture2D>(path);
+            if (tex == null)
+            {
+                Debug.LogError($"[MapController] Background image not found in Resources: {path}");
+                return;
+            }
+
+            int ppu = Mathf.Max(1, data.tileSize);
+            var sprite = Sprite.Create(tex,
+                new Rect(0, 0, tex.width, tex.height),
+                new Vector2(0.5f, 0.5f),
+                ppu);
+            sprite.name = path;
+
+            backgroundRenderer.sprite = sprite;
+            backgroundRenderer.enabled = true;
+            backgroundRenderer.transform.localScale = Vector3.one;
+
+            // Center the background on the grid. The grid origin is at tile (0,0);
+            // map rows grow downward, so the center is at (width/2, -height/2).
+            Vector3 center = groundTilemap.GetCellCenterWorld(new Vector3Int(data.width / 2, -(data.height / 2), 0));
+            backgroundRenderer.transform.position = new Vector3(center.x, center.y, 1f); // behind actors
         }
 
         private void PlaceTile(int x, int y, int tileId)
@@ -132,10 +188,15 @@ namespace KunchengRPG.Game
 
         private void ClearTilemaps()
         {
-            groundTilemap.ClearAllTiles();
-            buildingTilemap.ClearAllTiles();
+            if (groundTilemap != null)
+                groundTilemap.ClearAllTiles();
+            if (buildingTilemap != null)
+                buildingTilemap.ClearAllTiles();
             if (decorationTilemap != null)
                 decorationTilemap.ClearAllTiles();
+
+            if (backgroundRenderer != null)
+                backgroundRenderer.enabled = false;
         }
 
         /// <summary>
@@ -152,6 +213,32 @@ namespace KunchengRPG.Game
         }
 
         /// <summary>
+        /// Build the walkability grid from authored data. For background mode this
+        /// comes from district.walkable; for tileset mode it derives from tile IDs.
+        /// </summary>
+        private void BuildWalkableGrid(Data.DistrictData data)
+        {
+            walkableGrid = new bool[data.height, data.width];
+            for (int y = 0; y < data.height; y++)
+            {
+                for (int x = 0; x < data.width; x++)
+                {
+                    if (useBackgroundMode && data.walkable != null && y < data.walkable.Length && x < data.walkable[y].Length)
+                    {
+                        walkableGrid[y, x] = data.walkable[y][x] != 0;
+                    }
+                    else
+                    {
+                        int tileId = data.tiles != null && y < data.tiles.Length && x < data.tiles[y].Length
+                            ? data.tiles[y][x]
+                            : 0;
+                        walkableGrid[y, x] = !solidTileIds.Contains(tileId);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Check if a tile position is walkable.
         /// </summary>
         public bool IsWalkable(int x, int y)
@@ -160,8 +247,7 @@ namespace KunchengRPG.Game
             if (x < 0 || y < 0 || x >= districtData.width || y >= districtData.height)
                 return false;
 
-            int tileId = districtData.tiles[y][x];
-            return !solidTileIds.Contains(tileId);
+            return walkableGrid[y, x];
         }
 
         /// <summary>
