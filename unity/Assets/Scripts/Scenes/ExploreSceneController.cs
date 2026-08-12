@@ -145,14 +145,43 @@ namespace KunchengRPG.Scenes
                 hud.ShowPrompt(string.IsNullOrEmpty(prompt) ? idle : prompt);
             }
 
-            // Camera follow
-            if (mainCamera != null && playerController != null)
-            {
-                Vector3 target = playerController.transform.position;
-                target.z = -10;
-                mainCamera.transform.position = Vector3.Lerp(
-                    mainCamera.transform.position, target, cameraLerpSpeed * Time.deltaTime);
-            }
+        }
+
+        /// <summary>
+        /// Camera follows the player but clamps to the map edges. When the player
+        /// is in the middle of the map the camera keeps them centered; when the
+        /// player approaches an edge the camera stops and the player walks toward
+        /// that edge instead.
+        /// </summary>
+        void LateUpdate()
+        {
+            if (mainCamera == null || playerController == null || mapController == null)
+                return;
+
+            Bounds mapBounds = mapController.GetMapBounds();
+            Vector3 target = playerController.transform.position;
+            target.z = mainCamera.transform.position.z;
+
+            float camHeight = mainCamera.orthographicSize * 2f;
+            float camWidth = camHeight * mainCamera.aspect;
+
+            float minX = mapBounds.min.x + camWidth * 0.5f;
+            float maxX = mapBounds.max.x - camWidth * 0.5f;
+            float minY = mapBounds.min.y + camHeight * 0.5f;
+            float maxY = mapBounds.max.y - camHeight * 0.5f;
+
+            if (maxX < minX)
+                target.x = (mapBounds.min.x + mapBounds.max.x) * 0.5f;
+            else
+                target.x = Mathf.Clamp(target.x, minX, maxX);
+
+            if (maxY < minY)
+                target.y = (mapBounds.min.y + mapBounds.max.y) * 0.5f;
+            else
+                target.y = Mathf.Clamp(target.y, minY, maxY);
+
+            mainCamera.transform.position = Vector3.Lerp(
+                mainCamera.transform.position, target, cameraLerpSpeed * Time.deltaTime);
         }
 
         private void OnPlayerStep(int x, int y)

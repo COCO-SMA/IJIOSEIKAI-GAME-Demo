@@ -1,25 +1,29 @@
 using UnityEngine;
-using System.Collections;
 
 namespace KunchengRPG.Game
 {
     /// <summary>
-    /// Handles player movement on the tilemap grid.
-    /// Grid-based movement with smooth interpolation between tiles.
-    /// Walking is FREE (no AP cost). AP is consumed by interactions only.
+    /// Handles player movement on the map.
+    ///
+    /// Movement is continuous (not grid-locked) with pixel-accurate collision
+    /// against the fine walkability grid. AP is only consumed by interactions,
+    /// never by walking.
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
         [Header("Movement")]
-        public float moveSpeed = 5f; // Tiles per second
+        [Tooltip("World units per second.")]
+        public float moveSpeed = 4f;
+
+        [Tooltip("Collision radius in world units. Should be slightly smaller than half the sprite size.")]
+        public float collisionRadius = 0.1f;
+
         public SpriteRenderer spriteRenderer;
         public Animator animator;
 
         [Header("References")]
         public MapController mapController;
 
-        private bool isMoving;
-        private Vector3 targetPosition;
         private Vector2Int gridPosition;
         private int facing = 0; // 0=down, 1=left, 2=right, 3=up
 
@@ -27,7 +31,7 @@ namespace KunchengRPG.Game
         public System.Action<int, int> OnStepComplete; // gridX, gridY
 
         public Vector2Int GridPosition => gridPosition;
-        public bool IsMoving => isMoving;
+        public bool IsMoving { get; private set; }
         public int Facing => facing;
 
         /// <summary>
@@ -36,63 +40,62 @@ namespace KunchengRPG.Game
         public void SetPosition(int x, int y)
         {
             gridPosition = new Vector2Int(x, y);
-            targetPosition = mapController.GridToWorld(x, y);
-            transform.position = targetPosition;
-            isMoving = false;
+            transform.position = mapController.GridToWorld(x, y);
+            IsMoving = false;
         }
 
         void Update()
         {
-            if (isMoving)
+            var input = Core.InputManager.Instance;
+            if (input == null || !input.HasMovementInput())
             {
-                // Move towards target
-                float step = moveSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-
-                if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-                {
-                    transform.position = targetPosition;
-                    isMoving = false;
-                    OnStepComplete?.Invoke(gridPosition.x, gridPosition.y);
-                }
+                IsMoving = false;
+                if (animator != null)
+                    animator.SetBool("walking", false);
                 return;
             }
 
-            // Read input
-            var input = Core.InputManager.Instance;
-            if (input == null || !input.HasMovementInput()) return;
-
-            Vector2Int dir = input.Direction;
+            Vector2 dir = input.Direction;
+            if (dir.sqrMagnitude > 1f)
+                dir.Normalize();
 
             // Update facing
             if (dir.x < 0) facing = 1;
             else if (dir.x > 0) facing = 2;
             else if (dir.y > 0) facing = 3;
             else if (dir.y < 0) facing = 0;
-
             UpdateSpriteFacing();
 
-            // Try to move
-            // Input y is screen-up-positive, but map rows grow downward — GridToWorld
-            // negates y to compensate. So walking "up" means a smaller data row. Adding
-            // dir.y directly is what made up and down come out swapped.
-            int targetX = gridPosition.x + dir.x;
-            int targetY = gridPosition.y - dir.y;
+            // Continuous movement with per-axis collision sliding
+            float step = moveSpeed * Time.deltaTime;
+            Vector3 current = transform.position;
+            Vector3 desired = current + new Vector3(dir.x, dir.y, 0f) * step;
 
-            if (mapController.IsWalkable(targetX, targetY))
+            // Try X first
+            Vector3 afterX = current;
+            if (mapController.IsWalkable(desired.x, current.y, collisionRadius))
             {
-                gridPosition = new Vector2Int(targetX, targetY);
-                targetPosition = mapController.GridToWorld(targetX, targetY);
-                isMoving = true;
-
-                if (animator != null)
-                    animator.SetBool("walking", true);
+                afterX.x = desired.x;
             }
-            else
+
+            // Then Y from the X-resolved position
+            Vector3 afterY = afterX;
+            if (mapController.IsWalkable(afterX.x, desired.y, collisionRadius))
             {
-                // Bumped into something
-                if (animator != null)
-                    animator.SetBool("walking", false);
+                afterY.y = desired.y;
+            }
+
+            transform.position = afterY;
+            IsMoving = true;
+            if (animator != null)
+                animator.SetBool("walking", true);
+
+            // Detect coarse-grid step changes
+            Vector2Int currentGrid = mapController.WorldToGrid(transform.position);
+            if (currentGrid != gridPosition)
+            {
+                gridPosition = currentGrid;
+                OnStepComplete?.Invoke(gridPosition.x, gridPosition.y);
             }
         }
 
@@ -116,7 +119,7 @@ namespace KunchengRPG.Game
         /// </summary>
         public void Stop()
         {
-            isMoving = false;
+            IsMoving = false;
             if (animator != null)
                 animator.SetBool("walking", false);
         }

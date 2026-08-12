@@ -23,12 +23,23 @@ namespace KunchengRPG.Data
         public string atmosphere;
 
         /// <summary>
-        /// Optional full-map background image. When set, MapController switches to
-        /// "background mode": the image is drawn as a single sprite and movement
-        /// collision is read from <see cref="walkable"/> instead of tile IDs.
-        /// Path is relative to Resources/ (e.g. "Maps/Futian/FutianMap_full").
+        /// Ground layer: full-map base image (roads, grass, plazas). When set,
+        /// MapController switches to "layered background mode" and draws this as
+        /// the bottom layer. Path relative to Resources/.
         /// </summary>
         public string background;
+
+        /// <summary>
+        /// Collision layer: buildings, walls, water — rendered above ground and
+        /// used for movement blocking. Path relative to Resources/.
+        /// </summary>
+        public string collisionLayer;
+
+        /// <summary>
+        /// Decoration layer: trees, props, details — rendered above collision,
+        /// does not block movement. Path relative to Resources/.
+        /// </summary>
+        public string decorationLayer;
 
         /// <summary>
         /// Pixel size of one grid cell in the background image. Used to scale the
@@ -37,10 +48,23 @@ namespace KunchengRPG.Data
         public int tileSize;
 
         /// <summary>
+        /// Pixel size of one fine collision sub-cell. Background images are
+        /// analysed at higher resolution (e.g. 16px) so actors can walk on roads
+        /// instead of whole 64px tiles.
+        /// </summary>
+        public int subTileSize;
+
+        /// <summary>
         /// Walkability grid for background mode. 1 = walkable, 0 = blocked.
-        /// Must match height rows, each with width columns.
+        /// Kept for backwards compatibility with older districts.
         /// </summary>
         public int[][] walkable;
+
+        /// <summary>
+        /// High-resolution walkability grid. 1 = walkable, 0 = blocked.
+        /// Each cell is subTileSize pixels. When present it overrides <see cref="walkable"/>.
+        /// </summary>
+        public int[][] walkableFine;
     }
 
     [Serializable]
